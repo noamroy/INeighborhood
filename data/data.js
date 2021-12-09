@@ -1,8 +1,6 @@
-const trafficSystems = require('./trafficSystems');
+const neighborhoodSystems = require('./neighborhoodSystems');
 const users = require('./users');
-const lightSystems = require('./lightSystems');
 module.exports = {
-    trafficSystems ,
-    lightSystems,
+    neighborhoodSystems ,
     users
 };
