@@ -1,5 +1,175 @@
-.formarea{
-  width: 35%;
-  margin-left: 20px;
-  padding: 0;
+
+/* @font-face {
+    font-family: Alata;
+    src: url(../fonts/Alata-Regular.ttf);
+    font-weight: bold;
+} */
+.wrapper{
+  margin: 0 auto; /* Added margin for general use */
 }
+ul, li {
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: Alata;
+}
+/*Full screen*/
+@media only screen and (min-width:1280px) {
+
+  header{
+      max-width: 100%;
+      margin: 0 auto;
+      height:50px;
+      background-color: #1A1A1A;
+      display:flex;
+      position: relative;
+      color:rgb(218, 213, 213);
+  }
+
+  #logo{
+      background-image:url(./images/logo.png) ;
+      width:222px;
+      height:81px;
+      top:15px;
+      border:5px;
+  }
+
+  nav{
+      background-color: #1A1A1A;
+      display: flex;
+      width: 100px;
+      /* height: 522px; */
+      height: 95vh;
+      /* height:100%; */
+      float:left;
+      flex-direction: column;
+      color:rgb(218, 213, 213);
+  }
+  nav>a{
+      width:100px;
+      height:30px;
+      color:rgb(218, 213, 213);
+  }
+
+  nav>a:hover{
+      background-color:#5e5d5b ;
+  }
+
+  nav>a>p{
+      position: relative;
+      left:8px;
+      top:5px;
+  }
+
+
+
+  #breadcrumb{
+      /*Changed to make fit for any number of items*/
+      width:265px;
+      height:19px;
+      display: inline-flex;
+      justify-content:left;
+  }
+  #breadcrumb>li{
+      margin-right: 12px;
+  }
+
+  main{
+      width:1050px;
+      height:480px;
+      position: relative;
+      margin-left: 2.5%;
+      display:flex;
+  }
+
+
+  .current{
+      background-color:#797670 ;
+  }
+
+
+  #nameGreeting{
+      position:absolute;
+      bottom:0px;
+      right:50px;
+      font-size: 20px;
+  }
+
+  h1{
+      /* position: relative; */
+      margin: 0px auto;
+      width:200px;
+  }
+
+  i:hover{
+      cursor: pointer;
+  }
+}
+/*Mid screen screen tablet*/
+@media only screen and (min-width:620px) and (max-width:1280px) {
+  
+
+
+}
+
+/*Mobile screen 620*/
+@media only screen and (max-width:620px) {
+  
+}
+
+
+@media only screen and (max-width:620px){
+  
+  
+}
+
+
+/* LOGIN */
+.form-group {
+  margin: 0px auto;
+  width:400px;
+  /* align-items:stretch; */
+  /* justify-content: space-between; */
+
+}
+
+body{
+  background-color: rgba(255, 255, 255, 0.27);
+}
+
+.form-signin{
+  margin: 0px auto;
+  position: relative;
+  /* right:50%; */
+  top:40px;
+}
+
+.btn{
+  position:relative;
+  top:30px;
+  left: 150px;
+  margin: 0px auto;
+  background-color: #1A1A1A;
+  color: aliceblue;
+}
+
+#logo{
+  background-image:url(../images/logo.png) ;
+  width:222px;
+  height:81px;
+  /* top:15px;
+  border:5px; */
+  margin: 0px auto;
+  display:block;
+}
+#addSystemBtn{
+  left: 0px;
+}
+
