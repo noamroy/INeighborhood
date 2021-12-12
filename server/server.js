@@ -12,10 +12,9 @@ app.use((req, res, next) => {
 });
 
 const { neighborhoodsystemRouter } = require("./routers/neighborhoodsystemRouter");
-
-
-
 app.use('/api/neighborhoodsystem', neighborhoodsystemRouter);
+const { remoteApiRouter } = require("./routers/remoteApiRouter");
+app.use('/api/remote', remoteApiRouter);
 
 
 app.unsubscribe((req, res) => {

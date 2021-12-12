@@ -1,0 +1,60 @@
+info: SUN API REQ: 32.11 34.86 today
+info: SUN API REQ: 32.11 34.86 today
+info: API SUNRISE ERROR: TypeError: Cannot read properties of undefined (reading 'sunrise')
+info: SUN API REQ: 32.11 34.86 today
+info: API SUNRISE ERROR: TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'TLSSocket'
+    --- property '_httpMessage' closes the circle
+info: SUN API REQ: 32.11 34.86 today
+info: SUN API REQ: 32.11 34.86 today
+info: Debugger1: [object Object]
+info: SUN API REQ: 32.11 34.86 today
+info: SUN API REQ: 32.11 34.86 today
+info: Debugger1: [object Object]
+info: SUN API REQ: 32.11 34.86 today
+info: Debugger1: [object Object]
+info: SUN API REQ: 32.11 34.86 today
+info: Debugger1: {"results":{"sunrise":"4:30:34 AM","sunset":"2:38:04 PM","solar_noon":"9:34:19 AM","day_length":"10:07:30","civil_twilight_begin":"4:05:00 AM","civil_twilight_end":"3:03:37 PM","nautical_twilight_begin":"3:34:30 AM","nautical_twilight_end":"3:34:07 PM","astronomical_twilight_begin":"3:04:41 AM","astronomical_twilight_end":"4:03:57 PM"},"status":"OK"}
+info: SUN API REQ: 32.11 34.86 today
+info: Debugger1: {"results":{"sunrise":"4:30:34 AM","sunset":"2:38:04 PM","solar_noon":"9:34:19 AM","day_length":"10:07:30","civil_twilight_begin":"4:05:00 AM","civil_twilight_end":"3:03:37 PM","nautical_twilight_begin":"3:34:30 AM","nautical_twilight_end":"3:34:07 PM","astronomical_twilight_begin":"3:04:41 AM","astronomical_twilight_end":"4:03:57 PM"},"status":"OK"}
+info: SUN API REQ: 32.11 34.86 today
+info: Debugger1: {"results":{"sunrise":"4:30:34 AM","sunset":"2:38:04 PM","solar_noon":"9:34:19 AM","day_length":"10:07:30","civil_twilight_begin":"4:05:00 AM","civil_twilight_end":"3:03:37 PM","nautical_twilight_begin":"3:34:30 AM","nautical_twilight_end":"3:34:07 PM","astronomical_twilight_begin":"3:04:41 AM","astronomical_twilight_end":"4:03:57 PM"},"status":"OK"}
+info: SUN API REQ: 32.11 34.86 today
+info: Debugger1: {"results":{"sunrise":"4:30:34 AM","sunset":"2:38:04 PM","solar_noon":"9:34:19 AM","day_length":"10:07:30","civil_twilight_begin":"4:05:00 AM","civil_twilight_end":"3:03:37 PM","nautical_twilight_begin":"3:34:30 AM","nautical_twilight_end":"3:34:07 PM","astronomical_twilight_begin":"3:04:41 AM","astronomical_twilight_end":"4:03:57 PM"},"status":"OK"}
+info: Debugger2: {"results":{"sunrise":"4:30:34 AM","sunset":"2:38:04 PM","solar_noon":"9:34:19 AM","day_length":"10:07:30","civil_twilight_begin":"4:05:00 AM","civil_twilight_end":"3:03:37 PM","nautical_twilight_begin":"3:34:30 AM","nautical_twilight_end":"3:34:07 PM","astronomical_twilight_begin":"3:04:41 AM","astronomical_twilight_end":"4:03:57 PM"},"status":"OK"}
+info: API SUNRISE RES: OK 4:30:34 AM
+info: SUN API REQ: 32.11 34.86 today
+info: Debugger2: {"results":{"sunrise":"4:30:34 AM","sunset":"2:38:04 PM","solar_noon":"9:34:19 AM","day_length":"10:07:30","civil_twilight_begin":"4:05:00 AM","civil_twilight_end":"3:03:37 PM","nautical_twilight_begin":"3:34:30 AM","nautical_twilight_end":"3:34:07 PM","astronomical_twilight_begin":"3:04:41 AM","astronomical_twilight_end":"4:03:57 PM"},"status":"OK"}
+info: API SUNRISE RES: OK 4:30:34 AM
+info: SUN API REQ: 32.11 34.86 today
+info: API SUNRISE RES: OK 4:30:34 AM
+info: SUN API REQ: 32.11 34.86 today
+info: API SUNRISE RES: OK 4:30:34 AM2:00:00 2:38:04 PM2:00:00
+info: SUN API REQ: 32.11 34.86 today
+info: Debugger1: {"results":{"sunrise":"4:30:34 AM","sunset":"2:38:04 PM","solar_noon":"9:34:19 AM","day_length":"10:07:30","civil_twilight_begin":"4:05:00 AM","civil_twilight_end":"3:03:37 PM","nautical_twilight_begin":"3:34:30 AM","nautical_twilight_end":"3:34:07 PM","astronomical_twilight_begin":"3:04:41 AM","astronomical_twilight_end":"4:03:57 PM"},"status":"OK"}
+info: Debugger2: {"results":{"sunrise":null,"sunset":null,"solar_noon":"9:34:19 AM","day_length":"10:07:30","civil_twilight_begin":"4:05:00 AM","civil_twilight_end":"3:03:37 PM","nautical_twilight_begin":"3:34:30 AM","nautical_twilight_end":"3:34:07 PM","astronomical_twilight_begin":"3:04:41 AM","astronomical_twilight_end":"4:03:57 PM"},"status":"OK"}
+info: API SUNRISE RES: OK Invalid Date Invalid Date
+info: SUN API REQ: 32.11 34.86 today
+info: Debugger1: {"results":{"sunrise":"2021-12-12T04:30:34+00:00","sunset":"2021-12-12T14:38:04+00:00","solar_noon":"2021-12-12T09:34:19+00:00","day_length":36450,"civil_twilight_begin":"2021-12-12T04:05:00+00:00","civil_twilight_end":"2021-12-12T15:03:37+00:00","nautical_twilight_begin":"2021-12-12T03:34:30+00:00","nautical_twilight_end":"2021-12-12T15:34:07+00:00","astronomical_twilight_begin":"2021-12-12T03:04:41+00:00","astronomical_twilight_end":"2021-12-12T16:03:57+00:00"},"status":"OK"}
+info: API SUNRISE RES: OK 2021-12-12T04:30:34+00:00 2021-12-12T14:38:04+00:00
+info: SUN API REQ: lat 32.11 long 34.86 date today timezone 2
+info: Debugger1: {"results":{"sunrise":"2021-12-12T04:30:34+00:00","sunset":"2021-12-12T14:38:04+00:00","solar_noon":"2021-12-12T09:34:19+00:00","day_length":36450,"civil_twilight_begin":"2021-12-12T04:05:00+00:00","civil_twilight_end":"2021-12-12T15:03:37+00:00","nautical_twilight_begin":"2021-12-12T03:34:30+00:00","nautical_twilight_end":"2021-12-12T15:34:07+00:00","astronomical_twilight_begin":"2021-12-12T03:04:41+00:00","astronomical_twilight_end":"2021-12-12T16:03:57+00:00"},"status":"OK"}
+info: SUN API REQ: lat 32.11 long 34.86 date today timezone 2
+info: Debugger1: {"results":{"sunrise":"2021-12-12T04:30:34+00:00","sunset":"2021-12-12T14:38:04+00:00","solar_noon":"2021-12-12T09:34:19+00:00","day_length":36450,"civil_twilight_begin":"2021-12-12T04:05:00+00:00","civil_twilight_end":"2021-12-12T15:03:37+00:00","nautical_twilight_begin":"2021-12-12T03:34:30+00:00","nautical_twilight_end":"2021-12-12T15:34:07+00:00","astronomical_twilight_begin":"2021-12-12T03:04:41+00:00","astronomical_twilight_end":"2021-12-12T16:03:57+00:00"},"status":"OK"}
+info: SUN API REQ: lat 32.11 long 34.86 date today timezone 2
+info: Debugger1: {"results":{"sunrise":"2021-12-12T04:30:34+00:00","sunset":"2021-12-12T14:38:04+00:00","solar_noon":"2021-12-12T09:34:19+00:00","day_length":36450,"civil_twilight_begin":"2021-12-12T04:05:00+00:00","civil_twilight_end":"2021-12-12T15:03:37+00:00","nautical_twilight_begin":"2021-12-12T03:34:30+00:00","nautical_twilight_end":"2021-12-12T15:34:07+00:00","astronomical_twilight_begin":"2021-12-12T03:04:41+00:00","astronomical_twilight_end":"2021-12-12T16:03:57+00:00"},"status":"OK"}
+info: API SUNRISE RES: OK 1639290634000 1639327084000
+info: SUN API REQ: lat 32.11 long 34.86 date today timezone 2
+info: Debugger1: {"results":{"sunrise":"2021-12-12T04:30:34+00:00","sunset":"2021-12-12T14:38:04+00:00","solar_noon":"2021-12-12T09:34:19+00:00","day_length":36450,"civil_twilight_begin":"2021-12-12T04:05:00+00:00","civil_twilight_end":"2021-12-12T15:03:37+00:00","nautical_twilight_begin":"2021-12-12T03:34:30+00:00","nautical_twilight_end":"2021-12-12T15:34:07+00:00","astronomical_twilight_begin":"2021-12-12T03:04:41+00:00","astronomical_twilight_end":"2021-12-12T16:03:57+00:00"},"status":"OK"}
+info: SUN API REQ: lat 32.11 long 34.86 date today timezone 2
+info: Debugger1: {"results":{"sunrise":"2021-12-12T04:30:34+00:00","sunset":"2021-12-12T14:38:04+00:00","solar_noon":"2021-12-12T09:34:19+00:00","day_length":36450,"civil_twilight_begin":"2021-12-12T04:05:00+00:00","civil_twilight_end":"2021-12-12T15:03:37+00:00","nautical_twilight_begin":"2021-12-12T03:34:30+00:00","nautical_twilight_end":"2021-12-12T15:34:07+00:00","astronomical_twilight_begin":"2021-12-12T03:04:41+00:00","astronomical_twilight_end":"2021-12-12T16:03:57+00:00"},"status":"OK"}
+info: SUN API REQ: lat 32.11 long 34.86 date today timezone 2
+info: Debugger1: {"results":{"sunrise":"2021-12-12T04:30:34+00:00","sunset":"2021-12-12T14:38:04+00:00","solar_noon":"2021-12-12T09:34:19+00:00","day_length":36450,"civil_twilight_begin":"2021-12-12T04:05:00+00:00","civil_twilight_end":"2021-12-12T15:03:37+00:00","nautical_twilight_begin":"2021-12-12T03:34:30+00:00","nautical_twilight_end":"2021-12-12T15:34:07+00:00","astronomical_twilight_begin":"2021-12-12T03:04:41+00:00","astronomical_twilight_end":"2021-12-12T16:03:57+00:00"},"status":"OK"}
+info: API SUNRISE RES: OK Sun Dec 12 2021 08:30:34 GMT+0200 (שעון ישראל (חורף)) Sun Dec 12 2021 18:38:04 GMT+0200 (שעון ישראל (חורף))
+info: SUN API REQ: lat 32.11 long 34.86 date today timezone 2
+info: Debugger1: {"results":{"sunrise":"2021-12-12T04:30:34+00:00","sunset":"2021-12-12T14:38:04+00:00","solar_noon":"2021-12-12T09:34:19+00:00","day_length":36450,"civil_twilight_begin":"2021-12-12T04:05:00+00:00","civil_twilight_end":"2021-12-12T15:03:37+00:00","nautical_twilight_begin":"2021-12-12T03:34:30+00:00","nautical_twilight_end":"2021-12-12T15:34:07+00:00","astronomical_twilight_begin":"2021-12-12T03:04:41+00:00","astronomical_twilight_end":"2021-12-12T16:03:57+00:00"},"status":"OK"}
+info: API SUNRISE RES: statusOK sunriseSun Dec 12 2021 08:30:34 GMT+0200 (שעון ישראל (חורף)) sunsetSun Dec 12 2021 18:38:04 GMT+0200 (שעון ישראל (חורף))
+info: SUN API REQ: lat 32.11 long 34.86 date today timezone 2
+info: Debugger1: {"results":{"sunrise":"2021-12-12T04:30:34+00:00","sunset":"2021-12-12T14:38:04+00:00","solar_noon":"2021-12-12T09:34:19+00:00","day_length":36450,"civil_twilight_begin":"2021-12-12T04:05:00+00:00","civil_twilight_end":"2021-12-12T15:03:37+00:00","nautical_twilight_begin":"2021-12-12T03:34:30+00:00","nautical_twilight_end":"2021-12-12T15:34:07+00:00","astronomical_twilight_begin":"2021-12-12T03:04:41+00:00","astronomical_twilight_end":"2021-12-12T16:03:57+00:00"},"status":"OK"}
+info: API SUNRISE RES: statusOK sunriseSun Dec 12 2021 08:30:34 GMT+0200 (שעון ישראל (חורף)) sunsetSun Dec 12 2021 18:38:04 GMT+0200 (שעון ישראל (חורף))
