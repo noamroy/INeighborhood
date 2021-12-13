@@ -20,6 +20,20 @@ a{
   padding: 0;
   font-family: Alata;
 }
+/* Map */
+.responsive-map{
+  overflow: hidden;
+  padding-bottom:56.25%;
+  position:relative;
+  height:0;
+  }
+  .responsive-map iframe{
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  position:absolute;
+  }
 /*Full screen*/
 @media only screen and (min-width:1280px) {
 
@@ -111,6 +125,19 @@ a{
   i:hover{
       cursor: pointer;
   }
+  .mainSection{
+    width: 1000px;
+    max-height:554px;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 14px;
+    /* padding-left: 34px; */
+    line-height: 40px;
+    }
+    .mainSection>div{
+        margin-right: 62px;
+    }
 }
 /*Mid screen screen tablet*/
 @media only screen and (min-width:620px) and (max-width:1280px) {
@@ -130,46 +157,4 @@ a{
   
 }
 
-
-/* LOGIN */
-.form-group {
-  margin: 0px auto;
-  width:400px;
-  /* align-items:stretch; */
-  /* justify-content: space-between; */
-
-}
-
-body{
-  background-color: rgba(255, 255, 255, 0.27);
-}
-
-.form-signin{
-  margin: 0px auto;
-  position: relative;
-  /* right:50%; */
-  top:40px;
-}
-
-.btn{
-  position:relative;
-  top:30px;
-  left: 150px;
-  margin: 0px auto;
-  background-color: #1A1A1A;
-  color: aliceblue;
-}
-
-#logo{
-  background-image:url(../images/logo.png) ;
-  width:222px;
-  height:81px;
-  /* top:15px;
-  border:5px; */
-  margin: 0px auto;
-  display:block;
-}
-#addSystemBtn{
-  left: 0px;
-}
 

@@ -56,10 +56,10 @@
 
     </header>
     <nav>
-        <a href="#" class="current">
+        <a href="home.html" >
             <p>Dashboard</p>
         </a>
-        <a href="#">
+        <a href="#" class="current">
             <p>Add system</p>
         </a>
     </nav>
@@ -68,22 +68,27 @@
             <section class="mainSection">
                 <!--Place here the main content of the page-->
                 <form action="127.0.0.1:8080/api/neighborhoodsystem" method="POST">
-                    <!-- Text input -->
+                    <!-- Name input -->
                     <div class="form-outline mb-4">
                         <input type="text" id="name" name="name" class="form-control" />
                         <label class="form-label" for="form6Example3">Name</label>
                     </div>
 
-                    <!-- Text input -->
+                    <!-- Address input -->
                     <div class="form-outline mb-4">
                         <input type="text" id="address" name="address" class="form-control" />
                         <label class="form-label" for="form6Example4">Address</label>
                     </div>
 
-                    <!-- Email input -->
+                    <!-- IP input -->
                     <div class="form-outline mb-4">
                         <input type="text" id="ip" name="ip" class="form-control" />
                         <label class="form-label" for="form6Example5">IP</label>
+                    </div>
+                    <!-- Mode input -->
+                    <div class="form-outline mb-4">
+                        <input type="text" id="mode" name="mode" class="form-control" />
+                        <label class="form-label" for="form6Example5">Mode</label>
                     </div>
                     <!---Type input-->
                     <div class="col-12">
@@ -94,11 +99,13 @@
                         </select>
                     </div>
                     <!-- Active input -->
-                    <div class="col-auto">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="active" name="active" checked />
-                            <label class="form-check-label" for="form11Example4">Active</label>
-                        </div>
+                    <!---Type input-->
+                    <div class="col-12">
+                        <label class="visually-hidden" for="inlineFormSelectPref">Status</label>
+                        <select class="select" id="type" name="active">
+                            <option value="1">Active</option>
+                            <option value="1">Not active</option>
+                        </select>
                     </div>
 
 
