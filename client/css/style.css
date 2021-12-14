@@ -84,7 +84,7 @@ a{
 
 
   main{
-      width:1200px;
+      width:100vw;
       height:800px;
       position: relative;
       margin-left: 0px;
@@ -125,6 +125,65 @@ a{
       height: 500px;
     }
 }
+
+/*Login*/
+#loginpage body  
+{  
+    margin: 0;  
+    padding: 0;  
+    background-color:#afbebb;  
+    font-family: 'Arial';  
+}  
+#loginpage .login{  
+        width: 382px;  
+        overflow: hidden;  
+        margin: auto;  
+        margin: 20 0 0 450px;  
+        padding: 80px;  
+        background: #5f6362;  
+        border-radius: 15px ;  
+          
+}  
+#loginpage h2{  
+    text-align: center;  
+    color: #303030;  
+    padding: 20px;  
+}  
+#loginpage label{  
+    color: #050505;  
+    font-size: 17px;  
+}  
+#loginpage .inputarea{  
+    width: 200px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+}  
+#loginpage #log{  
+    width: 200px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 17px;  
+    padding-left: 7px;  
+  
+  
+}  
+#loginpage span{  
+    color: white;  
+    font-size: 17px;  
+}  
+
+/* #logo{
+  background-image:url(../images/logo.png) ;
+  width:222px;
+  height:81px;
+  margin: 0px auto;
+  display:block;
+} */
+
+
+
 /*Mid screen screen tablet*/
 @media only screen and (min-width:620px) and (max-width:1280px) {
   
