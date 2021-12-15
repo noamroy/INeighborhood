@@ -28,15 +28,13 @@ exports.neighborhoodSystemController = {
                     //****************************************************** ADD WHAT TO DO WHEN LOGIN ******************************************
                     Log.logger.info(`Login SYSTEM CONTROLLER RES: Succesfull login: ${userid}`);
                     res.json(userData);
-                }
-                else {
+                } else {
                     Log.logger.info(`Login SYSTEM CONTROLLER ERROR: Failed login attempt: ${userid}`);
                     res.status(401).json({ "status": 401, "msg": `Incorrect password` });
                 }
 
             }
-        }
-        else {
+        } else {
             res.status(401).json({ "status": 401, "msg": `Please enter username and password` });
         }
     },
@@ -57,52 +55,22 @@ exports.neighborhoodSystemController = {
             }
             try {
                 const newUser = new User({
-                    "id": body.id,
-                    "firstName": body.firstName,
-                    "lastName": body.lastName,
-                    "password": body.password
+                    id: body.id,
+                    firstName: body.firstName,
+                    lastName: body.lastName,
+                    password: body.password
                 });
                 const result = newUser.save();
+                Log.logger.info(`REGISTER SYSTEM CONTROLLER RES: User added id: ${body.id}`);
+                res.json(result);
+            } catch (err) {
+                Log.logger.info(`REGISTER SYSTEM CONTROLLER ERROR: Error creating user ${err}`);
+                res.status(503).json({ "status": 503, "msg": `Error creating user ${err}` });
             }
-            catch((err) => {
-                res.status(503).json({ "status": 503, "msg": `Error creating user` });
-            })
-            
-        }
-        else {
-            res.status(401).json({ "status": 401, "msg": `Please enter username and password` });
-        }
-        const NeighborhoodSystem_id = await NeighborhoodSystem.find()
-            .catch(err => {
-                Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER ERROR: getting the data from db ${err}`);
-                res.status(500).json({ status: 500, msg: `Server error` });
-            });
-        if (NeighborhoodSystem_id.length != 0)
-            NeighborhoodSystem_id = NeighborhoodSystem_id[(NeighborhoodSystem_id.length) - 1].id + 1;
-        else
-            NeighborhoodSystem_id = 1;
-        if (body.type && body.name && body.address &&
-            body.ip && body.mode && body.active) {
-            const newNeighborhoodSystem = new NeighborhoodSystem({
-                "type": body.type,
-                "name": body.name,
-                "address": body.address,
-                "ip": body.ip,
-                "mode": body.mode,
-                "active": body.active,
-                "id": NeighborhoodSystem_id
-            });
-            const result = newNeighborhoodSystem.save();
-            if (result) {
-                Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER RES: add neighborhood system number ${NeighborhoodSystem_id}`);
-                res.json(newNeighborhoodSystem);
-            } else {
-                Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER ERROR: getting the data from db ${err}`);
-                res.status(500).json({ status: 500, msg: `Server error` });
-            }
+
         } else {
-            Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER RES: Input error!`);
-            res.status(400).json({ status: 400, msg: `Input error!` });
+            res.status(401).json({ "status": 401, "msg": `Please enter valid data` });
         }
+
     }
 };
