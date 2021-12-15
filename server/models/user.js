@@ -3,10 +3,7 @@ const userSchema = new Schema({
     id: { type : Number, required: true },
     firstName : { type : String, required: true },
     lastName: { type : String }, 
-    password: { type : String , required: true },
-    authorization: { type : Number, required: true },
-    tokenPass: { type : String },
-    tokenExpired: { type : Date}
+    password: { type : String , required: true }
 }, { collection: 'users' });
 const User = model('user', userSchema);
 module.exports = User;
