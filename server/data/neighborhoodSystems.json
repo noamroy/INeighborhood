@@ -5,8 +5,8 @@
         "name": "Dayan Street Lights",
         "address": "Dayan Street",
         "ip": "10.0.0.1",
-        "mode": "manual",
-        "active": 1
+        "mode": "manual-on",
+        "program": 1
     },
     {
         "id": 2,
@@ -14,8 +14,8 @@
         "name": "Bnei Brit Street Lights",
         "address": "Bnei Brit Street",
         "ip": "10.0.0.2",
-        "mode": "manual",
-        "active": 1
+        "mode": "manual-off",
+        "program": 1
     },
     {
         "id": 3,
@@ -23,8 +23,8 @@
         "name": "Shaul Hamelech Street Lights",
         "address": "Shaul Hamelech Street",
         "ip": "10.0.0.3",
-        "mode": "manual",
-        "active": 1
+        "mode": "manual-off",
+        "program": 1
     },
     {
         "id": 4,
@@ -33,7 +33,7 @@
         "address": "Dayan and Bnei Brit",
         "ip": "20.0.0.1",
         "mode": "automate",
-        "active": 1
+        "program": 1
     },
     {
         "id": 5,
@@ -42,7 +42,7 @@
         "address": "David Hamelech and Hertzel",
         "ip": "20.0.0.2",
         "mode": "automate",
-        "active": 1
+        "program": 2
     },
     {
         "id": 6,
@@ -51,6 +51,6 @@
         "address": "Begin and Eliyahu",
         "ip": "20.0.0.3",
         "mode": "automate",
-        "active": 1
+        "program": 1
     }
 ]
