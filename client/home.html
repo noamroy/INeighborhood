@@ -29,16 +29,16 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="css/style.css">
-    <script src="script.js"></script>
+
 
     <title>Dashboard</title>
 </head>
 
 <body>
-
-    <section id="navsctionflex">
-        <nav>
-            <a href="#" id="logo"></a>
+    <div id="navsctionflex">
+        <nav class="navigation">
+            <a href="#" id="logo">
+            </a>
             <a href="home.html" class="current">
                 <p>Dashboard</p>
             </a>
@@ -46,10 +46,12 @@
                 <p>Add system</p>
             </a>
         </nav>
-    </section>
-    <section id="mainsctionflex">
-        <header>
-
+    </div>
+    <div id="mainsctionflex">
+        <div class="header">
+            <div>
+                <p id="pageName">Systems list</p>
+            </div>
             <div id="userData">
                 <p id="nameGreeting">Hello, NAME</p>
             </div>
@@ -59,43 +61,36 @@
                 <div></div>
                 <div></div>
             </a>
-
-
-        </header>
+        </div>
         <main class="wrapper">
-            <section class="mainArea">
-                <section class="mainSection">
-                    <!--Place here the main content of the page-->
-                    <section class="flexsection">
-                        <table class="table" id="systemstable">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Address</th>
-                                    <th scope="col">IP</th>
-                                    <th scope="col">Mode</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </section>
-                    <section class="flexsection">
-                        <div class="responsive-map mapdiv">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2822.7806761080233!2d-93.29138368446431!3d44.96844997909819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b32b6ee2c87c91%3A0xc20dff2748d2bd92!2sWalker+Art+Center!5e0!3m2!1sen!2sus!4v1514524647889"
-                                width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-                        </div>
-                    </section>
-
-
-                </section>
+            <!--Place here the main content of the page-->
+            <section class="flexsection">
+                <table class="table" id="systemstable">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">IP</th>
+                            <th scope="col">Mode</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </section>
-        </main>
-    </section>
+            <section class="flexsection">
+                <div class="responsive-map mapdiv">
+                    <iframe src="https://maps.google.com/maps?q=shenkar%20college&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </section>
 
+        </main>
+    </div>
 </body>
+
+<script src="script.js"></script>
 
 </html>
