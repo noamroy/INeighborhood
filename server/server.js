@@ -15,6 +15,8 @@ const { neighborhoodsystemRouter } = require("./routers/neighborhoodsystemRouter
 app.use('/api/neighborhoodsystem', neighborhoodsystemRouter);
 const { remoteApiRouter } = require("./routers/remoteApiRouter");
 app.use('/api/remote', remoteApiRouter);
+const { programRouter } = require("./routers/programRouter");
+app.use('/api/program', programRouter);
 const { userRouter } = require("./routers/usersRouter");
 app.use('/', remoteApiRouter);
 

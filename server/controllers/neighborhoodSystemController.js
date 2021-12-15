@@ -63,14 +63,14 @@ exports.neighborhoodSystemController = {
         else
             NeighborhoodSystem_id=1;
         if (body.type && body.name && body.address &&
-            body.ip && body.mode && body.active){
+            body.ip && body.mode && body.program){
                 const newNeighborhoodSystem = new NeighborhoodSystem({
                     "type": body.type,
                     "name": body.name,
                     "address": body.address,
                     "ip": body.ip,
                     "mode": body.mode,
-                    "active": body.active,
+                    "program": body.program,
                     "id": NeighborhoodSystem_id
                 });
                 const result = newNeighborhoodSystem.save();
@@ -116,15 +116,15 @@ exports.neighborhoodSystemController = {
                     newNeighborhoodSystem.ip=body.ip;
                 if (body.mode)
                 newNeighborhoodSystem.mode=body.mode;
-                if (body.active)
-                    newNeighborhoodSystem.active=body.active;
+                if (body.program)
+                    newNeighborhoodSystem.program=body.program;
                 NeighborhoodSystem.updateOne({ id: NeighborhoodSystem_id }, {
                 type: newNeighborhoodSystem.type,
                 name: newNeighborhoodSystem.name,
                 address: newNeighborhoodSystem.address,
                 ip: newNeighborhoodSystem.ip,
                 mode: newNeighborhoodSystem.mode,
-                active: newNeighborhoodSystem.active})
+                program: newNeighborhoodSystem.program})
                     .catch(err => {
                         Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER ERROR: update neighborhood system ${err}`);
                         res.status(500).json({status: 500 , msg: `Error update a neighborhood system`});
