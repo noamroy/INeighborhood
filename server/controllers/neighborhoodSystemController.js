@@ -53,6 +53,7 @@ exports.neighborhoodSystemController = {
     async createNeighborhoodSystem(req, res) {
         Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER REQ: POST add an neighborhood system`);
         const body = req.body;
+        console.log(body);
         let NeighborhoodSystem_id = await NeighborhoodSystem.find()
             .catch(err => {
                 Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER ERROR: getting the data from db ${err}`);
@@ -62,6 +63,12 @@ exports.neighborhoodSystemController = {
             NeighborhoodSystem_id = NeighborhoodSystem_id[(NeighborhoodSystem_id.length)-1].id+1;
         else
             NeighborhoodSystem_id=1;
+        console.log(body.type);
+        console.log(body.name);
+        console.log(body.address);
+        console.log(body.ip);
+        console.log(body.mode);
+        console.log(body.mode);
         if (body.type && body.name && body.address &&
             body.ip && body.mode && body.program){
                 const newNeighborhoodSystem = new NeighborhoodSystem({

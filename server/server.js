@@ -7,6 +7,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.header("Access-Control-Allow-Methods", "*");
     res.set('Content-Type', 'application/json');
     next();
 });
@@ -17,8 +18,7 @@ const { remoteApiRouter } = require("./routers/remoteApiRouter");
 app.use('/api/remote', remoteApiRouter);
 const { programRouter } = require("./routers/programRouter");
 app.use('/api/program', programRouter);
-const { userRouter } = require("./routers/usersRouter");
-app.use('/', remoteApiRouter);
+
 
 
 app.unsubscribe((req, res) => {

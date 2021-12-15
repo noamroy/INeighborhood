@@ -130,7 +130,7 @@ exports.programController = {
             }
         }
     },
-    async deleteSystem(req, res) {
+    async deleteProgram(req, res) {
         const ProgramId = req.path.substring(1)
         Log.logger.info(`PROGRAM CONTROLLER REQ: Get specific program number ${ProgramId}`);
         if (isNaN(ProgramId)){
