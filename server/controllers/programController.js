@@ -6,7 +6,7 @@ const Log = require('./logger');
 GET REQUEST: getAllPrograms()
 GET REQUEST: getSpecificProgram(path = '/id')
 POST REQUEST: createProgram(body = all params except for id)
-PATCH REQUEST: updateProgram(path = '/id', body = all new params)
+PUT REQUEST: updateProgram(path = '/id', body = all new params)
 DELETE REQUEST: deleteProgram(path = '/id')
 */
 exports.programController = {

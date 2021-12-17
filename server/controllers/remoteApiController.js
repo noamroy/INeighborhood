@@ -20,11 +20,6 @@ exports.remoteApiController = {
         if (req.body._timezone)
             _timezone=req.body._timezone;
         Log.logger.info(`SUN API REQ: lat ${_lat} long ${_lng} date ${_date} timezone ${_timezone}`);
-        const sunApiRequest = {
-            Method: 'GET',
-            url: 'https://api.sunrise-sunset.org/json?',
-            params: { lat: _lat, lng: _lng, date: _date},
-        };
         const response = await axios.get('https://api.sunrise-sunset.org/json', { 
             params: {
                 lat: _lat,
