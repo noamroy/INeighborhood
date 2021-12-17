@@ -65,26 +65,34 @@
                 <form class="formclass" id="addDeviceForm">
                     <!-- Name input -->
                     <div class="form-outline mb-4">
-                        <input type="text" id="name" name="name" class="form-control" />
+                        <input type="text" id="name" name="name" class="form-control" required/>
                         <label class="form-label" for="form6Example3">Name</label>
                     </div>
 
                     <!-- Address input -->
                     <div class="form-outline mb-4">
-                        <input type="text" id="address" name="address" class="form-control" />
+                        <input type="text" id="address" name="address" class="form-control" required/>
                         <label class="form-label" for="form6Example4">Address</label>
                     </div>
 
                     <!-- IP input -->
                     <div class="form-outline mb-4">
-                        <input type="text" id="ip" name="ip" class="form-control" />
+                        <input type="text" id="ip" name="ip" class="form-control" required/>
                         <label class="form-label" for="form6Example5">IP</label>
                     </div>
-                    <!-- Mode input -->
+                    <!-- Program input -->
                     <div class="form-outline mb-4">
-                        <input type="text" id="mode" name="mode" class="form-control" />
-                        <label class="form-label" for="form6Example5">Mode</label>
+                        <input type="text" id="program" name="program" class="form-control" required/>
+                        <label class="form-label" for="form6Example5">Program id</label>
                     </div>
+                    <!-- Mode input -->
+                    <div class="col-12">
+                        <label class="visually-hidden" for="inlineFormSelectPref">Type</label>
+                        <select class="select" id="mode" name="mode">
+                            <option value="Automate">Automate</option>
+                            <option value="ManualOn">Manual on</option>
+                            <option value="ManualOff">Manual on</option>
+                        </select>
                     <!---Type input-->
                     <div class="col-12">
                         <label class="visually-hidden" for="inlineFormSelectPref">Type</label>

@@ -4,7 +4,7 @@
   "description": "App server",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon"
+    "test": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
