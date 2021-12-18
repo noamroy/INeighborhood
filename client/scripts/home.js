@@ -20,7 +20,6 @@ function recreateSystemTable(systems) {
         '<th scope="col">IP</th>' +
         '<th scope="col">Mode</th>' +
         '<th scope="col">Type</th>' +
-        '<th scope="col">Status</th>' +
         '<th scope="col">Options</th>' +
         '<tr>' +
         '<tbody>' +
@@ -38,8 +37,7 @@ function recreateSystemTable(systems) {
             '<td>' + s.ip + '</td>' +
             '<td>' + s.mode + '</td>' +
             '<td>' + s.type + '</td>' +
-            '<td>' + (s.active ? "On" : "Off") + '</td>' +
-            '<td>' + '<span class="btn btn-info editbtnclass" id="editbtnid-' + s.id + '">Edit</span><span onclick="deleteItem('+s.id+')" class="btn btn-danger deltebtnclass" id="deltebtnid-' + s.id + '">Delete</span>' + '</td>' +
+            '<td>' + '<a href="addsystem.html?id='+s.id+'"><span  class="btn btn-info editbtnclass" id="editbtnid-' + s.id + '" h>Edit</span></a><span onclick="deleteItem('+s.id+')" class="btn btn-danger deltebtnclass" id="deltebtnid-' + s.id + '">Delete</span>' + '</td>' +
             '</tr>'
         );
 
