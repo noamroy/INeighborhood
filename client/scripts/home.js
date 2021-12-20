@@ -1,4 +1,3 @@
-
 function getAllSystems() {
     $.ajax({
         url: "https://ineighborhood.herokuapp.com/api/neighborhoodsystem",
@@ -8,8 +7,6 @@ function getAllSystems() {
         }
     });
 }
-
-
 function recreateSystemTable(systems) {
     const tableStructue =
         '<table id="customers">' +

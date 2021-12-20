@@ -35,60 +35,40 @@
 </head>
 
 <body>
-    <div id="navsctionflex">
-        <nav class="navigation">
-            <a href="#" id="logo">
-            </a>
-            <a href="home.html" class="current">
-                <p>Dashboard</p>
-            </a>
-            <a href="addsystem.html">
-                <p>Add system</p>
-            </a>
-        </nav>
-    </div>
-    <div id="mainsctionflex">
-        <div class="header">
-            <div>
-                <p id="pageName">Systems list</p>
-            </div>
-            <div id="userData">
-                <p id="nameGreeting">Hello, NAME</p>
-            </div>
-
-            <a href="#" class="Hamburger">
-                <div></div>
-                <div></div>
-                <div></div>
-            </a>
+    <header>
+        <a href="#" id="logo"></a>
+        <span id="pageName">MAIN SECTION NAME</span>
+        <span id="operatorname">USER NAME/USER TYPE</span>
+    </header>
+    <nav class="navigation">
+        <a href="home.html" class="current">System list</a>
+        <a href="addsystem.html">Add system</a>
+        <a href="">Program list</a>
+        <a href="">Add program</a>
+    </nav>
+    <section id="mainsectionflex" class="flexsection">
+        <!--Place here the main content of the page-->
+        <table class="table" id="systemstable">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">IP</th>
+                    <th scope="col">Mode</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </section>
+    <section class="map">
+        <div class="responsive-map mapdiv">
+            <iframe src="https://maps.google.com/maps?q=shenkar%20college&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
-        <main class="wrapper">
-            <!--Place here the main content of the page-->
-            <section class="flexsection">
-                <table class="table" id="systemstable">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Address</th>
-                            <th scope="col">IP</th>
-                            <th scope="col">Mode</th>
-                            <th scope="col">Type</th>
-                            <th scope="col">Options</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </section>
-            <section class="flexsection">
-                <div class="responsive-map mapdiv">
-                    <iframe src="https://maps.google.com/maps?q=shenkar%20college&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
-            </section>
-
-        </main>
-    </div>
+    </section>
 </body>
 
 <script src="scripts/home.js"></script>

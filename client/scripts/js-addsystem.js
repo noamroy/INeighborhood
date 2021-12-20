@@ -1,6 +1,5 @@
 const formObj = document.getElementById("addDeviceForm");
 
-
 const host = "https://ineighborhood.herokuapp.com";
 // const host = "http://localhost:8080";
 
@@ -67,8 +66,8 @@ formObj.addEventListener("submit", async function (event) {
 
     // validate the form
     const nameValid = formObj.elements["name"].value;
-    if (!(/^[A-Za-z\s]+$/.test(nameValid))) {
-        alert("You have entered an invalid private name!");
+    if (!(/^[A-Za-z0-9\s]+$/.test(nameValid))) {
+        alert("You have entered an invalid system name! you can use only chars and numbers");
         return false;
     }
     const addressValid = formObj.elements["address"].value;
