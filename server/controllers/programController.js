@@ -31,7 +31,7 @@ exports.programController = {
         Log.logger.info(`PROGRAM CONTROLLER REQ: Get specific program number ${ProgramId}`);
         if (isNaN(ProgramId)){
             Log.logger.info(`PROGRAM CONTROLLER RES: input is nan error "${ProgramId}"`);
-            res.status(400).json({status: 400 , msg: `Input is nan error "${ProgramId}"`});
+            res.status(401).json({status: 400 , msg: `Input is nan error "${ProgramId}"`});
         }
         else{
             var ProgramData = await Program.find({ id: Number(ProgramId)})
