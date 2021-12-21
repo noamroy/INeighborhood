@@ -100,3 +100,8 @@ section.map{
     height: 100%;
     width: 100%;
 }
+.unimplemented {
+    pointer-events: none;
+    visibility: hidden;
+    background-color: darkgray;
+}

@@ -6,18 +6,36 @@ const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 const id = params.id;
 const crud = params.crud;
+//GLOBAL VARIABLE
+var stateOfPage = "VIEW";
 //PAGE LOADER SELECTOR
 $(document).ready(function () {
-    console.log("got here crud is:"+crud+" id is:"+id);
+    console.log("crud is:"+crud+" id is:"+id);
+    const navSystemList = document.getElementById('navSystemList');
+    const navAddSystem = document.getElementById('navAddSystem');
+    //const navProgramList = document.getElementById('navProgramList'); ADD FOR FINAL PROJECT
+    //const navAddProgram = document.getElementById('navAddProgram'); ADD FOR FINAL PROJECT
     if (crud){
         if (id){
+            console.log("load system edit/delete page for id:"+id);
+            stateOfPage = "DELETE/EDIT";
+            navSystemList.classList.remove("current");
+            navAddSystem.classList.remove("current");
             showSystemForm(id);
         }
         else{
+            console.log("load system add page");
+            stateOfPage = "ADD";
+            navSystemList.classList.remove("current");
+            navAddSystem.classList.add("current");
             showSystemForm(-1);
         }
     }
     else{
+        console.log("load system list page");
+        stateOfPage = "VIEW";
+        navSystemList.classList.add("current");
+        navAddSystem.classList.remove("current");
         showAllSystems();
     }
 });
@@ -67,19 +85,19 @@ function createSystemTable(systems) {
 //~~~~~~~system form~~~~~~~~~~~~~~~~~
 function showSystemForm(systemId){
     createSystemForm();
-    var stateOfPage = "DELETE/EDIT";
     if (systemId==-1){
         stateOfPage = "ADD";
+        setFormForAdd();
     }
-    if (stateOfPage == "DELETE/EDIT"){
+    else{
+        stateOfPage = "DELETE/EDIT";
         setFormForEditDelete(systemId);
     }
     
 }
 async function createSystemForm(systemId) {
     const formStructure =
-    '<form class="formclass" id="systemForm>'+
-        '<input type="hidden" id="systemId" name="systemId" value="'+systemId+'">'+
+    '<form class="formclass" id="systemForm">'+
         '<div class="form-outline mb-4">'+
             '<label class="form-label" for="form6Example3">Name:</label>'+
             '<input type="text" id="name" name="name" class="form-control" required/>'+
@@ -117,40 +135,9 @@ async function createSystemForm(systemId) {
         '</div>'+
     '</form>';
     $('#mainsectionflex').empty().append(formStructure);
+    setValuesForProgram();
 }
-async function setFormForEditDelete(systemId) {
-    const res_Check_If_System_Exists = await fetch(`${host}/api/neighborhoodsystem/${systemId}`, {
-        method: "GET",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-    });
-    const system_Resjson = await res_Check_If_System_Exists.json();
-    if (!(res_Check_If_System_Exists.status == 200)) {
-            alert("System retriving Error going. Going back to add mode");
-            window.location.href = 'home.html';
-        }
-    else {
-        document.getElementById("systemId").value = system_Resjson.id;
-        document.getElementById("name").value = system_Resjson.name;
-        document.getElementById("address").value = system_Resjson.address;
-        document.getElementById("program").value = system_Resjson.program;
-        document.getElementById("ip").value = system_Resjson.ip;
-        document.getElementById("mode").value = system_Resjson.mode;
-        document.getElementById("type").value = system_Resjson.type;
-        document.getElementById("button place").append(
-            '<button type="submit" class="btn btn-primary btn-block mb-4" id="submitButton">Update</button>'+
-            '<button type="button" class="btn btn-primary btn-block mb-4" id="deleteButton">Delete</button>'
-        )
-    }
-}
-async function setFormForAdd() {
-    document.getElementById("button place").append(
-        '<button type="submit" class="btn btn-primary btn-block mb-4" id="submitButton">Create</button>'
-    )    
-}
-async function setValuesForProgram(){   //WHAT IS THIS?
+async function setValuesForProgram(){
     const res_Get_all_Programs = await fetch(`${host}/api/program`, {
         method: "GET",
         headers: {
@@ -167,7 +154,75 @@ async function setValuesForProgram(){   //WHAT IS THIS?
         program_select.appendChild(program_item);
     });
 }
-async function submitForm(){
+// system add buttons
+async function setFormForAdd() {
+    document.getElementById("button place").innerHTML='';
+    var submitButton = document.createElement('button');
+    submitButton.type="submit";
+    submitButton.className="btn btn-primary btn-block mb-4";
+    submitButton.id="submitButton";
+    submitButton.innerHTML = "Add";
+    document.getElementById("button place").append(submitButton);
+    submitForm();
+}
+// system edit/delete buttons
+async function setFormForEditDelete(systemId) {
+    console.log("load edit and delete form for:"+systemId);
+    const res_Check_If_System_Exists = await fetch(`${host}/api/neighborhoodsystem/${systemId}`, {
+        method: "GET",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    });
+    const system_Resjson = await res_Check_If_System_Exists.json();
+    if (!(res_Check_If_System_Exists.status == 200)) {
+            alert("System retriving Error going. Going back to add mode");
+            window.location.href = 'home.html';
+        }
+    else {
+        document.getElementById("name").value = system_Resjson.name;
+        document.getElementById("address").value = system_Resjson.address;
+        document.getElementById("program").value = system_Resjson.program;
+        document.getElementById("ip").value = system_Resjson.ip;
+        document.getElementById("mode").value = system_Resjson.mode;
+        document.getElementById("type").value = system_Resjson.type;
+        document.getElementById("button place").innerHTML='';
+        var submitButton = document.createElement('button');
+        submitButton.type="submit";
+        submitButton.className="btn btn-primary btn-block mb-4";
+        submitButton.id="submitButton";
+        submitButton.innerHTML = "Update";
+        var deleteButton = document.createElement('button');
+        deleteButton.type="button";
+        deleteButton.className="btn btn-primary btn-block mb-4";
+        deleteButton.id="deleteButton";
+        deleteButton.innerHTML = "Delete";
+        document.getElementById("button place").append(submitButton);
+        document.getElementById("button place").append(deleteButton);
+    }
+    submitForm(systemId);
+    deleteItem(systemId);
+}
+//if press on delete system
+async function deleteItem(systemId) {
+    var deleteButton=document.getElementById("deleteButton");
+    deleteButton.addEventListener("click", async function() {
+        console.log("try to erase id:"+systemId);
+        const res = await fetch(`${host}/api/neighborhoodsystem/${systemId}`, {
+            method: "DELETE"
+        })
+        const resjson = await res.json();
+        if(resjson.status == 200){
+            console.log("success");
+            window.location.href = "home.html";
+        }
+        console.log(resjson);
+        window.location.href = "home.html";
+    });
+}
+//if press on add/update system
+async function submitForm(systemId){
     const formObj = document.getElementById("systemForm");
     formObj.addEventListener("submit", async function (event) {
         // stop form submission
@@ -212,8 +267,8 @@ async function submitForm(){
             program: Number(programValid),
         }
         const stringBody = JSON.stringify(formvalue);
-        const host_To_Send = (state_Of_Page == "ADD") ? `${host}/api/neighborhoodsystem` : `${host}/api/neighborhoodsystem/${systemId}`;
-        const method_Of_Operation = (state_Of_Page == "ADD") ? "POST" : "PUT";
+        const host_To_Send = (stateOfPage == "ADD") ? `${host}/api/neighborhoodsystem` : `${host}/api/neighborhoodsystem/${systemId}`;
+        const method_Of_Operation = (stateOfPage == "ADD") ? "POST" : "PUT";
         const res = await fetch(host_To_Send, {
             method: method_Of_Operation,
             headers: {
@@ -233,26 +288,3 @@ async function submitForm(){
 }
 
 
-
-// A $( document ).ready() block.
-$(document).ready(function () {
-    setValuesForProgram();
-});
-
-
-
-async function deleteItem(id) {
-    const res = await fetch(`http://localhost:8080/api/neighborhoodsystem/${id}`, {
-        method: "DELETE"
-    })
-    const resjson = await res.json();
-    if(resjson.status == 200){
-        console.log("succes");
-        window.location.href = "home.html";
-    }
-    window.location.href = "home.html";
-    console.log(resjson);
-}
-function setAllEditButtons() {
-    return;
-}

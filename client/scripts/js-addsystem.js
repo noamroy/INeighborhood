@@ -9,7 +9,7 @@ const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 const id_Of_System = params.id;
 
-async function setFormForEdit(system_id) {
+async function setFormForEdit(id_Of_System) {
     if (state_Of_Page = "EDIT") {
 
         const res_Check_If_System_Exists = await fetch(`${host}/api/neighborhoodsystem/${id_Of_System}`, {
