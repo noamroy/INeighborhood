@@ -3,4 +3,5 @@ const { remoteApiController } = require('../controllers/remoteApiController');
 const remoteApiRouter = new Router();
 module.exports = { remoteApiRouter };
 
-remoteApiRouter.post('/sun', remoteApiController.getSun); // {host}/api/remote/sun
+remoteApiRouter.get('/sun', remoteApiController.getSun); // {host}/api/remote/sun
+// remoteApiRouter.post('/sun', remoteApiController.getCordinates); // {host}/api/remote/sun ## In development

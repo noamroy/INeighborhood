@@ -1,6 +1,7 @@
 //~~~~~~~~~INCLUDES~~~~~~~~~~~~
 const Log = require('./logger');
 const axios = require ("axios");
+const POS_STACK_API = process.env.POS_STACK_API;
 //~~~~~~~EXPORTED FUNCTIONS~~~~~~~~~~
 /*
     GET getSunApi: getSunrise(_lat, _lng, _date)

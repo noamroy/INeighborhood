@@ -10,20 +10,20 @@ const crud = params.crud;
 var stateOfPage = "VIEW";
 //PAGE LOADER SELECTOR
 $(document).ready(function () {
-    console.log("crud is:"+crud+" id is:"+id);
+    console.log("crud is:" + crud + " id is:" + id);
     const navSystemList = document.getElementById('navSystemList');
     const navAddSystem = document.getElementById('navAddSystem');
     //const navProgramList = document.getElementById('navProgramList'); ADD FOR FINAL PROJECT
     //const navAddProgram = document.getElementById('navAddProgram'); ADD FOR FINAL PROJECT
-    if (crud){
-        if (id){
-            console.log("load system edit/delete page for id:"+id);
+    if (crud) {
+        if (id) {
+            console.log("load system edit/delete page for id:" + id);
             stateOfPage = "DELETE/EDIT";
             navSystemList.classList.remove("current");
             navAddSystem.classList.remove("current");
             showSystemForm(id);
         }
-        else{
+        else {
             console.log("load system add page");
             stateOfPage = "ADD";
             navSystemList.classList.remove("current");
@@ -31,7 +31,7 @@ $(document).ready(function () {
             showSystemForm(-1);
         }
     }
-    else{
+    else {
         console.log("load system list page");
         stateOfPage = "VIEW";
         navSystemList.classList.add("current");
@@ -49,95 +49,127 @@ function showAllSystems() {
         }
     });
 }
+async function getCurrentStatus(system_Item) {
+    if (system_Item.mode == "manual-on")
+        return '<p style="color:green;"> On</p>';
+    if (system_Item.mode == "manual-off")
+        return '<p style="color:red;"> Off</p>';
+    if (system_Item.type == "trafficLights")
+        return "Traffic base auto";
+    if (system_Item.type == "trafficLights")
+        return "Traffic base auto";
+    if (system_Item.type == "streetLights") {
+        const res_Sunrise = await fetch(`${host}/api/remote/sun`, {
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        });
+        const resjson_Sunrise = await res_Sunrise.json();
+        if (!(res_Sunrise.status == 200)) {
+            return "Error";
+        }
+        const current_Time = new Date();
+        const sunrise_Time = new Date(resjson_Sunrise.sunrise);
+        const sunset_Time = new Date(resjson_Sunrise.sunset);
+        if((current_Time > sunrise_Time) && (current_Time < sunset_Time))
+            return '<p style="color:red;"> Off</p>';
+        return '<p style="color:green;"> On</p>';
+    }
+}
 function createSystemTable(systems) {
     const tableStructue =
-    '<table class="table" id="systemstable">'+
-        '<thead class="thead-dark">'+
-            '<tr>'+
-                '<th scope="col">ID</th>'+
-                '<th scope="col">Name</th>'+
-                '<th scope="col">Address</th>'+
-                '<th scope="col">IP</th>'+
-                '<th scope="col">Mode</th>'+
-                '<th scope="col">Type</th>'+
-                '<th scope="col">Options</th>'+
-            '</tr>'+
-        '</thead>'+
-        '<tbody>'+
-        '</tbody>'+
-    '</table>';
+        '<table class="table" id="systemstable">' +
+        '<thead class="thead-dark">' +
+        '<tr>' +
+        '<th scope="col">ID</th>' +
+        '<th scope="col">Name</th>' +
+        '<th scope="col">Address</th>' +
+        '<th scope="col">IP</th>' +
+        '<th scope="col">Mode</th>' +
+        '<th scope="col">Type</th>' +
+        '<th scope="col">Current Status</th>' +
+        '<th scope="col">Options</th>' +
+        '</tr>' +
+        '</thead>' +
+        '<tbody>' +
+        '</tbody>' +
+        '</table>';
     $('#mainsectionflex').empty().append(tableStructue);
     $('#systemstable').append(systems);
-    systems.forEach(s => {
+    systems.forEach(async s => {
+        const current_status = await getCurrentStatus(s);
         $("table tbody").append(
             '<tr>' +
-                '<th scope="row">' + s.id + '</th>' +
-                '<td>' + s.name + '</td>' +
-                '<td>' + s.address + '</td>' +
-                '<td>' + s.ip + '</td>' +
-                '<td>' + s.mode + '</td>' +
-                '<td>' + s.type + '</td>' +
-                '<td>' + '<a href="home.html?crud=edit&id='+s.id+'"><span  class="btn btn-info editbtnclass" id="editbtnid-' + s.id + '" h>Edit/Delete</span></a></td>'+
+            '<th scope="row">' + s.id + '</th>' +
+            '<td>' + s.name + '</td>' +
+            '<td>' + s.address + '</td>' +
+            '<td>' + s.ip + '</td>' +
+            '<td>' + s.mode + '</td>' +
+            '<td>' + s.type + '</td>' +
+            '<td>' + current_status + '</td>' +
+            '<td>' + '<a href="home.html?crud=edit&id=' + s.id + '"><span  class="btn btn-info editbtnclass" id="editbtnid-' + s.id + '" h>Edit/Delete</span></a></td>' +
             '</tr>'
         );
     });
 }
 //~~~~~~~system form~~~~~~~~~~~~~~~~~
-function showSystemForm(systemId){
+function showSystemForm(systemId) {
     createSystemForm();
-    if (systemId==-1){
+    if (systemId == -1) {
         stateOfPage = "ADD";
         setFormForAdd();
     }
-    else{
+    else {
         stateOfPage = "DELETE/EDIT";
         setFormForEditDelete(systemId);
     }
-    
+
 }
 async function createSystemForm(systemId) {
     const formStructure =
-    '<form class="formclass" id="systemForm">'+
-        '<div class="form-outline mb-4">'+
-            '<label class="form-label" for="form6Example3">Name:</label>'+
-            '<input type="text" id="name" name="name" class="form-control" required/>'+
-        '</div>'+
-        '<div class="form-outline mb-4">'+
-            '<label class="form-label" for="form6Example4">Address:</label>'+
-            '<input type="text" id="address" name="address" class="form-control" required/>'+
-        '</div>'+
-        '<div class="form-outline mb-4">'+
-            '<label class="form-label" for="form6Example5">IP:</label>'+
-            '<input type="text" id="ip" name="ip" class="form-control" required/>'+
-        '</div>'+
-        '<div class="col-12">'+
-            '<label class="visually-hidden" for="inlineFormSelectPref">Program:</label>'+
-            '<select class="select" id="program" name="program">'+
-            '</select>'+
-        '</div>'+
-        '<div class="col-12">'+
-            '<label class="visually-hidden" for="inlineFormSelectPref">Mode:</label>'+
-            '<br />'+
-            '<select class="select" id="mode" name="mode">'+
-                '<option value="automate">Automate</option>'+
-                '<option value="manual-on">Manual On</option>'+
-                '<option value="manual-off">Manual Off</option>'+
-            '</select>'+
-        '<div class="col-12">'+
-            '<label class="visually-hidden" for="inlineFormSelectPref">Type</label>'+
-            '<br/>'+
-            '<select class="select" id="type" name="type">'+
-                '<option value="trafficLights">Traffic light</option>'+
-                '<option value="streetLights">Headlight</option>'+
-            '</select>'+
-        '</div>'+
-        '<div id="button place">'+
-        '</div>'+
-    '</form>';
+        '<form class="formclass" id="systemForm">' +
+        '<div class="form-outline mb-4">' +
+        '<label class="form-label" for="form6Example3">Name:</label>' +
+        '<input type="text" id="name" name="name" class="form-control" required/>' +
+        '</div>' +
+        '<div class="form-outline mb-4">' +
+        '<label class="form-label" for="form6Example4">Address:</label>' +
+        '<input type="text" id="address" name="address" class="form-control" required/>' +
+        '</div>' +
+        '<div class="form-outline mb-4">' +
+        '<label class="form-label" for="form6Example5">IP:</label>' +
+        '<input type="text" id="ip" name="ip" class="form-control" required/>' +
+        '</div>' +
+        '<div class="col-12">' +
+        '<label class="visually-hidden" for="inlineFormSelectPref">Program:</label>' +
+        '<select class="select" id="program" name="program">' +
+        '</select>' +
+        '</div>' +
+        '<div class="col-12">' +
+        '<label class="visually-hidden" for="inlineFormSelectPref">Mode:</label>' +
+        '<br />' +
+        '<select class="select" id="mode" name="mode">' +
+        '<option value="automate">Automate</option>' +
+        '<option value="manual-on">Manual On</option>' +
+        '<option value="manual-off">Manual Off</option>' +
+        '</select>' +
+        '<div class="col-12">' +
+        '<label class="visually-hidden" for="inlineFormSelectPref">Type</label>' +
+        '<br/>' +
+        '<select class="select" id="type" name="type">' +
+        '<option value="trafficLights">Traffic light</option>' +
+        '<option value="streetLights">Headlight</option>' +
+        '</select>' +
+        '</div>' +
+        '<div id="button place">' +
+        '</div>' +
+        '</form>';
     $('#mainsectionflex').empty().append(formStructure);
     setValuesForProgram();
 }
-async function setValuesForProgram(){
+async function setValuesForProgram() {
     const res_Get_all_Programs = await fetch(`${host}/api/program`, {
         method: "GET",
         headers: {
@@ -156,18 +188,18 @@ async function setValuesForProgram(){
 }
 // system add buttons
 async function setFormForAdd() {
-    document.getElementById("button place").innerHTML='';
+    document.getElementById("button place").innerHTML = '';
     var submitButton = document.createElement('button');
-    submitButton.type="submit";
-    submitButton.className="btn btn-primary btn-block mb-4";
-    submitButton.id="submitButton";
+    submitButton.type = "submit";
+    submitButton.className = "btn btn-primary btn-block mb-4";
+    submitButton.id = "submitButton";
     submitButton.innerHTML = "Add";
     document.getElementById("button place").append(submitButton);
     submitForm();
 }
 // system edit/delete buttons
 async function setFormForEditDelete(systemId) {
-    console.log("load edit and delete form for:"+systemId);
+    console.log("load edit and delete form for:" + systemId);
     const res_Check_If_System_Exists = await fetch(`${host}/api/neighborhoodsystem/${systemId}`, {
         method: "GET",
         headers: {
@@ -177,9 +209,9 @@ async function setFormForEditDelete(systemId) {
     });
     const system_Resjson = await res_Check_If_System_Exists.json();
     if (!(res_Check_If_System_Exists.status == 200)) {
-            alert("System retriving Error going. Going back to add mode");
-            window.location.href = 'home.html';
-        }
+        alert("System retriving Error going. Going back to add mode");
+        window.location.href = 'home.html';
+    }
     else {
         document.getElementById("name").value = system_Resjson.name;
         document.getElementById("address").value = system_Resjson.address;
@@ -187,16 +219,16 @@ async function setFormForEditDelete(systemId) {
         document.getElementById("ip").value = system_Resjson.ip;
         document.getElementById("mode").value = system_Resjson.mode;
         document.getElementById("type").value = system_Resjson.type;
-        document.getElementById("button place").innerHTML='';
+        document.getElementById("button place").innerHTML = '';
         var submitButton = document.createElement('button');
-        submitButton.type="submit";
-        submitButton.className="btn btn-primary btn-block mb-4";
-        submitButton.id="submitButton";
+        submitButton.type = "submit";
+        submitButton.className = "btn btn-primary btn-block mb-4";
+        submitButton.id = "submitButton";
         submitButton.innerHTML = "Update";
         var deleteButton = document.createElement('button');
-        deleteButton.type="button";
-        deleteButton.className="btn btn-primary btn-block mb-4";
-        deleteButton.id="deleteButton";
+        deleteButton.type = "button";
+        deleteButton.className = "btn btn-primary btn-block mb-4";
+        deleteButton.id = "deleteButton";
         deleteButton.innerHTML = "Delete";
         document.getElementById("button place").append(submitButton);
         document.getElementById("button place").append(deleteButton);
@@ -206,14 +238,14 @@ async function setFormForEditDelete(systemId) {
 }
 //if press on delete system
 async function deleteItem(systemId) {
-    var deleteButton=document.getElementById("deleteButton");
-    deleteButton.addEventListener("click", async function() {
-        console.log("try to erase id:"+systemId);
+    var deleteButton = document.getElementById("deleteButton");
+    deleteButton.addEventListener("click", async function () {
+        console.log("try to erase id:" + systemId);
         const res = await fetch(`${host}/api/neighborhoodsystem/${systemId}`, {
             method: "DELETE"
         })
         const resjson = await res.json();
-        if(resjson.status == 200){
+        if (resjson.status == 200) {
             console.log("success");
             window.location.href = "home.html";
         }
@@ -222,7 +254,7 @@ async function deleteItem(systemId) {
     });
 }
 //if press on add/update system
-async function submitForm(systemId){
+async function submitForm(systemId) {
     const formObj = document.getElementById("systemForm");
     formObj.addEventListener("submit", async function (event) {
         // stop form submission
