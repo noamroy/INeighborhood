@@ -116,12 +116,16 @@ exports.programController = {
                     newProgram.finishSource=body.finishSource;
                 if (body.finishDelay)
                     newProgram.finishDelay=body.finishDelay;
+                if (body.currentStatus == 0 || body.currentStatus == 1 )
+                    newProgram.currentStatus=body.currentStatus;
                 Program.updateOne({ id: ProgramId }, {
                     name: newProgram.name,
                     startSource: newProgram.startSource,
                     startDelay: newProgram.startDelay,
                     finishSource: newProgram.finishSource,
-                    finishDelay: newProgram.finishDelay})
+                    finishDelay: newProgram.finishDelay,
+                    currentStatus: newProgram.currentStatus
+                })
                     .catch(err => {
                         Log.logger.info(`PROGRAM CONTROLLER ERROR: update program ${err}`);
                         res.status(500).json({status: 500 , msg: `Error update a program`});

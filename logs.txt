@@ -20,3 +20,202 @@ info: NEIGHBORHOOD SYSTEM CONTROLLER REQ: Get specific neighborhood system numbe
 info: NEIGHBORHOOD SYSTEM CONTROLLER RES: delete neighborhood system number: 7
 info: NEIGHBORHOOD SYSTEM CONTROLLER REQ: Get specific neighborhood system number 8
 info: NEIGHBORHOOD SYSTEM CONTROLLER RES: delete neighborhood system number: 8
+info: PROGRAM CONTROLLER REQ: update an program number: 2
+info: PROGRAM CONTROLLER REQ: update an program number: 2
+info: SUN API REQ: lat 32.11 long 34.86 date today timezone 2
+info: Debugger1: {"results":{"sunrise":"2021-12-22T04:36:26+00:00","sunset":"2021-12-22T14:41:56+00:00","solar_noon":"2021-12-22T09:39:11+00:00","day_length":36330,"civil_twilight_begin":"2021-12-22T04:10:48+00:00","civil_twilight_end":"2021-12-22T15:07:34+00:00","nautical_twilight_begin":"2021-12-22T03:40:13+00:00","nautical_twilight_end":"2021-12-22T15:38:09+00:00","astronomical_twilight_begin":"2021-12-22T03:10:19+00:00","astronomical_twilight_end":"2021-12-22T16:08:03+00:00"},"status":"OK"}
+info: API SUNRISE RES: statusOK sunriseWed Dec 22 2021 08:36:26 GMT+0200 (שעון ישראל (חורף)) sunsetWed Dec 22 2021 18:41:56 GMT+0200 (שעון ישראל (חורף))
+info: PROGRAM CONTROLLER REQ: update an program number: 2
+info: NEIGHBORHOOD SYSTEM CONTROLLER REQ: Get all neighborhood systems
+info: NEIGHBORHOOD SYSTEM CONTROLLER RES: Get all neighborhood systems
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 2
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 2
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: NEIGHBORHOOD SYSTEM CONTROLLER REQ: Get all neighborhood systems
+info: NEIGHBORHOOD SYSTEM CONTROLLER RES: Get all neighborhood systems
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 2
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 2
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: SUN API REQ: lat 32.11 long 34.86 date today timezone 2
+info: Debugger1: {"results":{"sunrise":"2021-12-22T04:36:26+00:00","sunset":"2021-12-22T14:41:56+00:00","solar_noon":"2021-12-22T09:39:11+00:00","day_length":36330,"civil_twilight_begin":"2021-12-22T04:10:48+00:00","civil_twilight_end":"2021-12-22T15:07:34+00:00","nautical_twilight_begin":"2021-12-22T03:40:13+00:00","nautical_twilight_end":"2021-12-22T15:38:09+00:00","astronomical_twilight_begin":"2021-12-22T03:10:19+00:00","astronomical_twilight_end":"2021-12-22T16:08:03+00:00"},"status":"OK"}
+info: SUN API REQ: lat 32.11 long 34.86 date today timezone 2
+info: Debugger1: {"results":{"sunrise":"2021-12-22T04:36:26+00:00","sunset":"2021-12-22T14:41:56+00:00","solar_noon":"2021-12-22T09:39:11+00:00","day_length":36330,"civil_twilight_begin":"2021-12-22T04:10:48+00:00","civil_twilight_end":"2021-12-22T15:07:34+00:00","nautical_twilight_begin":"2021-12-22T03:40:13+00:00","nautical_twilight_end":"2021-12-22T15:38:09+00:00","astronomical_twilight_begin":"2021-12-22T03:10:19+00:00","astronomical_twilight_end":"2021-12-22T16:08:03+00:00"},"status":"OK"}
+info: API SUNRISE RES: statusOK sunriseWed Dec 22 2021 08:36:26 GMT+0200 (שעון ישראל (חורף)) sunsetWed Dec 22 2021 18:41:56 GMT+0200 (שעון ישראל (חורף))
+info: PROGRAM CONTROLLER REQ: update an program number: 2
+info: PROGRAM CONTROLLER REQ: update an program number: 2
+info: NEIGHBORHOOD SYSTEM CONTROLLER REQ: Get all neighborhood systems
+info: NEIGHBORHOOD SYSTEM CONTROLLER RES: Get all neighborhood systems
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 2
+info: PROGRAM CONTROLLER RES: get program number: 2
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: NEIGHBORHOOD SYSTEM CONTROLLER REQ: Get all neighborhood systems
+info: NEIGHBORHOOD SYSTEM CONTROLLER RES: Get all neighborhood systems
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 2
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 2
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: NEIGHBORHOOD SYSTEM CONTROLLER REQ: Get all neighborhood systems
+info: NEIGHBORHOOD SYSTEM CONTROLLER REQ: Get all neighborhood systems
+info: NEIGHBORHOOD SYSTEM CONTROLLER RES: Get all neighborhood systems
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 2
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 2
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: update an program number: 2
+info: PROGRAM CONTROLLER REQ: update an program number: 2
+info: SUN API REQ: lat 32.11 long 34.86 date today timezone 2
+info: Debugger1: {"results":{"sunrise":"2021-12-22T04:36:26+00:00","sunset":"2021-12-22T14:41:56+00:00","solar_noon":"2021-12-22T09:39:11+00:00","day_length":36330,"civil_twilight_begin":"2021-12-22T04:10:48+00:00","civil_twilight_end":"2021-12-22T15:07:34+00:00","nautical_twilight_begin":"2021-12-22T03:40:13+00:00","nautical_twilight_end":"2021-12-22T15:38:09+00:00","astronomical_twilight_begin":"2021-12-22T03:10:19+00:00","astronomical_twilight_end":"2021-12-22T16:08:03+00:00"},"status":"OK"}
+info: API SUNRISE RES: statusOK sunriseWed Dec 22 2021 08:36:26 GMT+0200 (שעון ישראל (חורף)) sunsetWed Dec 22 2021 18:41:56 GMT+0200 (שעון ישראל (חורף))
+info: PROGRAM CONTROLLER REQ: update an program number: 2
+info: NEIGHBORHOOD SYSTEM CONTROLLER REQ: Get all neighborhood systems
+info: NEIGHBORHOOD SYSTEM CONTROLLER RES: Get all neighborhood systems
+info: PROGRAM CONTROLLER REQ: Get specific program number 2
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 2
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: SUN API REQ: lat 32.11 long 34.86 date today timezone 2
+info: Debugger1: {"results":{"sunrise":"2021-12-22T04:36:26+00:00","sunset":"2021-12-22T14:41:56+00:00","solar_noon":"2021-12-22T09:39:11+00:00","day_length":36330,"civil_twilight_begin":"2021-12-22T04:10:48+00:00","civil_twilight_end":"2021-12-22T15:07:34+00:00","nautical_twilight_begin":"2021-12-22T03:40:13+00:00","nautical_twilight_end":"2021-12-22T15:38:09+00:00","astronomical_twilight_begin":"2021-12-22T03:10:19+00:00","astronomical_twilight_end":"2021-12-22T16:08:03+00:00"},"status":"OK"}
+info: API SUNRISE RES: statusOK sunriseWed Dec 22 2021 08:36:26 GMT+0200 (שעון ישראל (חורף)) sunsetWed Dec 22 2021 18:41:56 GMT+0200 (שעון ישראל (חורף))
+info: PROGRAM CONTROLLER REQ: update an program number: 2
+info: SUN API REQ: lat 32.11 long 34.86 date today timezone 2
+info: Debugger1: {"results":{"sunrise":"2021-12-22T04:36:26+00:00","sunset":"2021-12-22T14:41:56+00:00","solar_noon":"2021-12-22T09:39:11+00:00","day_length":36330,"civil_twilight_begin":"2021-12-22T04:10:48+00:00","civil_twilight_end":"2021-12-22T15:07:34+00:00","nautical_twilight_begin":"2021-12-22T03:40:13+00:00","nautical_twilight_end":"2021-12-22T15:38:09+00:00","astronomical_twilight_begin":"2021-12-22T03:10:19+00:00","astronomical_twilight_end":"2021-12-22T16:08:03+00:00"},"status":"OK"}
+info: API SUNRISE RES: statusOK sunriseWed Dec 22 2021 08:36:26 GMT+0200 (שעון ישראל (חורף)) sunsetWed Dec 22 2021 18:41:56 GMT+0200 (שעון ישראל (חורף))
+info: PROGRAM CONTROLLER REQ: update an program number: 2
+info: NEIGHBORHOOD SYSTEM CONTROLLER REQ: Get all neighborhood systems
+info: NEIGHBORHOOD SYSTEM CONTROLLER RES: Get all neighborhood systems
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 2
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 2
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: NEIGHBORHOOD SYSTEM CONTROLLER REQ: Get all neighborhood systems
+info: NEIGHBORHOOD SYSTEM CONTROLLER REQ: Get all neighborhood systems
+info: NEIGHBORHOOD SYSTEM CONTROLLER RES: Get all neighborhood systems
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 2
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 2
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: NEIGHBORHOOD SYSTEM CONTROLLER REQ: Get all neighborhood systems
+info: NEIGHBORHOOD SYSTEM CONTROLLER REQ: Get all neighborhood systems
+info: NEIGHBORHOOD SYSTEM CONTROLLER REQ: Get all neighborhood systems
+info: NEIGHBORHOOD SYSTEM CONTROLLER RES: Get all neighborhood systems
+info: SUN API REQ: lat 32.11 long 34.86 date today timezone 2
+info: Debugger1: {"results":{"sunrise":"2021-12-22T04:36:26+00:00","sunset":"2021-12-22T14:41:56+00:00","solar_noon":"2021-12-22T09:39:11+00:00","day_length":36330,"civil_twilight_begin":"2021-12-22T04:10:48+00:00","civil_twilight_end":"2021-12-22T15:07:34+00:00","nautical_twilight_begin":"2021-12-22T03:40:13+00:00","nautical_twilight_end":"2021-12-22T15:38:09+00:00","astronomical_twilight_begin":"2021-12-22T03:10:19+00:00","astronomical_twilight_end":"2021-12-22T16:08:03+00:00"},"status":"OK"}
+info: API SUNRISE RES: statusOK sunriseWed Dec 22 2021 08:36:26 GMT+0200 (שעון ישראל (חורף)) sunsetWed Dec 22 2021 18:41:56 GMT+0200 (שעון ישראל (חורף))
+info: PROGRAM CONTROLLER REQ: update an program number: 2
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 2
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER RES: get program number: 2
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: NEIGHBORHOOD SYSTEM CONTROLLER REQ: Get all neighborhood systems
+info: NEIGHBORHOOD SYSTEM CONTROLLER RES: Get all neighborhood systems
+info: SUN API REQ: lat 32.11 long 34.86 date today timezone 2
+info: Debugger1: {"results":{"sunrise":"2021-12-22T04:36:26+00:00","sunset":"2021-12-22T14:41:56+00:00","solar_noon":"2021-12-22T09:39:11+00:00","day_length":36330,"civil_twilight_begin":"2021-12-22T04:10:48+00:00","civil_twilight_end":"2021-12-22T15:07:34+00:00","nautical_twilight_begin":"2021-12-22T03:40:13+00:00","nautical_twilight_end":"2021-12-22T15:38:09+00:00","astronomical_twilight_begin":"2021-12-22T03:10:19+00:00","astronomical_twilight_end":"2021-12-22T16:08:03+00:00"},"status":"OK"}
+info: API SUNRISE RES: statusOK sunriseWed Dec 22 2021 08:36:26 GMT+0200 (שעון ישראל (חורף)) sunsetWed Dec 22 2021 18:41:56 GMT+0200 (שעון ישראל (חורף))
+info: PROGRAM CONTROLLER REQ: update an program number: 2
+info: PROGRAM CONTROLLER REQ: Get specific program number 2
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 2
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1
+info: PROGRAM CONTROLLER REQ: Get specific program number 1
+info: PROGRAM CONTROLLER RES: get program number: 1

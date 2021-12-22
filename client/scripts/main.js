@@ -42,7 +42,7 @@ $(document).ready(function () {
 //~~~~~~~SYSTEM LIST~~~~~~~~~~~~~~~~~
 function showAllSystems() {
     $.ajax({
-        url: "https://ineighborhood.herokuapp.com/api/neighborhoodsystem",
+        url: `${host}/api/neighborhoodsystem`,
         type: "GET",
         success: (systems) => {
             createSystemTable(systems);
@@ -50,35 +50,29 @@ function showAllSystems() {
     });
 }
 async function getCurrentStatus(system_Item) {
-    if (system_Item.mode == "manual-on")
-        return '<p style="color:green;"> On</p>';
-    if (system_Item.mode == "manual-off")
-        return '<p style="color:red;"> Off</p>';
-    if (system_Item.type == "trafficLights")
-        return "Traffic base auto";
-    if (system_Item.type == "trafficLights")
-        return "Traffic base auto";
-    if (system_Item.type == "streetLights") {
-        const res_Sunrise = await fetch(`${host}/api/remote/sun`, {
-            method: "GET",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        });
-        const resjson_Sunrise = await res_Sunrise.json();
-        if (!(res_Sunrise.status == 200)) {
-            return "Error";
+    const res_Program = await fetch(`${host}/api/program/${system_Item.program}`, {
+        method: "GET",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
         }
-        const current_Time = new Date();
-        const sunrise_Time = new Date(resjson_Sunrise.sunrise);
-        const sunset_Time = new Date(resjson_Sunrise.sunset);
-        if((current_Time > sunrise_Time) && (current_Time < sunset_Time))
-            return '<p style="color:red;"> Off</p>';
-        return '<p style="color:green;"> On</p>';
+    });
+    const res_Program_Data = await res_Program.json();
+    if (!(res_Program.status == 200)) {
+        return "Error";
     }
+    if (res_Program_Data.currentStatus == 0)
+        return '<p style="color:red;"> Off</p>';
+    return '<p style="color:green;"> On</p>';
 }
-function createSystemTable(systems) {
+async function createSystemTable(systems) {
+    const res_update = await fetch(`${host}/api/remote/update`, {
+        method: "GET",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    });
     const tableStructue =
         '<table class="table" id="systemstable">' +
         '<thead class="thead-dark">' +
