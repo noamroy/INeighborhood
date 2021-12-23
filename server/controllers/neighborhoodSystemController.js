@@ -27,26 +27,26 @@ exports.neighborhoodSystemController = {
         }
     },
     async getSpecificNeighborhoodSystem(req, res) {
-        const NeighborhoodSystem_id = req.path.substring(1)
-        Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER REQ: Get specific neighborhood system number ${NeighborhoodSystem_id}`);
-        if (isNaN(NeighborhoodSystem_id)){
-            Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER RES: input is nan error "${NeighborhoodSystem_id}"`);
-            res.status(400).json({status: 400 , msg: `Input is nan error "${NeighborhoodSystem_id}"`});
+        const NeighborhoodSystemId = req.path.substring(1)
+        Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER REQ: Get specific neighborhood system number ${NeighborhoodSystemId}`);
+        if (isNaN(NeighborhoodSystemId)){
+            Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER RES: input is nan error "${NeighborhoodSystemId}"`);
+            res.status(400).json({status: 400 , msg: `Input is nan error "${NeighborhoodSystemId}"`});
         }
         else{
-            var neighborhoodSystemData = await NeighborhoodSystem.find({ id: Number(NeighborhoodSystem_id)})
+            var neighborhoodSystemData = await NeighborhoodSystem.find({ id: Number(NeighborhoodSystemId)})
                 .catch(err => {
                     Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER ERROR: getting the data from db ${err}`);
                     res.status(500).json({status: 500 , msg: `Server error`});
                 });
             if (neighborhoodSystemData.length!=0){
                 neighborhoodSystemData = neighborhoodSystemData[0];
-                Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER RES: get neighborhood system data number: ${NeighborhoodSystem_id}`);
+                Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER RES: get neighborhood system data number: ${NeighborhoodSystemId}`);
                 res.json(neighborhoodSystemData);
             }
             else{
-                Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER RES: Didn't find neighborhood system number: ${NeighborhoodSystem_id}`);
-                res.status(404).json({status: 404 , msg: `Didn't find neighborhood system number: ${NeighborhoodSystem_id}`});
+                Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER RES: Didn't find neighborhood system number: ${NeighborhoodSystemId}`);
+                res.status(404).json({status: 404 , msg: `Didn't find neighborhood system number: ${NeighborhoodSystemId}`});
             }
         }
     },
@@ -54,15 +54,15 @@ exports.neighborhoodSystemController = {
         Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER REQ: POST add an neighborhood system`);
         const body = req.body;
         console.log(body);
-        let NeighborhoodSystem_id = await NeighborhoodSystem.find()
+        let NeighborhoodSystemId = await NeighborhoodSystem.find()
             .catch(err => {
                 Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER ERROR: getting the data from db ${err}`);
                 res.status(500).json({status: 500 , msg: `Server error`});
         });
-        if (NeighborhoodSystem_id.length!=0)
-            NeighborhoodSystem_id = NeighborhoodSystem_id[(NeighborhoodSystem_id.length)-1].id+1;
+        if (NeighborhoodSystemId.length!=0)
+            NeighborhoodSystemId = NeighborhoodSystemId[(NeighborhoodSystemId.length)-1].id+1;
         else
-            NeighborhoodSystem_id=1;
+            NeighborhoodSystemId=1;
         console.log(body.type);
         console.log(body.name);
         console.log(body.address);
@@ -78,11 +78,11 @@ exports.neighborhoodSystemController = {
                     "ip": body.ip,
                     "mode": body.mode,
                     "program": body.program,
-                    "id": NeighborhoodSystem_id
+                    "id": NeighborhoodSystemId
                 });
                 const result = newNeighborhoodSystem.save();
                 if (result) {
-                    Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER RES: add neighborhood system number ${NeighborhoodSystem_id}`);
+                    Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER RES: add neighborhood system number ${NeighborhoodSystemId}`);
                     res.json(newNeighborhoodSystem);
                 } else {
                     Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER ERROR: getting the data from db ${err}`);
@@ -94,22 +94,22 @@ exports.neighborhoodSystemController = {
         }
     },
     async updateNeighborhoodSystem(req, res) {
-        const NeighborhoodSystem_id = req.path.substring(1);
-        Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER REQ: update an neighborhood system number: ${NeighborhoodSystem_id}`);
-        if (isNaN(NeighborhoodSystem_id)){
-            Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER RES: input is nan error "${NeighborhoodSystem_id}"`);
-            res.status(400).json({status: 400 , msg: `Input is nan error "${NeighborhoodSystem_id}"`});
+        const NeighborhoodSystemId = req.path.substring(1);
+        Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER REQ: update an neighborhood system number: ${NeighborhoodSystemId}`);
+        if (isNaN(NeighborhoodSystemId)){
+            Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER RES: input is nan error "${NeighborhoodSystemId}"`);
+            res.status(400).json({status: 400 , msg: `Input is nan error "${NeighborhoodSystemId}"`});
         }
         else {
             let body = req.body;
-            let newNeighborhoodSystem = await NeighborhoodSystem.find({ id: Number(NeighborhoodSystem_id)})
+            let newNeighborhoodSystem = await NeighborhoodSystem.find({ id: Number(NeighborhoodSystemId)})
                 .catch(err => {
                     Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER ERROR: getting the data from db ${err}`);
                     res.status(500).json({status: 500 , msg: `Server error`});
                 });
             if (newNeighborhoodSystem.length == 0){
-                Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER RES: Didn't find neighborhood system number: ${NeighborhoodSystem_id}`);
-                res.status(404).json({status: 404 , msg: `Didn't find neighborhood system number: "${NeighborhoodSystem_id}"`});
+                Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER RES: Didn't find neighborhood system number: ${NeighborhoodSystemId}`);
+                res.status(404).json({status: 404 , msg: `Didn't find neighborhood system number: "${NeighborhoodSystemId}"`});
             }
             else {
                 newNeighborhoodSystem = newNeighborhoodSystem[0];
@@ -125,7 +125,7 @@ exports.neighborhoodSystemController = {
                 newNeighborhoodSystem.mode=body.mode;
                 if (body.program)
                     newNeighborhoodSystem.program=body.program;
-                NeighborhoodSystem.updateOne({ id: NeighborhoodSystem_id }, {
+                NeighborhoodSystem.updateOne({ id: NeighborhoodSystemId }, {
                 type: newNeighborhoodSystem.type,
                 name: newNeighborhoodSystem.name,
                 address: newNeighborhoodSystem.address,
@@ -141,15 +141,15 @@ exports.neighborhoodSystemController = {
         }
     },
     async deleteNeighborhoodSystem(req, res) {
-        const NeighborhoodSystem_id = req.path.substring(1)
-        Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER REQ: Get specific neighborhood system number ${NeighborhoodSystem_id}`);
-        if (isNaN(NeighborhoodSystem_id)){
-            Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER RES: input is nan error "${NeighborhoodSystem_id}"`);
-            res.status(400).json({status: 400 , msg: `Input is nan error "${NeighborhoodSystem_id}"`});
+        const NeighborhoodSystemId = req.path.substring(1)
+        Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER REQ: Get specific neighborhood system number ${NeighborhoodSystemId}`);
+        if (isNaN(NeighborhoodSystemId)){
+            Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER RES: input is nan error "${NeighborhoodSystemId}"`);
+            res.status(400).json({status: 400 , msg: `Input is nan error "${NeighborhoodSystemId}"`});
         }
         else{
-            Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER RES: delete neighborhood system number: ${NeighborhoodSystem_id}`);
-            NeighborhoodSystem.deleteOne ({ id: Number(NeighborhoodSystem_id)})
+            Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER RES: delete neighborhood system number: ${NeighborhoodSystemId}`);
+            NeighborhoodSystem.deleteOne ({ id: Number(NeighborhoodSystemId)})
                 .then(docs => { res.json(docs)})
                 .catch(err => {
                     Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER ERROR: deleting neighborhood system from db: ${err}`);

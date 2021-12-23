@@ -82,12 +82,12 @@ exports.remoteApiController = {
                         current: current_time};
         Log.logger.info(`API SUNRISE RES: status${sunData.status} sunrise${sunData.sunrise} sunset${sunData.sunset}`);
         
-        const status_Of_Light = ((current_time>localTimeRise) && (current_time<localTimeSet)) ? 0 : 1;
+        const statusOfLight = ((current_time>localTimeRise) && (current_time<localTimeSet)) ? 0 : 1;
         const update_response =await axios({
             method: 'put',
             url: `${host}/api/program/2`,
             data: {
-                currentStatus: status_Of_Light }
+                currentStatus: statusOfLight }
           });
         if(update_response.status == 200){
             res.status(200).json({"status":200,"msg":"Updated"});
