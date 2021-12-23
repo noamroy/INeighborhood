@@ -14,6 +14,7 @@ function setMap(location){
 }
 //PAGE LOADER SELECTOR
 $(document).ready(function () {
+    const pageName = document.getElementById('pageName');
     const navSystemList = document.getElementById('navSystemList');
     const navAddSystem = document.getElementById('navAddSystem');
     //const navProgramList = document.getElementById('navProgramList'); ADD FOR FINAL PROJECT
@@ -23,12 +24,14 @@ $(document).ready(function () {
             stateOfPage = "DELETE/EDIT";
             navSystemList.classList.remove("current");
             navAddSystem.classList.remove("current");
+            pageName.innerHTML="Delete/edit system";
             showSystemForm(id);
         }
         else {
             stateOfPage = "ADD";
             navSystemList.classList.remove("current");
             navAddSystem.classList.add("current");
+            pageName.innerHTML="Add system";
             showSystemForm(-1);
         }
     }
@@ -36,6 +39,7 @@ $(document).ready(function () {
         stateOfPage = "VIEW";
         navSystemList.classList.add("current");
         navAddSystem.classList.remove("current");
+        pageName.innerHTML="Systems list";
         showAllSystems();
     }
 });
