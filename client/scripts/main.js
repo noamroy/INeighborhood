@@ -8,23 +8,24 @@ const id = params.id;
 const crud = params.crud;
 //GLOBAL VARIABLE
 var stateOfPage = "VIEW";
+//map function
+function setMap(location){
+    document.getElementById("map").src = `https://maps.google.com/maps?q=${location}&t=&z=17&ie=UTF8&iwloc=&output=embed`
+}
 //PAGE LOADER SELECTOR
 $(document).ready(function () {
-    console.log("crud is:" + crud + " id is:" + id);
     const navSystemList = document.getElementById('navSystemList');
     const navAddSystem = document.getElementById('navAddSystem');
     //const navProgramList = document.getElementById('navProgramList'); ADD FOR FINAL PROJECT
     //const navAddProgram = document.getElementById('navAddProgram'); ADD FOR FINAL PROJECT
     if (crud) {
         if (id) {
-            console.log("load system edit/delete page for id:" + id);
             stateOfPage = "DELETE/EDIT";
             navSystemList.classList.remove("current");
             navAddSystem.classList.remove("current");
             showSystemForm(id);
         }
         else {
-            console.log("load system add page");
             stateOfPage = "ADD";
             navSystemList.classList.remove("current");
             navAddSystem.classList.add("current");
@@ -32,7 +33,6 @@ $(document).ready(function () {
         }
     }
     else {
-        console.log("load system list page");
         stateOfPage = "VIEW";
         navSystemList.classList.add("current");
         navAddSystem.classList.remove("current");
@@ -50,6 +50,10 @@ function showAllSystems() {
     });
 }
 async function getCurrentStatus(system_Item) {
+    if (system_Item.mode == "manual-off")
+        return '<p style="color:red;"> Off</p>';
+    if (system_Item.mode == "manual-on")
+        return '<p style="color:green;"> On</p>';
     const res_Program = await fetch(`${host}/api/program/${system_Item.program}`, {
         method: "GET",
         headers: {
@@ -98,7 +102,7 @@ async function createSystemTable(systems) {
             '<tr>' +
             '<th scope="row">' + s.id + '</th>' +
             '<td>' + s.name + '</td>' +
-            '<td>' + s.address + '</td>' +
+            '<td><p class="clickAbleP" onclick="setMap(\''+s.address+'\')">' + s.address + '</p></td>' +
             '<td>' + s.ip + '</td>' +
             '<td>' + s.mode + '</td>' +
             '<td>' + s.type + '</td>' +
@@ -193,7 +197,6 @@ async function setFormForAdd() {
 }
 // system edit/delete buttons
 async function setFormForEditDelete(systemId) {
-    console.log("load edit and delete form for:" + systemId);
     const res_Check_If_System_Exists = await fetch(`${host}/api/neighborhoodsystem/${systemId}`, {
         method: "GET",
         headers: {
@@ -234,16 +237,13 @@ async function setFormForEditDelete(systemId) {
 async function deleteItem(systemId) {
     var deleteButton = document.getElementById("deleteButton");
     deleteButton.addEventListener("click", async function () {
-        console.log("try to erase id:" + systemId);
         const res = await fetch(`${host}/api/neighborhoodsystem/${systemId}`, {
             method: "DELETE"
         })
         const resjson = await res.json();
         if (resjson.status == 200) {
-            console.log("success");
             window.location.href = "home.html";
         }
-        console.log(resjson);
         window.location.href = "home.html";
     });
 }

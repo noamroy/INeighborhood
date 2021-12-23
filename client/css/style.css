@@ -77,6 +77,15 @@ header span {
 .current {
     background-color: #797670;
 }
+.clickAbleP{
+    font-weight: 600;
+    color: #6b04e9;
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+.clickAbleP:hover{
+    cursor: pointer;
+    color: #797670;
+}
 /*MAIN SECTION*/
 #mainsectionflex {
     flex: 20;    /*MISHA*/
