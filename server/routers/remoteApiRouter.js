@@ -4,4 +4,3 @@ const remoteApiRouter = new Router();
 module.exports = { remoteApiRouter };
 
 remoteApiRouter.get('/sun', remoteApiController.getSun); // {host}/api/remote/sun
-remoteApiRouter.get('/update', remoteApiController.updatePrograms); // {host}/api/remote/update

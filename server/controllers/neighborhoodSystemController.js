@@ -54,6 +54,17 @@ exports.neighborhoodSystemController = {
         Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER REQ: POST add an neighborhood system`);
         const body = req.body;
         console.log(body);
+        const ip_duplicate = await NeighborhoodSystem.find({ip: body.ip})
+            .catch(err => {
+                Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER ERROR: Database retriving error`);
+                res.status(503).json({ "status": 503, "msg": `Database retriving error` });
+                return;
+            });
+        if (ip_duplicate.length!=0){
+            Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER ERROR: IP already exists`);
+            res.status(400).json({ "status": 400, "msg": `IP already exists` });
+            return;
+        }
         let NeighborhoodSystemId = await NeighborhoodSystem.find()
             .catch(err => {
                 Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER ERROR: getting the data from db ${err}`);
@@ -69,8 +80,9 @@ exports.neighborhoodSystemController = {
         console.log(body.ip);
         console.log(body.mode);
         console.log(body.mode);
+        console.log(body.group);
         if (body.type && body.name && body.address &&
-            body.ip && body.mode && body.program){
+            body.ip && body.mode && body.program && body.group){
                 const newNeighborhoodSystem = new NeighborhoodSystem({
                     "type": body.type,
                     "name": body.name,
@@ -78,6 +90,7 @@ exports.neighborhoodSystemController = {
                     "ip": body.ip,
                     "mode": body.mode,
                     "program": body.program,
+                    "group": body.group,
                     "id": NeighborhoodSystemId
                 });
                 const result = newNeighborhoodSystem.save();
@@ -119,19 +132,34 @@ exports.neighborhoodSystemController = {
                 newNeighborhoodSystem.name=body.name;
                 if (body.address)
                 newNeighborhoodSystem.address=body.address;
-                if (body.ip)
+                if (body.ip){
+                    const ip_duplicate = await NeighborhoodSystem.find({ip: body.ip})
+                        .catch(err => {
+                            Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER ERROR: Database retriving error`);
+                            res.status(503).json({ "status": 503, "msg": `Database retriving error` });
+                            return;
+                        });
+                    if (ip_duplicate.length!=0){
+                        Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER ERROR: IP already exists`);
+                        res.status(400).json({ "status": 400, "msg": `IP already exists` });
+                        return;
+                    }
                     newNeighborhoodSystem.ip=body.ip;
+                }
                 if (body.mode)
-                newNeighborhoodSystem.mode=body.mode;
+                    newNeighborhoodSystem.mode=body.mode;
                 if (body.program)
                     newNeighborhoodSystem.program=body.program;
+                if (body.group)
+                    newNeighborhoodSystem.group=body.group;
                 NeighborhoodSystem.updateOne({ id: NeighborhoodSystemId }, {
                 type: newNeighborhoodSystem.type,
                 name: newNeighborhoodSystem.name,
                 address: newNeighborhoodSystem.address,
                 ip: newNeighborhoodSystem.ip,
                 mode: newNeighborhoodSystem.mode,
-                program: newNeighborhoodSystem.program})
+                program: newNeighborhoodSystem.program,
+                group: newNeighborhoodSystem.group})
                     .catch(err => {
                         Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER ERROR: update neighborhood system ${err}`);
                         res.status(500).json({status: 500 , msg: `Error update a neighborhood system`});

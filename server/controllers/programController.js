@@ -8,6 +8,7 @@ GET REQUEST: getSpecificProgram(path = '/id')
 POST REQUEST: createProgram(body = all params except for id)
 PUT REQUEST: updateProgram(path = '/id', body = all new params)
 DELETE REQUEST: deleteProgram(path = '/id')
+PATCH REQUEST: updateStatus()
 */
 exports.programController = {
     async getAllPrograms(req, res) {
@@ -149,6 +150,27 @@ exports.programController = {
                     Log.logger.info(`PROGRAM CONTROLLER ERROR: deleting program from db: ${err}`);
                     res.status(500).json({status: 500 , msg: `Server delete error`});
                 });
+        }
+    },
+    async updateStatus(req, res) {
+        Log.logger.info(`PROGRAM CONTROLLER REQ: UPDATE programs`);
+        const answer = await Program.find()
+            .catch(err => {
+                Log.logger.info(`PROGRAM CONTROLLER ERROR: getting the data from db ${err}`);
+                res.status(500).json({status: 500 , msg: `Server error`});
+            });
+        
+        if (answer.length!=0){
+            for (let index = 0; index < answer.length; index++) {
+                const element = array[index];
+                /* CONTINUE FROM HERE~~~~~~~~~~~~~~~~~~~~ */
+            }
+            Log.logger.info(`PROGRAM CONTROLLER RES: UPDATE all programs`);
+            res.json(answer);
+        }
+        else{
+            Log.logger.info(`PROGRAM CONTROLLER RES: no programs in DB`);
+            res.status(404).json({status: 404 , msg: `No programs in DB`});
         }
     }
 };
