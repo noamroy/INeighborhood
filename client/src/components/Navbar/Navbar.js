@@ -7,6 +7,7 @@ function Navbar() {
             <NavLink exact="true" to="/">Login</NavLink>
             <NavLink exact="true" to="/register">Register</NavLink>
             <NavLink exact="true" to="/dashboard">Dashbord</NavLink>
+            <NavLink exact to="/addsystem" >Add System</NavLink>
         </div>
     );
 }
