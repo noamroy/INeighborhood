@@ -7,3 +7,5 @@ programRouter.get('/:id', programController.getSpecificProgram); // {host}/api/p
 programRouter.post('/', programController.createProgram); // {host}/api/program
 programRouter.put('/:id', programController.updateProgram); // {host}/api/program/:id
 programRouter.delete('/:id', programController.deleteProgram); // {host}/api/program/:id
+programRouter.patch('/', programController.updateStatus); // {host}/api/program
+programRouter.get('/sun', programController.getSun); // {host}/api/program/sun

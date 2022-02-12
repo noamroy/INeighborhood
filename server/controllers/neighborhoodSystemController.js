@@ -53,11 +53,10 @@ exports.neighborhoodSystemController = {
     async createNeighborhoodSystem(req, res) {
         Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER REQ: POST add an neighborhood system`);
         const body = req.body;
-        console.log(body);
         const ip_duplicate = await NeighborhoodSystem.find({ip: body.ip})
             .catch(err => {
-                Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER ERROR: Database retriving error`);
-                res.status(503).json({ "status": 503, "msg": `Database retriving error` });
+                Log.logger.info(`NEIGHBORHOOD SYSTEM CONTROLLER ERROR: Database retriving error ${err}`);
+                res.status(503).json({ "status": 503, "msg": `Database retriving error ${err}` });
                 return;
             });
         if (ip_duplicate.length!=0){
@@ -74,13 +73,6 @@ exports.neighborhoodSystemController = {
             NeighborhoodSystemId = NeighborhoodSystemId[(NeighborhoodSystemId.length)-1].id+1;
         else
             NeighborhoodSystemId=1;
-        console.log(body.type);
-        console.log(body.name);
-        console.log(body.address);
-        console.log(body.ip);
-        console.log(body.mode);
-        console.log(body.mode);
-        console.log(body.group);
         if (body.type && body.name && body.address &&
             body.ip && body.mode && body.program && body.group){
                 const newNeighborhoodSystem = new NeighborhoodSystem({

@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 8080;
+const cors = require('cors');
+const jwt = require('jsonwebtoken');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -22,8 +24,8 @@ app.use((req, res, next) => {   //check the token
         req.token = token;
         jwt.verify(req.token, 'privatekey', (err) => {
             if (err){
-                console.log('AUTHORIZED ERROR: could not connect to the protected route');
-                res.status(403).json({status: 403 , msg: `authorized error`});
+                console.log(`AUTHORIZED ERROR: could not connect to the protected route ${err}`);
+                res.status(403).json({status: 403 , msg: `authorized error ${err}`});
             }
             else {
                 console.log('AUTHORIZED SUCCESS');
@@ -37,8 +39,6 @@ app.use((req, res, next) => {   //check the token
 });
 const { neighborhoodsystemRouter } = require("./routers/neighborhoodsystemRouter");
 app.use('/api/neighborhoodsystem', neighborhoodsystemRouter);
-const { remoteApiRouter } = require("./routers/remoteApiRouter");
-app.use('/api/remote', remoteApiRouter);
 const { programRouter } = require("./routers/programRouter");
 app.use('/api/program', programRouter);
 app.unsubscribe((req, res) => {
