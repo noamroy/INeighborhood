@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from 'react-router-dom';
 import constants from "../../static/constants";
 import SystemRow from "./SystemRow.js/SystemRow";
+import axios from 'axios';
 function SystemTable(props) {
     const [isLoading, setIsLoading] = React.useState(true);
     const [data, setData] = React.useState([]);
@@ -9,23 +10,28 @@ function SystemTable(props) {
 
     React.useEffect(() => {
         const url = `${constants.host}/api/neighborhoodsystem`;
-        console.log(url)
-        fetch(url)
-            .then((response) => {
-                response.json()
+        axios.get(url)
+            .then(function (response) {
+                setData(response.data)
+
             })
-            .then((json) => {
-                console.log(json)
-                setData(json)
-            })
-            .catch((error) => console.log(error));
+            .catch(function (error) {
+                console.log(error);
+            });
     }, []);
+
 
     React.useEffect(() => {
         if (data.length !== 0) {
             setIsLoading(false);
         }
+
     }, [data]);
+
+    function handleMapChange(newValue) {
+        console.log("Table map change")
+        props.onMapLocationChange(newValue);
+    }
 
     return (
         <table className="table" id="systemstable">
@@ -43,7 +49,7 @@ function SystemTable(props) {
             </thead>
             <tbody>
                 {data.map((value, index) => {
-                    <SystemRow id={value.id} name={value.name} address={value.address} ip={value.ip} mode={value.mode} type={value.type} status={value.current_status} />
+                    return <SystemRow key={`rowId_${value.id}`} id={value.id} name={value.name} address={value.address} ip={value.ip} mode={value.mode} type={value.type} current_status={value.current_status} program={value.program} mapChangeFunction={handleMapChange}/>
                 })}
             </tbody>
         </table>

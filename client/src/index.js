@@ -7,7 +7,6 @@ import reportWebVitals from './reportWebVitals';
 import Navbar from './components/Navbar/Navbar';
 
 ReactDOM.render(
-
     <BrowserRouter>
       <ReactRouter />
     </BrowserRouter>,
