@@ -6,7 +6,7 @@ const programSchema = new Schema({
     startDelay: {type : Number, required: true},
     finishSource: {type : String, required: true },
     finishDelay: {type : Number, required: true},
-    currentStatus: {type : Number, required: true}
+    currentStatus: {type : Boolean, required: true}
 }, { collection: 'programs' });
 const Program = model('program', programSchema);
 module.exports = Program;
