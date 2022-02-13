@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './SystemRow.scss'
 import constants from '../../../static/constants'
 import axios from 'axios';
+import { NavLink } from "react-router-dom";
 
 
 
@@ -48,7 +49,7 @@ function SystemRow(props) {
             <td>{props.mode}</td>
             <td>{props.type}</td>
             <td className={status === 'On'?'statusOnClass':'statusOffClass'}>{status}</td>
-            <td><span className="btn btn-info editbtnclass" id="editbtnid-' + s.id + '">Edit/Delete</span></td>
+            <td><NavLink className="btn btn-info editbtnclass" to={`/addsystem?id=${props.id}`}>Edit/Delete</NavLink></td>
         </tr>
     );
 }

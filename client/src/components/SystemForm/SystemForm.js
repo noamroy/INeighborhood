@@ -19,6 +19,7 @@ class SystemForm extends Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
         this.handleChangeName = this.handleChangeName.bind(this);
         this.handleChangeAddress = this.handleChangeAddress.bind(this);
         this.handleChangeIp = this.handleChangeIp.bind(this);
@@ -46,7 +47,18 @@ class SystemForm extends Component {
     }
 
     handleSubmit(event) {
-        updateSystems(this.state, this.state.formState)
+        updateSystems(this.state, this.state.formState);
+        event.preventDefault();
+    }
+    handleDelete(event) {
+        const url = `${constants.host}/api/neighborhoodsystem/${this.state.id}`;
+        axios.delete(url)
+            .then(function (response) {
+                window.location.href = '/dashboard';
+            })
+            .catch(function (error) {
+                alert("Error Deleting item")
+            });
         event.preventDefault();
     }
 
@@ -54,6 +66,7 @@ class SystemForm extends Component {
         await setValuesForProgram();
         const idOfSystem = new URLSearchParams(window.location.search).get('id');
         const submitBtn = document.getElementById('submitBtn');
+        const deleteBtn = document.getElementById('deleteBtn');
         const componentRefrence = this;
         if (idOfSystem) {
             const url = `${constants.host}/api/neighborhoodsystem/${idOfSystem}`;
@@ -78,11 +91,13 @@ class SystemForm extends Component {
                     alert("Error Loading item")
                 });
 
-            submitBtn.innerHTML = "EDIT"
+            submitBtn.innerHTML = "EDIT";
+            deleteBtn.style.display = "block"
             this.setState({ formState: 'EDIT' });
         }
         else {
             submitBtn.innerHTML = "ADD"
+            deleteBtn.style.display = "none";
             this.setState({ formState: 'ADD' });
         }
 
@@ -126,6 +141,7 @@ class SystemForm extends Component {
                 </div>
                 <div id="button place">
                     <button id="submitBtn" className="formBtn" onClick={this.handleSubmit}>Add</button>
+                    <button id="deleteBtn" className="formBtn" onClick={this.handleDelete}>Delete</button>
                 </div>
             </form>
         );

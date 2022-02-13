@@ -59,7 +59,8 @@ async function updateSystems(system, actionType) {
     })
     const resjson = await res.json();
     if (res.status == 200) {
-        console.log("added")
+        console.log("added");
+        window.location.href = '/dashboard';
         return true;
     }
     alert(resjson.msg);
