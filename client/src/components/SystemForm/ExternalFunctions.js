@@ -22,7 +22,7 @@ async function updateSystems(system, actionType) {
     const modeValid = system.mode;
     const typeValid = system.type;
     const programValid = system.program;
-    const res_Check_If_Program_Exists = await fetch(`${constants.hostNoam}/api/program/${programValid}`, {
+    const res_Check_If_Program_Exists = await fetch(`${constants.hostNoam}program/${programValid}`, {
         method: "GET",
         headers: {
             'Accept': 'application/json',
@@ -44,11 +44,12 @@ async function updateSystems(system, actionType) {
         ip: ipValid,
         mode: modeValid,
         type: typeValid,
+        group: system.group,
         program: Number(programValid),
     }
     console.log(formvalue);
     const stringBody = JSON.stringify(formvalue);
-    const host_To_Send = (actionType == "ADD") ? `${constants.hostNoam}/api/neighborhoodsystem` : `${constants.hostNoam}/api/neighborhoodsystem/${system.id}`;
+    const host_To_Send = (actionType == "ADD") ? `${constants.hostNoam}neighborhoodsystem` : `${constants.hostNoam}neighborhoodsystem/${system.id}`;
     const method_Of_Operation = (actionType == "ADD") ? "POST" : "PUT";
     const res = await fetch(host_To_Send, {
         method: method_Of_Operation,
@@ -70,7 +71,7 @@ async function updateSystems(system, actionType) {
 }
 
 async function setValuesForProgram() {
-    const res_Get_all_Programs = await fetch(`${constants.hostNoam}/api/program`, {
+    const res_Get_all_Programs = await fetch(`${constants.hostNoam}program`, {
         method: "GET",
         headers: {
             'Accept': 'application/json',

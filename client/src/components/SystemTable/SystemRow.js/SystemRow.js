@@ -12,7 +12,7 @@ function SystemRow(props) {
 
     React.useEffect(() => {
         if (props.mode === 'automate') {
-            const url = `${constants.hostNoam}/api/program/${props.program}`;
+            const url = `${constants.hostNoam}program/${props.program}`;
             axios.get(url, {
                 headers: {
                     'Authorization': `token ${localStorage.getItem('token')}`
