@@ -1,0 +1,1 @@
+let host; export default host = "https://ineighbor-server.herokuapp.com/api/";
