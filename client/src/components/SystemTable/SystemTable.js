@@ -1,6 +1,6 @@
 import React from "react";
 import constants from "../../static/constants";
-import SystemRow from "./SystemRow.js/SystemRow";
+import SystemRow from "./SystemRow/SystemRow";
 import axios from 'axios';
 function SystemTable(props) {
     const [isLoading, setIsLoading] = React.useState(true);
