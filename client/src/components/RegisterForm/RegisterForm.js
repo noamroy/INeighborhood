@@ -5,22 +5,22 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import './RegisterForm.scss'
 //GLOBAL DEFINITIONS
-import host from "../configuration";
+import constants from "../../static/constants";
 
 export default function Register() {
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
-    const [group, setGroup] = useState("");
+    const [group, setGroup] = useState(0);
   
     function validateForm() {
-      return name.length > 4 && password.length > 4 && Number.isInteger(group);
+      return name.length >= 3 && password.length >= 4;
     }
     
     async function handleSubmit(event) {
       event.preventDefault();
       const info= {"name": name, "password": password, "group": group};
-      //console.log(JSON.stringify(info));
-      const registerResponse = await fetch(`${host}user/register`, {
+
+      const registerResponse = await fetch(`${constants.hostNoam}user/register`, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json;charset=utf-8'
@@ -33,12 +33,12 @@ export default function Register() {
           alert(registerResponseJson.msg);
       } else {
           alert("Register success");
-          //MISHA - go to homepage
+          window.location.href = '/';
       }
     }
     return (
       <div className="Register">
-        <Form onSubmit={handleSubmit}>
+        <Form >
           <Form.Group size="lg" controlId="name">
             <Form.Label>Name</Form.Label>
             <Form.Control
@@ -66,7 +66,7 @@ export default function Register() {
               onChange={(e) => setGroup(e.target.value)}
             />
           </Form.Group>
-          <Button block size="lg" type="submit" disabled={!validateForm()}>
+          <Button block size="lg" type="submit" onClick={handleSubmit} disabled={!validateForm()}>
             Register
           </Button>
         </Form>

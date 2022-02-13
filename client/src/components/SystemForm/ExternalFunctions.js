@@ -22,11 +22,12 @@ async function updateSystems(system, actionType) {
     const modeValid = system.mode;
     const typeValid = system.type;
     const programValid = system.program;
-    const res_Check_If_Program_Exists = await fetch(`${constants.host}/api/program/${programValid}`, {
+    const res_Check_If_Program_Exists = await fetch(`${constants.hostNoam}/api/program/${programValid}`, {
         method: "GET",
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `token ${localStorage.getItem('token')}`
         }
     })
     if (res_Check_If_Program_Exists == 404) {
@@ -47,13 +48,14 @@ async function updateSystems(system, actionType) {
     }
     console.log(formvalue);
     const stringBody = JSON.stringify(formvalue);
-    const host_To_Send = (actionType == "ADD") ? `${constants.host}/api/neighborhoodsystem` : `${constants.host}/api/neighborhoodsystem/${system.id}`;
+    const host_To_Send = (actionType == "ADD") ? `${constants.hostNoam}/api/neighborhoodsystem` : `${constants.hostNoam}/api/neighborhoodsystem/${system.id}`;
     const method_Of_Operation = (actionType == "ADD") ? "POST" : "PUT";
     const res = await fetch(host_To_Send, {
         method: method_Of_Operation,
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `token ${localStorage.getItem('token')}`
         },
         body: stringBody
     })
@@ -68,11 +70,13 @@ async function updateSystems(system, actionType) {
 }
 
 async function setValuesForProgram() {
-    const res_Get_all_Programs = await fetch(`${constants.host}/api/program`, {
+    const res_Get_all_Programs = await fetch(`${constants.hostNoam}/api/program`, {
         method: "GET",
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `token ${localStorage.getItem('token')}`
+
         }
     });
     const resjson = await res_Get_all_Programs.json();

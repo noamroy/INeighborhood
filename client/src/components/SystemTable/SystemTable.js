@@ -8,8 +8,12 @@ function SystemTable(props) {
 
 
     React.useEffect(() => {
-        const url = `${constants.host}/api/neighborhoodsystem`;
-        axios.get(url)
+        const url = `${constants.hostNoam}neighborhoodsystem`;
+        axios.get(url,{
+            headers:{
+                'Authorization': `token ${localStorage.getItem('token')}`
+            }
+        })
             .then(function (response) {
                 setData(response.data)
 

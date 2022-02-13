@@ -5,9 +5,18 @@ import SystemTable from "../SystemTable/SystemTable";
 
 function Dashbord() {
     const [mapLocation, setMapLocation] = React.useState("shenkar%20College");
+    const [userName, setUserName] = React.useState(localStorage.getItem('name'));
+    const [token, setToken] = React.useState(localStorage.getItem('token'));
+    const [group, setGroup] = React.useState(localStorage.getItem('group'));
 
     React.useEffect(() => {
-        
+        console.log(userName)
+        console.log(token)
+        console.log(group)
+        if(!token){
+            alert("Unauthorized");
+            window.location.href = '/';
+        }
     }, []);
     React.useEffect(() => {
         console.log("Map Location change sadas")

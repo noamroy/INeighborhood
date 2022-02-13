@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./LoginForm.scss";
 //GLOBAL DEFINITIONS
-import host from "../configuration";
+import constants from "../../static/constants";
 
 export default function Login() {
   const [name, setName] = useState("");
@@ -18,8 +18,7 @@ export default function Login() {
   async function handleSubmit(event) {
     event.preventDefault();
     const info= {"name": name, "password": password};
-    //console.log(JSON.stringify(info));
-    const loginResponse = await fetch(`${host}user/login`, {
+    const loginResponse = await fetch(`${constants.hostNoam}user/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -31,14 +30,17 @@ export default function Login() {
     if (loginResponseJson.status!=200){
         alert("Wrong name or password please try again");
     } else {
+        localStorage.setItem('name', loginResponseJson.name);
+        localStorage.setItem('token', loginResponseJson.token);
+        localStorage.setItem('group', loginResponseJson.group);
         alert("SUCCESS LOGIN");
-        //MISHA GO TO HOMEPAGE WITH SEND: loginResponseJson.name, loginResponseJson.token, loginResponseJson.group
+        window.location.href = '/dashboard';
     }
   }
 
   return (
     <div className="Login">
-      <Form onSubmit={handleSubmit}>
+      <Form>
         <Form.Group size="lg" controlId="name">
           <Form.Label>Name</Form.Label>
           <Form.Control
@@ -56,7 +58,7 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Button block size="lg" type="submit" disabled={!validateForm()}>
+        <Button block size="lg" type="submit" disabled={!validateForm()} onClick={handleSubmit}>
           Login
         </Button>
       </Form>

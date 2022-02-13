@@ -51,8 +51,12 @@ class SystemForm extends Component {
         event.preventDefault();
     }
     handleDelete(event) {
-        const url = `${constants.host}/api/neighborhoodsystem/${this.state.id}`;
-        axios.delete(url)
+        const url = `${constants.hostNoam}/api/neighborhoodsystem/${this.state.id}`;
+        axios.delete(url, {
+            headers: {
+                'Authorization': `token ${localStorage.getItem('token')}`
+            }
+        })
             .then(function (response) {
                 window.location.href = '/dashboard';
             })
@@ -69,8 +73,12 @@ class SystemForm extends Component {
         const deleteBtn = document.getElementById('deleteBtn');
         const componentRefrence = this;
         if (idOfSystem) {
-            const url = `${constants.host}/api/neighborhoodsystem/${idOfSystem}`;
-            axios.get(url)
+            const url = `${constants.hostNoam}/api/neighborhoodsystem/${idOfSystem}`;
+            axios.get(url, {
+                headers: {
+                    'Authorization': `token ${localStorage.getItem('token')}`
+                }
+            })
                 .then(function (response) {
                     var systemItem = response.data;
                     console.log(systemItem)
