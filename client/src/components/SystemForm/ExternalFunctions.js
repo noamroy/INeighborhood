@@ -1,6 +1,29 @@
 
-import constants from '../../static/constants'
+import constants from '../../static/constants';
+import axios from 'axios';
+
+async function getAvailableId() {
+    const url = `${constants.host}/api/neighborhoodsystem`;
+    axios.get(url)
+        .then(function (response) {
+            const data = response.data;
+            console.log(data);
+            const maxValueOfId = Math.max(...data.map(o => o.id), 0);
+            console.log(maxValueOfId);
+            return maxValueOfId;
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
 async function updateSystems(system, actionType) {
+    console.log(system);
+    console.log(actionType);
+    if (actionType === 'ADD') {
+        delete system['id'];
+    }
+    console.log(system);
     const nameValid = system.name;
     if (!(/^[A-Za-z0-9\s]+$/.test(nameValid))) {
         alert("You have entered an invalid system name! you can use only chars and numbers");
@@ -39,6 +62,7 @@ async function updateSystems(system, actionType) {
         type: typeValid,
         program: Number(programValid),
     }
+    console.log(formvalue);
     const stringBody = JSON.stringify(formvalue);
     const host_To_Send = (actionType == "ADD") ? `${constants.host}/api/neighborhoodsystem` : `${constants.host}/api/neighborhoodsystem/${system.id}`;
     const method_Of_Operation = (actionType == "ADD") ? "POST" : "PUT";
@@ -52,6 +76,7 @@ async function updateSystems(system, actionType) {
     })
     const resjson = await res.json();
     if (res.status == 200) {
+        console.log("added")
         return true;
     }
     alert(resjson.msg);
@@ -76,4 +101,4 @@ async function setValuesForProgram() {
     });
 }
 
-export { updateSystems,setValuesForProgram };
+export { updateSystems, setValuesForProgram };

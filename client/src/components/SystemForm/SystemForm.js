@@ -11,9 +11,9 @@ class SystemForm extends Component {
             name: '',
             address: '',
             ip: '',
-            program: '',
-            mode: '',
-            type: '',
+            program: 1,
+            mode: 'automate',
+            type: 'trafficLights',
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -74,7 +74,7 @@ class SystemForm extends Component {
                     <label className="visually-hidden" >Mode:</label>
                     <br />
                     <select className="select" id="mode" name="mode" onChange={this.handleChangeMode}>
-                        <option value="automate">Automate</option>
+                        <option value="automate" selected>Automate</option>
                         <option value="manual-on">Manual On</option>
                         <option value="manual-off">Manual Off</option>
                     </select>
@@ -82,7 +82,7 @@ class SystemForm extends Component {
                         <label className="visually-hidden" for="inlineFormSelectPref">Type</label>
                         <br />
                         <select className="select" id="type" name="type" onChange={this.handleChangeType}>
-                            <option value="trafficLights">Traffic light</option>
+                            <option value="trafficLights" selected>Traffic light</option>
                             <option value="streetLights">Headlight</option>
                         </select>
                     </div>
