@@ -17,7 +17,7 @@ function SystemTable(props) {
             .catch(function (error) {
                 console.log(error);
             });
-    }, []);
+    }, []);git 
 
 
     React.useEffect(() => {
