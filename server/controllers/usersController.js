@@ -1,64 +1,78 @@
 //~~~~~~~~~INCLUDES~~~~~~~~~~~~
 const User = require('../models/user');
 const Log = require('./logger');
+const jwt = require('jsonwebtoken');
 //~~~~~~~EXPORTED FUNCTIONS~~~~~~~~~~
 /*
-GET REQUEST: getAllNeighborhoodSystems()
-GET REQUEST: getSpecificNeighborhoodSystem(path = '/id')
-POST REQUEST: createNeighborhoodSystem(body = all params except for id)
-PATCH REQUEST: updateNeighborhoodSystem(path = '/id', body = all new params)
-DELETE REQUEST: deleteNeighborhoodSystem(path = '/id')
+POST REQUEST: loginUser() (body = name and pass params)
+POST REQUEST: registerUser() (body = name pass group params)
 */
-exports.neighborhoodSystemController = {
+exports.usersController = {
     async loginUser(req, res) {
-        const userid = request.body.id;
-        const password = request.body.password;
-        Log.logger.info(`LOGIN SYSTEM CONTROLLER REQ: Login id:${id}`);
-
-        if (userid && password) {
-            const userDataResponse = await User.find({ id: userid })
+        const body = req.body;
+        const userName = body.name;
+        const userPassword = body.password;
+        Log.logger.info(`LOGIN SYSTEM CONTROLLER REQ: Login Name:${userName}`);
+        if (userName && userPassword) {
+            const userDataResponse = await User.find({ name: userName })
                 .catch(err => {
-                    Log.logger.info(`LOGIN SYSTEM CONTROLLER ERROR: Data base retriving error `);
-                    res.status(503).json({ "status": 503, "msg": `Database retriving error` });
+                    Log.logger.info(`LOGIN SYSTEM CONTROLLER ERROR: Database retriving error ${err}`);
+                    res.status(503).json({ "status": 503, "msg": `Database retriving error ${err}` });
                     return;
                 });
             if (userDataResponse.length != 0) {
                 const userData = userDataResponse[0];
-                if (password == userData.id) {
-                    //****************************************************** ADD WHAT TO DO WHEN LOGIN ******************************************
-                    Log.logger.info(`Login SYSTEM CONTROLLER RES: Succesfull login: ${userid}`);
-                    res.json(userData);
+                if (userPassword == userData.password) {
+                    jwt.sign({userData}, 'privatekey', { expiresIn: '120m'},(err, token) => {
+                        if (err) {Log.logger(err) };
+                        Log.logger.info(`Login SYSTEM CONTROLLER RES: Succesfull login: ${userData.name}`);
+                        res.status(200).json({ "status": 200, "msg": `Succesfull login: ${userData.name}`,"group":`${userData.group}`,"id":`${userData.id}`,"token":token});        
+                    });                    
                 } else {
-                    Log.logger.info(`Login SYSTEM CONTROLLER ERROR: Failed login attempt: ${userid}`);
+                    Log.logger.info(`Login SYSTEM CONTROLLER ERROR: Failed login attempt: ${userData.id}`);
                     res.status(401).json({ "status": 401, "msg": `Incorrect password` });
                 }
-
+            } else {
+                Log.logger.info(`Login SYSTEM CONTROLLER ERROR: Failed login attempt`);
+                res.status(401).json({ "status": 401, "msg": `Incorrect username` });
             }
         } else {
-            res.status(401).json({ "status": 401, "msg": `Please enter username and password` });
+            Log.logger.info(`Login SYSTEM CONTROLLER ERROR: LOGIN INPUT ERROR`);
+            res.status(401).json({ "status": 401, "msg": `INPUT ERROR-Please enter username and password` });
         }
     },
     async registerUser(req, res) {
         Log.logger.info(`REGISTER SYSTEM CONTROLLER REQ: POST add a new user`);
         const body = req.body;
-        if (body.id && body.password) {
-            const userDataResponse = await User.find({ id: body.id })
+        var userId = 0;
+        if (body.name && body.password && (Number.isInteger(body.group))){
+            const name_duplicate = await User.find({name: body.name})
                 .catch(err => {
                     Log.logger.info(`REGISTER SYSTEM CONTROLLER ERROR: Database retriving error`);
                     res.status(503).json({ "status": 503, "msg": `Database retriving error` });
                     return;
                 });
-            if (userDataResponse.length != 0) {
-                Log.logger.info(`REGISTER SYSTEM CONTROLLER ERROR: ID exists`);
-                res.status(401).json({ "status": 401, "msg": `ID exists` });
+            if (name_duplicate.length!=0){
+                Log.logger.info(`REGISTER SYSTEM CONTROLLER ERROR: Name already exists`);
+                res.status(400).json({ "status": 400, "msg": `Name already exists` });
                 return;
             }
+            const userDataResponse = await User.find()
+                .catch(err => {
+                    Log.logger.info(`REGISTER SYSTEM CONTROLLER ERROR: Database retriving error ${err}`);
+                    res.status(503).json({ "status": 503, "msg": `Database retriving error ${err}` });
+                    return;
+                });
+            if (userDataResponse.length!=0)
+                userId = userDataResponse[(userDataResponse.length)-1].id+1;
+            else
+                userId=1;
             try {
                 const newUser = new User({
-                    id: body.id,
-                    firstName: body.firstName,
-                    lastName: body.lastName,
-                    password: body.password
+                    id: userId,
+                    name: body.name,
+                    password: body.password,
+                    group: body.group
                 });
                 const result = newUser.save();
                 Log.logger.info(`REGISTER SYSTEM CONTROLLER RES: User added id: ${body.id}`);
@@ -67,8 +81,8 @@ exports.neighborhoodSystemController = {
                 Log.logger.info(`REGISTER SYSTEM CONTROLLER ERROR: Error creating user ${err}`);
                 res.status(503).json({ "status": 503, "msg": `Error creating user ${err}` });
             }
-
         } else {
+            Log.logger.info(`REGISTER SYSTEM CONTROLLER ERROR: no Valid input`);
             res.status(401).json({ "status": 401, "msg": `Please enter valid data` });
         }
 

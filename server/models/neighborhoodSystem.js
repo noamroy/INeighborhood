@@ -6,7 +6,8 @@ const neighborhoodSystemSchema = new Schema({
     address: {type : String, required: true },
     ip: {type : String, required: true },
     mode: {type : String, required: true },
-    program: {type : Number, required: true }
+    program: {type : Number, required: true },
+    group: {type : Number}
 }, { collection: 'neighborhoodSystems' });
 const NeighborhoodSystem = model('neighborhoodSystem', neighborhoodSystemSchema);
 module.exports = NeighborhoodSystem;
