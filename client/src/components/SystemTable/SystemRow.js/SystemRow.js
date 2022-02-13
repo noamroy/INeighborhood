@@ -10,11 +10,11 @@ function SystemRow(props) {
 
 
     React.useEffect(() => {
-        if(props.mode == 'automate'){
+        if(props.mode === 'automate'){
         const url = `${constants.host}/api/program/${props.program}`;
         axios.get(url)
             .then(function (response) {
-                if(response.data.currentStatus == 1){
+                if(response.data.currentStatus === 1){
                     setStatus('On')
                 }
                 else{
@@ -26,7 +26,7 @@ function SystemRow(props) {
                 console.log(error);
             });
         }
-        if(props.mode=='manual-on'){
+        if(props.mode==='manual-on'){
             setStatus('On')
         }
         else{
@@ -47,7 +47,7 @@ function SystemRow(props) {
             <td>{props.ip}</td>
             <td>{props.mode}</td>
             <td>{props.type}</td>
-            <td className={status == 'On'?'statusOnClass':'statusOffClass'}>{status}</td>
+            <td className={status === 'On'?'statusOnClass':'statusOffClass'}>{status}</td>
             <td><span className="btn btn-info editbtnclass" id="editbtnid-' + s.id + '">Edit/Delete</span></td>
         </tr>
     );

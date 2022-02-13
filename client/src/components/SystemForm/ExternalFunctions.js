@@ -1,29 +1,12 @@
 
 import constants from '../../static/constants';
-import axios from 'axios';
 
-async function getAvailableId() {
-    const url = `${constants.host}/api/neighborhoodsystem`;
-    axios.get(url)
-        .then(function (response) {
-            const data = response.data;
-            console.log(data);
-            const maxValueOfId = Math.max(...data.map(o => o.id), 0);
-            console.log(maxValueOfId);
-            return maxValueOfId;
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-}
 
 async function updateSystems(system, actionType) {
-    console.log(system);
-    console.log(actionType);
+    delete system['formState'];
     if (actionType === 'ADD') {
         delete system['id'];
     }
-    console.log(system);
     const nameValid = system.name;
     if (!(/^[A-Za-z0-9\s]+$/.test(nameValid))) {
         alert("You have entered an invalid system name! you can use only chars and numbers");

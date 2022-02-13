@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { NavLink } from 'react-router-dom';
+import React from "react";
 import constants from "../../static/constants";
 import SystemRow from "./SystemRow.js/SystemRow";
 import axios from 'axios';

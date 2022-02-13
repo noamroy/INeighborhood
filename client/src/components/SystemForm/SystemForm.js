@@ -1,12 +1,14 @@
 import { Component } from 'react';
-import {updateSystems,setValuesForProgram} from './ExternalFunctions';
+import { updateSystems, setValuesForProgram } from './ExternalFunctions';
+import constants from '../../static/constants';
+import axios from 'axios';
 import './SystemForm.scss'
 
 class SystemForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            formState:'ADD',
+            formState: 'ADD',
             id: '',
             name: '',
             address: '',
@@ -44,11 +46,46 @@ class SystemForm extends Component {
     }
 
     handleSubmit(event) {
-        updateSystems(this.state,this.state.formState)
+        updateSystems(this.state, this.state.formState)
         event.preventDefault();
     }
-    componentDidMount(){
-        setValuesForProgram();
+
+    async componentDidMount() {
+        await setValuesForProgram();
+        const idOfSystem = new URLSearchParams(window.location.search).get('id');
+        const submitBtn = document.getElementById('submitBtn');
+        const componentRefrence = this;
+        if (idOfSystem) {
+            const url = `${constants.host}/api/neighborhoodsystem/${idOfSystem}`;
+            axios.get(url)
+                .then(function (response) {
+                    var systemItem = response.data;
+                    console.log(systemItem)
+                    componentRefrence.setState({
+                        name: systemItem.name,
+                        id: systemItem.id,
+                        address: systemItem.address,
+                        ip: systemItem.ip,
+                        program: systemItem.program,
+                        mode: systemItem.mode,
+                        type: systemItem.type,
+                    });
+                    document.getElementById("program").value = systemItem.program;
+                    document.getElementById("mode").value = systemItem.mode;
+                    document.getElementById("type").value = systemItem.type;
+                })
+                .catch(function (error) {
+                    alert("Error Loading item")
+                });
+
+            submitBtn.innerHTML = "EDIT"
+            this.setState({ formState: 'EDIT' });
+        }
+        else {
+            submitBtn.innerHTML = "ADD"
+            this.setState({ formState: 'ADD' });
+        }
+
     }
 
     render() {
@@ -64,7 +101,7 @@ class SystemForm extends Component {
                 </div>
                 <div className="form-outline mb-4">
                     <label className="form-label" >IP:</label>
-                    <input type="text" id="ip" name="ip" className="form-control"  value={this.state.ip} onChange={this.handleChangeIp} required />
+                    <input type="text" id="ip" name="ip" className="form-control" value={this.state.ip} onChange={this.handleChangeIp} required />
                 </div>
                 <div className="col-12">
                     <label className="visually-hidden" >Program:</label>
@@ -74,21 +111,21 @@ class SystemForm extends Component {
                     <label className="visually-hidden" >Mode:</label>
                     <br />
                     <select className="select" id="mode" name="mode" onChange={this.handleChangeMode}>
-                        <option value="automate" selected>Automate</option>
+                        <option value="automate">Automate</option>
                         <option value="manual-on">Manual On</option>
                         <option value="manual-off">Manual Off</option>
                     </select>
                     <div className="col-12">
-                        <label className="visually-hidden" for="inlineFormSelectPref">Type</label>
+                        <label className="visually-hidden">Type</label>
                         <br />
                         <select className="select" id="type" name="type" onChange={this.handleChangeType}>
-                            <option value="trafficLights" selected>Traffic light</option>
+                            <option value="trafficLights">Traffic light</option>
                             <option value="streetLights">Headlight</option>
                         </select>
                     </div>
                 </div>
                 <div id="button place">
-                    <button className="formBtn" onClick={this.handleSubmit}>Add</button>
+                    <button id="submitBtn" className="formBtn" onClick={this.handleSubmit}>Add</button>
                 </div>
             </form>
         );
