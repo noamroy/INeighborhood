@@ -1,5 +1,6 @@
 //IMPORTS
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 //CSS
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -10,11 +11,13 @@ import constants from "../../static/constants";
 export default function Login() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [redirect,setRedirect] = useState(false);
 
   function validateForm() {
     return name.length > 2 && password.length > 2;
   }
-  
+  let navigate = useNavigate();
+  navigate('/dashboard');
   async function handleSubmit(event) {
     event.preventDefault();
     const info= {"name": name, "password": password};
@@ -34,7 +37,7 @@ export default function Login() {
         localStorage.setItem('token', loginResponseJson.token);
         localStorage.setItem('group', loginResponseJson.group);
         alert("SUCCESS LOGIN");
-        window.location.href = '/dashboard';
+        setRedirect(true);
     }
   }
 

@@ -4,10 +4,12 @@ import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import ReactRouter from './Router/Router';
 import reportWebVitals from './reportWebVitals';
+import LoginPage from './components/LoginPage/LoginPage';
+import LoginForm from './components/LoginForm/LoginForm'
 
 ReactDOM.render(
     <BrowserRouter>
-      <ReactRouter />
+      <LoginPage />
     </BrowserRouter>,
   document.getElementById('root')
 );
