@@ -13,7 +13,7 @@ const ReactRouter = () => {
                 <Route exact path="/" element={<LoginPage />} />
                 <Route exact path="/register" element={<RegisterPage />} />
                 <Route exact path="/dashboard" element={<Dashbord />} />
-                <Route exact path="/addsystem" element={<SystemFormPage />} />
+                <Route path="/addsystem" element={<SystemFormPage />} />
             </Routes>
         </React.Fragment>
     )

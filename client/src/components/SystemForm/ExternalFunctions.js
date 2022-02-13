@@ -1,6 +1,12 @@
 
-import constants from '../../static/constants'
+import constants from '../../static/constants';
+
+
 async function updateSystems(system, actionType) {
+    delete system['formState'];
+    if (actionType === 'ADD') {
+        delete system['id'];
+    }
     const nameValid = system.name;
     if (!(/^[A-Za-z0-9\s]+$/.test(nameValid))) {
         alert("You have entered an invalid system name! you can use only chars and numbers");
@@ -39,6 +45,7 @@ async function updateSystems(system, actionType) {
         type: typeValid,
         program: Number(programValid),
     }
+    console.log(formvalue);
     const stringBody = JSON.stringify(formvalue);
     const host_To_Send = (actionType == "ADD") ? `${constants.host}/api/neighborhoodsystem` : `${constants.host}/api/neighborhoodsystem/${system.id}`;
     const method_Of_Operation = (actionType == "ADD") ? "POST" : "PUT";
@@ -52,6 +59,8 @@ async function updateSystems(system, actionType) {
     })
     const resjson = await res.json();
     if (res.status == 200) {
+        console.log("added");
+        window.location.href = '/dashboard';
         return true;
     }
     alert(resjson.msg);
@@ -76,4 +85,4 @@ async function setValuesForProgram() {
     });
 }
 
-export { updateSystems,setValuesForProgram };
+export { updateSystems, setValuesForProgram };
