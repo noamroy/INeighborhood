@@ -1,31 +1,26 @@
 import React from "react";
 import constants from "../../static/constants";
-import SystemRow from "./SystemRow/SystemRow";
+import ProgramRow from "./ProgramRow/ProgramRow";
 import axios from 'axios';
-function SystemTable(props) {
+import './ProgramTable.scss'
+
+function ProgramTable(props) {
     const [isLoading, setIsLoading] = React.useState(true);
     const [data, setData] = React.useState([]);
-
-
     React.useEffect(() => {
-        const updateUrl = `${constants.hostNoam}program/${props.program}`;
-        axios.patch(updateUrl, {
-            headers: {
-                'Authorization': `token ${localStorage.getItem('token')}`
-            }
-        })  .catch(function (error) {
-            console.log(error);
-        });
-        const url = `${constants.hostNoam}neighborhoodsystem`;
+        const url = `${constants.hostNoam}program`;
         axios.get(url,{
             headers:{
                 'Authorization': `token ${localStorage.getItem('token')}`
             }
-        })  .then(function (response) {
+        })
+            .then(function (response) {
                 setData(response.data)
-        })  .catch(function (error) {
-            console.log(error);
-        });
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }, []);
 
 
@@ -42,26 +37,26 @@ function SystemTable(props) {
     }
 
     return (
-        <table className="table" id="systemstable">
+        <table className="table" id="programstable">
             <thead className="thead-dark">
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">IP</th>
-                    <th scope="col">Mode</th>
-                    <th scope="col">Type</th>
+                    <th scope="col">Start source</th>
+                    <th scope="col">Start delay</th>
+                    <th scope="col">Finish source</th>
+                    <th scope="col">Finish delay</th>
                     <th scope="col">Current Status</th>
                     <th scope="col">Options</th>
                 </tr>
             </thead>
             <tbody>
                 {data.map((value, index) => {
-                    return <SystemRow key={`rowId_${value.id}`} id={value.id} name={value.name} address={value.address} ip={value.ip} mode={value.mode} type={value.type} current_status={value.current_status} program={value.program} mapChangeFunction={handleMapChange}/>
+                    return <ProgramRow key={`rowId_${value.id}`} id={value.id} name={value.name} startSource={value.startSource} startDelay={value.startDelay} finishSource={value.finishSource} finishDelay={value.finishDelay} current_status={value.current_status} mapChangeFunction={handleMapChange}/>
                 })}
             </tbody>
         </table>
     )
 }
 
-export default SystemTable;
+export default ProgramTable;
