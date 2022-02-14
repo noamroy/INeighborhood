@@ -14,10 +14,6 @@ function Dashbord() {
         console.log(userName)
         console.log(token)
         console.log(group)
-        if(!token){
-            alert("Unauthorized");
-            window.location.href = '/';
-        }
     }, []);
     React.useEffect(() => {
         console.log("Map Location change sadas")

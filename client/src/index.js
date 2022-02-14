@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
@@ -9,7 +9,7 @@ import LoginForm from './components/LoginForm/LoginForm'
 
 ReactDOM.render(
     <BrowserRouter>
-      <LoginPage />
+      <ReactRouter />
     </BrowserRouter>,
   document.getElementById('root')
 );
