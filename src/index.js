@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { BrowserRouter } from 'react-router-dom';
-import ReactRouter from './Router/Router';
+//import { BrowserRouter } from 'react-router-dom'; MISHA
+//import ReactRouter from './Router/Router';
 import reportWebVitals from './reportWebVitals';
-import LoginPage from './components/LoginPage/LoginPage';
-import LoginForm from './components/LoginForm/LoginForm'
+//import LoginForm from './components/LoginForm/LoginForm'; MISHA
+import App from './components/App/App';
 
 ReactDOM.render(
-    <BrowserRouter>
+    /*<BrowserRouter>
       <LoginPage />
-    </BrowserRouter>,
+    </BrowserRouter>,*/ //MISHA
+    <StrictMode>
+      <App />
+    </StrictMode>,  //NOAM
   document.getElementById('root')
 );
 

@@ -4,7 +4,7 @@ import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 import SystemTable from "../SystemTable/SystemTable";
 
-function Dashbord() {
+function Dashboard() {
     const [mapLocation, setMapLocation] = React.useState("shenkar%20College");
     const [userName, setUserName] = React.useState(localStorage.getItem('name'));
     const [token, setToken] = React.useState(localStorage.getItem('token'));
@@ -39,4 +39,4 @@ function Dashbord() {
     );
 }
 
-export default Dashbord;
+export default Dashboard;
