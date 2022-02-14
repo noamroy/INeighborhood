@@ -1,42 +1,66 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
+
 import GoogleMap from "../GoogleMap/GoogleMap";
 import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
-import SystemTable from "../SystemTable/SystemTable";
+import MainSection from "../MainSection/MainSection";
 
-function Dashboard() {
-    const [mapLocation, setMapLocation] = React.useState("shenkar%20College");
-    const [userName, setUserName] = React.useState(localStorage.getItem('name'));
-    const [token, setToken] = React.useState(localStorage.getItem('token'));
-    const [group, setGroup] = React.useState(localStorage.getItem('group'));
+import './Dashboard.scss';
 
-    React.useEffect(() => {
-        console.log(userName)
-        console.log(token)
-        console.log(group)
-        if(!token){
-            alert("Unauthorized");
-            window.location.href = '/';
-        }
-    }, []);
-    React.useEffect(() => {
-        console.log("Map Location change sadas")
-    }, [mapLocation]);
-
-
-    function handleMapChange(newValue) {
-        console.log("Updated Father location");
-        setMapLocation(newValue);
+class Dashboard extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            mapLocation : "shenkar%20College",
+            mainPage : "systemPage",
+            pageMode : "list",
+        };
+        this.handleMapChange=this.handleMapChange.bind(this);
+        this.handlemainPageChange=this.handlemainPageChange.bind(this);
+        this.handlepageModeChange=this.handlepageModeChange.bind(this);
     }
-
-    return (
-        <main>
-            <Header />
-            <Navbar />
-            <SystemTable onMapLocationChange={handleMapChange} />
-            <GoogleMap location={mapLocation} />
-        </main>
-    );
+    componentDidMount() {
+        if(!(localStorage.getItem("token")&&localStorage.getItem("name")&&localStorage.getItem("group"))){
+            alert("Unauthorized");
+            this.props.onLogout();
+        }
+    }
+    handleMapChange(newLocation){
+        if (newLocation!=this.state.mapLocation){
+            //console.log(`change map location to: ${newLocation}`); //DEBUG
+            this.setState({
+                mapLocation: newLocation
+            });
+        }   
+    }
+    handlemainPageChange(newPage){
+        if (newPage!=this.state.mainPage){
+            console.log(`change main section to: ${newPage}`);   //DEBUG
+            this.setState({
+                mainPage: newPage
+            });
+        }
+    }
+    handlepageModeChange(newPageMode){
+        if (newPageMode!=this.state.pageMode){
+            console.log(`change page mode to: ${newPageMode}`);   //DEBUG
+            this.setState({
+                pageMode: newPageMode
+            });
+        }
+    }
+    render() {
+        return (
+            <main>
+                <Header page={this.state.mainPage}/>
+                <div className="flex">
+                    <Navbar onLogout={()=>this.props.onLogout("login")} pageChange={this.handlemainPageChange} modeChange={this.handlepageModeChange}/>
+                    <MainSection page={this.state.mainPage} mode={this.state.pageMode} modeChange={this.handlepageModeChange} onMapLocationChange={this.handleMapChange}/>
+                    <GoogleMap location={this.state.mapLocation} />
+                </div>
+            </main>
+        );
+        
+    }
 }
-
 export default Dashboard;

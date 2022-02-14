@@ -16,12 +16,13 @@ class App extends Component {
     componentDidMount() {
     }
     changePage(mode) {
-        if (mode){
-            console.log(`change page mode :${mode}`);
+        if (mode!=this.state.Page){
+            console.log(`change page to: ${mode}`);   //DEBUG
             this.setState(prevState => ({
                 Page: mode,
             }))
         }
+
     }
     render() {
         if (this.state.Page=="login"){
@@ -30,7 +31,7 @@ class App extends Component {
             )
         } else {
             return(
-                <Dashboard onLogout={this.changePage()}></Dashboard>
+                <Dashboard onLogout={this.changePage}></Dashboard>
             )
         }
     }

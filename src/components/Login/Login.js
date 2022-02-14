@@ -24,13 +24,14 @@ class Login extends Component {
             body: JSON.stringify(info)
         });
         const loginResponseJson = await loginResponse.json();
-        console.log(JSON.stringify(loginResponseJson));
+        // console.log(JSON.stringify(loginResponseJson)); // DEBUG
         if (loginResponseJson.status!=200){
             alert("Wrong name or password please try again");
         } else {
             localStorage.setItem('name', loginResponseJson.name);
             localStorage.setItem('token', loginResponseJson.token);
             localStorage.setItem('group', loginResponseJson.group);
+            console.log (`name: ${loginResponseJson.name}, token ${loginResponseJson.token}, group ${loginResponseJson.group}`)
             alert("SUCCESS LOGIN");
             this.props.onSuccess("dashboard");
         }

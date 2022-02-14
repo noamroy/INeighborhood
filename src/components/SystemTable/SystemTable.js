@@ -8,7 +8,7 @@ function SystemTable(props) {
 
 
     React.useEffect(() => {
-        const updateUrl = `${constants.hostNoam}program/${props.program}`;
+        const updateUrl = `${constants.hostNoam}program`;
         axios.patch(updateUrl, {
             headers: {
                 'Authorization': `token ${localStorage.getItem('token')}`
@@ -57,7 +57,7 @@ function SystemTable(props) {
             </thead>
             <tbody>
                 {data.map((value, index) => {
-                    return <SystemRow key={`rowId_${value.id}`} id={value.id} name={value.name} address={value.address} ip={value.ip} mode={value.mode} type={value.type} current_status={value.current_status} program={value.program} mapChangeFunction={handleMapChange}/>
+                    return <SystemRow key={`rowId_${value.id}`} id={value.id} name={value.name} address={value.address} ip={value.ip} mode={value.mode} type={value.type} current_status={value.current_status} program={value.program} mapChangeFunction={handleMapChange} onEdit={()=>props.onPress(value.id)}/>
                 })}
             </tbody>
         </table>

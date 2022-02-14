@@ -53,7 +53,7 @@ function SystemRow(props) {
             <td>{props.mode}</td>
             <td>{props.type}</td>
             <td className={status === 'On' ? 'statusOnClass' : 'statusOffClass'}>{status}</td>
-            <td><NavLink className="btn btn-info editbtnclass" to={`/addsystem?id=${props.id}`}>Edit/Delete</NavLink></td>
+            <td><button onClick={() => props.onEdit()}>EDIT</button></td>
         </tr>
     );
 }
