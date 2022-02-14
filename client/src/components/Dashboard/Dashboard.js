@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import GoogleMap from "../GoogleMap/GoogleMap";
+import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 import SystemTable from "../SystemTable/SystemTable";
 
@@ -30,6 +31,8 @@ function Dashbord() {
 
     return (
         <main>
+            <Header />
+            <Navbar />
             <SystemTable onMapLocationChange={handleMapChange} />
             <GoogleMap location={mapLocation} />
         </main>
