@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import LoginForm from "../LoginForm/LoginForm";
-
+import './LoginPage.scss';
 function LoginPage() {
 
     return (
-        <LoginForm />
+        <div className="loginClass">
+            <LoginForm />
+        </div>
     );
 }
 

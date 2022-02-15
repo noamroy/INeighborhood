@@ -4,14 +4,14 @@ import React, { useState } from "react";
 import "./Header.scss";
 
 
-export default function Header() {
+export default function Header(props) {
   const [name, setName] = useState(localStorage.getItem('name'));
 
 
   return (
-        <header>
+        <header className="headerClass">
             <a href="#" id="logo"></a>
-            <span id="pageName"></span>
+            <span id="pageName">{props.pageName}</span>
             <span id="operatorname">{name}</span>
         </header>
   );

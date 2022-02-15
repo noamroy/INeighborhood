@@ -3,6 +3,7 @@ import GoogleMap from "../GoogleMap/GoogleMap";
 import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 import SystemTable from "../SystemTable/SystemTable";
+import './Dashboard.scss'
 
 function Dashbord() {
     const [mapLocation, setMapLocation] = React.useState("shenkar%20College");
@@ -26,12 +27,18 @@ function Dashbord() {
     }
 
     return (
-        <main>
-            <Header />
-            <Navbar />
-            <SystemTable onMapLocationChange={handleMapChange} />
-            <GoogleMap location={mapLocation} />
-        </main>
+        <React.Fragment>
+            <Header pageName="dashboard" />
+            <Navbar className="navbarClass" selectedPage="dashboard" />
+            <main className="mainClass">
+                <div className="systemTableClass">
+                    <SystemTable onMapLocationChange={handleMapChange} />
+                </div>
+                <div className="googleMapClass">
+                    <GoogleMap location={mapLocation} />
+                </div>
+            </main>
+        </React.Fragment>
     );
 }
 

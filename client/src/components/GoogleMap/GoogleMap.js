@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './GoogleMap.scss';
 
 function GoogleMap(props) {
     const [location, setLocation] = useState("shenkar%20college");
@@ -13,7 +14,7 @@ function GoogleMap(props) {
     return (
         <section className="map">
             <div className="responsive-map mapdiv">
-                <iframe id="map" src={url} frameBorder="0" style={{border:0}} allowFullScreen></iframe>
+                <iframe id="map" classnName="iframe-map" src={url} frameBorder="0" style={{border:0}} allowFullScreen></iframe>
             </div>
         </section>
     );

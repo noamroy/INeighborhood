@@ -37,8 +37,7 @@ export default function Register() {
     }
   }
   return (
-    <div className="Register">
-      <Form >
+      <Form className="formclass">
         <Form.Group size="lg" controlId="name">
           <Form.Label>Name</Form.Label>
           <Form.Control
@@ -70,6 +69,5 @@ export default function Register() {
           Register
         </Button>
       </Form>
-    </div>
   );
 }

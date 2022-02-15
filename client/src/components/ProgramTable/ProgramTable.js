@@ -37,7 +37,7 @@ function ProgramTable(props) {
     }
 
     return (
-        <table className="table" id="programstable">
+        <table className="programTableClass" id="programstable">
             <thead className="thead-dark">
                 <tr>
                     <th scope="col">ID</th>

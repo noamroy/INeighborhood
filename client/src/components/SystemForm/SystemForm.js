@@ -135,7 +135,8 @@ class SystemForm extends Component {
                     <label className="visually-hidden" >Program:</label>
                     <select className="select" id="program" name="program" onChange={this.handleChangeProgram}>
                     </select>
-
+            </div>
+            <div>
                     <label className="visually-hidden" >Mode:</label>
                     <br />
                     <select className="select" id="mode" name="mode" onChange={this.handleChangeMode}>
