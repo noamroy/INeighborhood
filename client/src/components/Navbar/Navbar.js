@@ -8,6 +8,8 @@ function Navbar() {
             <NavLink exact="true" to="/register">Register User</NavLink>
             <NavLink exact="true" to="/dashboard">Dashbord</NavLink>
             <NavLink exact to="/addsystem" >Add System</NavLink>
+            <NavLink exact to="/programs" >Programs</NavLink>
+            <NavLink exact to="/addprogram" >Add Program</NavLink>
         </div>
     );
 }
