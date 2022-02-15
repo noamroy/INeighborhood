@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { updateSystems, setValuesForProgram } from './ExternalFunctions';
+import Button from "react-bootstrap/Button";
 import constants from '../../static/constants';
 import axios from 'axios';
 import './SystemForm.scss'
@@ -118,25 +119,26 @@ class SystemForm extends Component {
 
     render() {
         return (
-            <form className="formclass" id="systemForm">
-                <div className="form-outline mb-4">
+            <form className="systemFormClass" id="systemForm">
+                <div className="form-outline mb-4 systemNameDiv">
                     <label className="form-label" >Name:</label>
                     <input type="text" id="name" name="name" className="form-control" value={this.state.name} onChange={this.handleChangeName} required />
                 </div>
-                <div className="form-outline mb-4">
+                <div className="form-outline mb-4 systemAddressDiv">
                     <label className="form-label" >Address:</label>
                     <input type="text" id="address" name="address" className="form-control" value={this.state.address} onChange={this.handleChangeAddress} required />
                 </div>
-                <div className="form-outline mb-4">
+                <div className="form-outline mb-4 systemIpDiv">
                     <label className="form-label" >IP:</label>
                     <input type="text" id="ip" name="ip" className="form-control" value={this.state.ip} onChange={this.handleChangeIp} required />
                 </div>
-                <div className="col-12">
+                <div className="col-12 systemProgramDiv">
                     <label className="visually-hidden" >Program:</label>
+                    <br />
                     <select className="select" id="program" name="program" onChange={this.handleChangeProgram}>
                     </select>
-            </div>
-            <div>
+                </div>
+                <div className="col-12 systemModeDiv">
                     <label className="visually-hidden" >Mode:</label>
                     <br />
                     <select className="select" id="mode" name="mode" onChange={this.handleChangeMode}>
@@ -144,23 +146,24 @@ class SystemForm extends Component {
                         <option value="manual-on">Manual On</option>
                         <option value="manual-off">Manual Off</option>
                     </select>
-                    <div className="col-12">
-                        <label className="visually-hidden">Type</label>
-                        <br />
-                        <select className="select" id="type" name="type" onChange={this.handleChangeType}>
-                            <option value="trafficLights">Traffic light</option>
-                            <option value="streetLights">Headlight</option>
-                        </select>
-                    </div>
-                    <div className="col-12">
-                        <label className="visually-hidden">Group</label>
-                        <br />
-                        <input type="number" id="group" min="0" max="5" name="group" className="form-control" value={this.state.group} onChange={this.handleChangeGroup} required />
-                    </div>
                 </div>
-                <div id="button place">
-                    <button id="submitBtn" className="formBtn" onClick={this.handleSubmit}>Add</button>
-                    <button id="deleteBtn" className="formBtn" onClick={this.handleDelete}>Delete</button>
+                <div className="col-12 systemTypeDiv">
+                    <label className="visually-hidden">Type</label>
+                    <br />
+                    <select className="select" id="type" name="type" onChange={this.handleChangeType}>
+                        <option value="trafficLights">Traffic light</option>
+                        <option value="streetLights">Headlight</option>
+                    </select>
+                </div>
+                <div className="col-12 systemGroupDiv">
+                    <label className="visually-hidden">Group</label>
+                    <br />
+                    <input type="number" id="group" min="0" max="5" name="group" className="form-control" value={this.state.group} onChange={this.handleChangeGroup} required />
+                </div>
+                <div id="button place" className='systemButtonsDiv'>
+                    <Button block size="lg" id="submitBtn" className="formBtn" onClick={this.handleSubmit}>Add</Button>
+                    <br />
+                    <Button variant="danger" block size="lg" id="deleteBtn" className="formBtn" onClick={this.handleDelete}>Delete</Button>
                 </div>
             </form>
         );

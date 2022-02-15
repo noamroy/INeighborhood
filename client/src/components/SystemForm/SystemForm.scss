@@ -1,9 +1,63 @@
-.formclass{
+.systemFormClass{
     grid-column-start: 2;
     grid-column-end: end;
     grid-row-start: 2;
     grid-row-end: end;
-    width: 35%;
-    height: 35%;
+    width: 20%;
+    height: 70%;
+    justify-self: center;
+    display: grid;
+    row-gap: 5px;
+    grid-template-columns: [col1] 50% [col2] 50% [end];
+    grid-template-rows: [row1] 10% [row2] 10% [row3] 10% [row4] 10% [row5] 10% [row6] 10% [row7] 10% [row8] 10% [row9] 10% [row10] 10% [row11];
+}
+.formBtn{
+    margin-left: 0 auto;
+}
+
+.systemNameDiv{
+    grid-column-start: 1;
+    grid-column-end: end;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.systemAddressDiv{
+    grid-column-start: 1;
+    grid-column-end: end;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.systemIpDiv{grid-column-start: 1;
+    grid-column-end: end;
+    grid-row-start: 3;
+    grid-row-end: 4;}
+.systemProgramDiv{grid-column-start: 1;
+    grid-column-end: end;
+    grid-row-start: 4;
+    grid-row-end: 5;}
+.systemModeDiv{
+    grid-column-start: 1;
+    grid-column-end: end;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+.systemTypeDiv{
+    grid-column-start: 1;
+    grid-column-end: end;
+    grid-row-start: 6;
+    grid-row-end: 7;
+}
+.systemGroupDiv{
+    grid-column-start: 1;
+    grid-column-end: end;
+    grid-row-start: 7;
+    grid-row-end: 8;
+}
+
+.systemButtonsDiv{
+    grid-column-start: 1;
+    grid-column-end: end;
+    grid-row-start: 8;
+    grid-row-end: 9;
     justify-self: center;
 }

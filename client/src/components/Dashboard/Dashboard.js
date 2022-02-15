@@ -28,7 +28,7 @@ function Dashbord() {
 
     return (
         <React.Fragment>
-            <Header pageName="dashboard" />
+            <Header pageName="Dashboard" />
             <Navbar className="navbarClass" selectedPage="dashboard" />
             <main className="mainClass">
                 <div className="systemTableClass">

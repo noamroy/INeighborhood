@@ -1,5 +1,5 @@
-import './ProgramRow.scss'
 import { NavLink } from "react-router-dom";
+import './ProgramRow.scss'
 
 function ProgramRow(props) {
     var status = "off";
@@ -7,16 +7,15 @@ function ProgramRow(props) {
         status = "on";
     }
     return (
-        <tr>
-            <th scope="row">{props.id}</th>
-            <td>{props.name}</td>
-            <td>{props.startSource}</td>
-            <td>{props.startDelay}</td>
-            <td>{props.finishSource}</td>
-            <td>{props.finishDelay}</td>
-            <td>{props.status}</td>
-            <td className={props.status === true ? 'statusOnClass' : 'statusOffClass'}>{status}</td>
-            <td><NavLink className="btn btn-info editbtnclass" to={`/addprogram?id=${props.id}`}>Edit/Delete</NavLink></td>
+        <tr className="program-item-row-class">
+            <th className="program-item-row-class" scope="row">{props.id}</th>
+            <td className="program-item-row-class">{props.name}</td>
+            <td className="program-item-row-class">{props.startSource}</td>
+            <td className="program-item-row-class">{props.startDelay}</td>
+            <td className="program-item-row-class">{props.finishSource}</td>
+            <td className="program-item-row-class">{props.finishDelay}</td>
+            <td className={props.status === true ? 'statusOnClass program-item-row-class' : 'statusOffClass program-item-row-class'}>{status}</td>
+            <td className="program-item-row-class"><NavLink className="btn btn-info editbtnclass" to={`/addprogram?id=${props.id}`}>Edit/Delete</NavLink></td>
         </tr>
     );
 }

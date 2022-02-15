@@ -1,9 +1,38 @@
-.formclass{
+.registerFormClass{
     grid-column-start: 2;
     grid-column-end: end;
     grid-row-start: 2;
     grid-row-end: end;
-    width: 35%;
+    width: 10%;
     height: 35%;
+    justify-self: center;
+    display: grid;
+    row-gap: 5px;
+    grid-template-columns: [col1] 50% [col2] 50% [end];
+    grid-template-rows: [row1] 25% [row2] 25% [row3] 25% [row4] 25% [row5];
+}
+.registerNameDiv{
+    grid-column-start: 1;
+    grid-column-end: end;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.registerPasswordDiv{
+    grid-column-start: 1;
+    grid-column-end: end;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.registerGroupDiv{
+    grid-column-start: 1;
+    grid-column-end: end;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+.registerButton{
+    grid-column-start: 1;
+    grid-column-end: end;
+    grid-row-start: 4;
+    grid-row-end: 5;
     justify-self: center;
 }

@@ -4,3 +4,13 @@
 .statusOffClass{
     color: red;
 }
+.programTableClass{
+    grid-column-start: 2;
+    grid-column-end: end;
+    grid-row-start: 2;
+    grid-row-end: end;
+    width: 80%;
+    height: 80%;
+    justify-self: center;
+
+}

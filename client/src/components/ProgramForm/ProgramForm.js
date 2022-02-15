@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { updateProgram } from './ExternalFunctions';
 import constants from '../../static/constants';
+import Button from "react-bootstrap/Button";
 import axios from 'axios';
 import './ProgramForm.scss'
 
@@ -107,11 +108,11 @@ class ProgramForm extends Component {
     render() {
         return (
             <form className="formclass" id="programForm">
-                <div className="form-outline mb-4">
+                <div className="form-outline mb-4 programNameDiv">
                     <label className="form-label" >Name:</label>
                     <input type="text" id="name" name="name" className="form-control" value={this.state.name} onChange={this.handleChangeName} required />
                 </div>
-                <div className="form-outline mb-4">
+                <div className="form-outline mb-4 programStartSourceDiv">
                     <label className="form-label" >Start source:</label>
                     <select name="startSource" id="startSource" className="form-control" value={this.state.startSource} onChange={this.handleChangeStartSource} required>
                         <option value="localTime">localTime(00:00)</option>
@@ -119,11 +120,11 @@ class ProgramForm extends Component {
                         <option value="sunSet">sunSet</option>
                     </select>
                 </div>
-                <div className="form-outline mb-4">
+                <div className="form-outline mb-4 programStartDelayDiv">
                     <label className="form-label" >Start delay (in minutes):</label>
                     <input type="number" id="startDelay" name="startDelay" className="form-control" min="0" max="1440" value={this.state.startDelay} onChange={this.handleChangeStartDelay} required />
                 </div>
-                <div className="form-outline mb-4">
+                <div className="form-outline mb-4 programFinishSourceDiv">
                     <label className="form-label" >Finish source:</label>
                     <select name="finishSource" id="finishSource" className="form-control" value={this.state.finishSource} onChange={this.handleChangeFinishSource} required>
                         <option value="localTime">localTime(00:00)</option>
@@ -131,13 +132,14 @@ class ProgramForm extends Component {
                         <option value="sunSet">sunSet</option>
                     </select>
                 </div>
-                <div className="form-outline mb-4">
+                <div className="form-outline mb-4 programFinishDelayDiv">
                     <label className="form-label" >Finish delay (in minutes):</label>
                     <input type="number" id="finishDelay" name="finishDelay" className="form-control" min="0" max="1440" value={this.state.startDelay} onChange={this.handleChangeFinishDelay} required />
                 </div>
-                <div id="button place">
-                    <button id="submitBtn" className="formBtn" onClick={this.handleSubmit}>Add</button>
-                    <button id="deleteBtn" className="formBtn" onClick={this.handleDelete}>Delete</button>
+                <div className="programButtonsDiv">
+                    <Button block size="lg" id="submitBtn" className="formBtn" onClick={this.handleSubmit}>Add</Button>
+                    <br />
+                    <Button variant="danger" block size="lg" id="deleteBtn" className="formBtn" onClick={this.handleDelete}>Delete</Button>
                 </div>
             </form>
         );

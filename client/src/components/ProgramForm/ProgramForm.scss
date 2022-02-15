@@ -1,9 +1,57 @@
+
 .formclass{
     grid-column-start: 2;
     grid-column-end: end;
     grid-row-start: 2;
     grid-row-end: end;
-    width: 35%;
-    height: 35%;
+    width: 20%;
+    height: 70%;
+    justify-self: center;
+    display: grid;
+    row-gap: 5px;
+    grid-template-columns: [col1] 50% [col2] 50% [end];
+    grid-template-rows: [row1] 16% [row2] 16% [row3] 16% [row4] 16% [row5] 16% [row6] 16% [row7];
+}
+.formBtn{
+    margin-left: 0 auto;
+}
+#submitBtn{
+    margin-left: 6px;
+}
+
+.programNameDiv{
+    grid-column-start: 1;
+    grid-column-end: end;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.programStartSourceDiv{
+    grid-column-start: 1;
+    grid-column-end: end;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.programStartDelayDiv{
+    grid-column-start: 1;
+    grid-column-end: end;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+.programFinishSourceDiv{
+    grid-column-start: 1;
+    grid-column-end: end;
+    grid-row-start: 4;
+    grid-row-end: 5;}
+.programFinishDelayDiv{
+    grid-column-start: 1;
+    grid-column-end: end;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+.programButtonsDiv{
+    grid-column-start: 1;
+    grid-column-end: end;
+    grid-row-start: 6;
+    grid-row-end: 7;
     justify-self: center;
 }

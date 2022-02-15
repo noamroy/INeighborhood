@@ -37,37 +37,39 @@ export default function Register() {
     }
   }
   return (
-      <Form className="formclass">
-        <Form.Group size="lg" controlId="name">
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            autoFocus
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group size="lg" controlId="password">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group size="lg" controlId="group">
-          <Form.Label>Group</Form.Label>
-          <Form.Control
-            type="number"
-            min="0"
-            max="5"
-            value={group}
-            onChange={(e) => setGroup(e.target.value)}
-          />
-        </Form.Group>
+    <Form className="registerFormClass">
+      <Form.Group size="lg" controlId="name" className="registerNameDiv">
+        <Form.Label>Name</Form.Label>
+        <Form.Control
+          autoFocus
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </Form.Group>
+      <Form.Group size="lg" controlId="password" className="registerPasswordDiv">
+        <Form.Label>Password</Form.Label>
+        <Form.Control
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </Form.Group>
+      <Form.Group size="lg" controlId="group" className="registerGroupDiv">
+        <Form.Label>Group</Form.Label>
+        <Form.Control
+          type="number"
+          min="0"
+          max="5"
+          value={group}
+          onChange={(e) => setGroup(e.target.value)}
+        />
+      </Form.Group>
+      <Form.Group size="lg" controlId="group" className="registerButton">
         <Button block size="lg" type="submit" onClick={handleSubmit} disabled={!validateForm()}>
           Register
         </Button>
-      </Form>
+      </Form.Group>
+    </Form>
   );
 }
