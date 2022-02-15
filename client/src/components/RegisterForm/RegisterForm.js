@@ -1,63 +1,73 @@
-import  { Component } from 'react';
+//IMPORTS
+import React, { useState } from "react";
+//CSS
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 import './RegisterForm.scss'
+//GLOBAL DEFINITIONS
+import constants from "../../static/constants";
 
-class RegisterForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            id:null,
-            firstName: '',
-            lastName: '',
-            password: '',
-        };
+export default function Register() {
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [group, setGroup] = useState(0);
 
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChangeID = this.handleChangeID.bind(this);
-        this.handleChangeFirstName = this.handleChangeFirstName.bind(this);
-        this.handleChangeLastName = this.handleChangeLastName.bind(this);
-        this.handleChangePassword = this.handleChangePassword.bind(this);
-    }
-    handleChangeID(event) {
-        this.setState({ id: event.target.value });
-    }
-    handleChangeFirstName(event) {
-        this.setState({ firstName: event.target.value });
-    }
-    handleChangeLastName(event) {
-        this.setState({ lastName: event.target.value });
-    }
-    handleChangePassword(event) {
-        this.setState({ password: event.target.value });
-    }
+  function validateForm() {
+    return name.length >= 3 && password.length >= 4;
+  }
 
-    handleSubmit(event) {
-        this.props.formCallback(this.state);
-        event.preventDefault();
-    }
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const info = { "name": name, "password": password, "group": group };
 
-    render(){
-        return (
-                <form class="form-class" >
-                    <label>
-                        <div className="input-label">ID:</div>
-                        <input className="input-text" type="text" value={this.state.id} onChange={this.handleChangeID}  />
-                    </label>
-                    <label>
-                        <div className="input-label">First Name:</div>
-                        <input className="input-text" type="text" value={this.state.firstName} onChange={this.handleChangeFirstName}  />
-                    </label>
-                    <label>
-                        <div className="input-label">First Name:</div>
-                        <input className="input-text" type="text" value={this.state.lastName} onChange={this.handleChangeLastName}  />
-                    </label>
-                    <label>
-                        <div className="input-label">Password:</div>
-                        <input className="input-text" type="password" value={this.state.price} onChange={this.handleChangePrice}  />
-                    </label>
-                    <button className="" onClick={this.handleSubmit}>Register</button>
-                </form>
-        );
+    const registerResponse = await fetch(`${constants.hostNoam}user/register`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify(info)
+    });
+    const registerResponseJson = await registerResponse.json();
+    console.log(JSON.stringify(registerResponseJson));
+    if (registerResponseJson.status != 200) {
+      alert(registerResponseJson.msg);
+    } else {
+      alert("Register success");
+      window.location.href = '/dashboard';
     }
+  }
+  return (
+      <Form className="formclass">
+        <Form.Group size="lg" controlId="name">
+          <Form.Label>Name</Form.Label>
+          <Form.Control
+            autoFocus
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group size="lg" controlId="password">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group size="lg" controlId="group">
+          <Form.Label>Group</Form.Label>
+          <Form.Control
+            type="number"
+            min="0"
+            max="5"
+            value={group}
+            onChange={(e) => setGroup(e.target.value)}
+          />
+        </Form.Group>
+        <Button block size="lg" type="submit" onClick={handleSubmit} disabled={!validateForm()}>
+          Register
+        </Button>
+      </Form>
+  );
 }
-
-export default RegisterForm;

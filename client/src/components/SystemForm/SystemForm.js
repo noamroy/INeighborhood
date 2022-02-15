@@ -16,6 +16,7 @@ class SystemForm extends Component {
             program: 1,
             mode: 'automate',
             type: 'trafficLights',
+            group: 0,
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,6 +27,7 @@ class SystemForm extends Component {
         this.handleChangeProgram = this.handleChangeProgram.bind(this);
         this.handleChangeMode = this.handleChangeMode.bind(this);
         this.handleChangeType = this.handleChangeType.bind(this);
+        this.handleChangeGroup = this.handleChangeGroup.bind(this);
     }
     handleChangeName(event) {
         this.setState({ name: event.target.value });
@@ -45,14 +47,21 @@ class SystemForm extends Component {
     handleChangeType(event) {
         this.setState({ type: event.target.value });
     }
+    handleChangeGroup(event) {
+        this.setState({ group: event.target.value });
+    }
 
     handleSubmit(event) {
         updateSystems(this.state, this.state.formState);
         event.preventDefault();
     }
     handleDelete(event) {
-        const url = `${constants.host}/api/neighborhoodsystem/${this.state.id}`;
-        axios.delete(url)
+        const url = `${constants.hostNoam}neighborhoodsystem/${this.state.id}`;
+        axios.delete(url, {
+            headers: {
+                'Authorization': `token ${localStorage.getItem('token')}`
+            }
+        })
             .then(function (response) {
                 window.location.href = '/dashboard';
             })
@@ -69,11 +78,14 @@ class SystemForm extends Component {
         const deleteBtn = document.getElementById('deleteBtn');
         const componentRefrence = this;
         if (idOfSystem) {
-            const url = `${constants.host}/api/neighborhoodsystem/${idOfSystem}`;
-            axios.get(url)
+            const url = `${constants.hostNoam}neighborhoodsystem/${idOfSystem}`;
+            axios.get(url, {
+                headers: {
+                    'Authorization': `token ${localStorage.getItem('token')}`
+                }
+            })
                 .then(function (response) {
                     var systemItem = response.data;
-                    console.log(systemItem)
                     componentRefrence.setState({
                         name: systemItem.name,
                         id: systemItem.id,
@@ -82,6 +94,7 @@ class SystemForm extends Component {
                         program: systemItem.program,
                         mode: systemItem.mode,
                         type: systemItem.type,
+                        group: systemItem.group,
                     });
                     document.getElementById("program").value = systemItem.program;
                     document.getElementById("mode").value = systemItem.mode;
@@ -122,7 +135,8 @@ class SystemForm extends Component {
                     <label className="visually-hidden" >Program:</label>
                     <select className="select" id="program" name="program" onChange={this.handleChangeProgram}>
                     </select>
-
+            </div>
+            <div>
                     <label className="visually-hidden" >Mode:</label>
                     <br />
                     <select className="select" id="mode" name="mode" onChange={this.handleChangeMode}>
@@ -137,6 +151,11 @@ class SystemForm extends Component {
                             <option value="trafficLights">Traffic light</option>
                             <option value="streetLights">Headlight</option>
                         </select>
+                    </div>
+                    <div className="col-12">
+                        <label className="visually-hidden">Group</label>
+                        <br />
+                        <input type="number" id="group" min="0" max="5" name="group" className="form-control" value={this.state.group} onChange={this.handleChangeGroup} required />
                     </div>
                 </div>
                 <div id="button place">
