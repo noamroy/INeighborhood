@@ -14,6 +14,7 @@ function Navbar(props) {
                 <li id="li-addsystem"><NavLink exact to="/addsystem" >Add System</NavLink></li>
                 <li id="li-programs"><NavLink exact to="/programs" >Programs</NavLink></li>
                 <li id="li-addprogram"><NavLink exact to="/addprogram" >Add Program</NavLink></li>
+                <li id="li-users"><NavLink exact="true" to="/users">Users</NavLink></li>
                 <li id="li-register"><NavLink exact="true" to="/register">Register User</NavLink></li>
                 <li id="li-register"><NavLink exact="true" to="/">Sign Out</NavLink></li>
             </ul>
