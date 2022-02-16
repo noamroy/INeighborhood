@@ -12,9 +12,11 @@ function UserRow(props) {
 
 
     React.useEffect(() => {
+        
     }, []);
 
-    async function handleSubmit() {
+    async function handleSubmitUserGroup() {
+        console.log("Submiting")
         const value = document.getElementById(`group-UserId-${props.id}`).value;
         const url = `${constants.hostNoam}user/${props.id}`;
         const res = await fetch(url, {
@@ -29,10 +31,11 @@ function UserRow(props) {
             }
         })
         const resjson = await res.json();
-        if (res.status == 200) {
+        console.log(resjson);
+        if (resjson.status == 200) {
             alert("User Group Updated");
         }
-        else{
+        else {
             alert("User Group Update error");
         }
     }
@@ -43,10 +46,10 @@ function UserRow(props) {
             <td className="row-item">
                 <form className="formclass" id="systemForm">
                     <div className="col-12">
-                        <input type="number" id={`group-UserId-${props.id}`} min="0" max="5" name={`group-UserId-${props.id}`} className="form-control" value={props.group} />
+                        <input type="number" id={`group-UserId-${props.id}`} min="0" max="5" name={`group-UserId-${props.id}`} className="form-control"  />
                     </div>
                     <div id="button place">
-                        <button id="submitBtn" className="formBtn" onClick={handleSubmit}>Save</button>
+                        <button id="submitBtn" className="formBtn" onClick={handleSubmitUserGroup}>Save</button>
                     </div>
                 </form>
             </td>
