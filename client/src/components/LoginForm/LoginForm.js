@@ -18,6 +18,8 @@ export default function Login() {
     if (redirect) {
       navigate(`/dashboard`);
     }
+    else
+      localStorage.clear();
   }, [redirect]);
 
   function validateForm() {

@@ -2,20 +2,30 @@ import React from "react";
 import constants from "../../static/constants";
 import SystemRow from "./SystemRow/SystemRow";
 import axios from 'axios';
+async function check_authorized(system_auth=11111){
+    const group = localStorage.getItem("group");
+    if (group === 0){
+        return true;
+    }
+    if (Math.round(((system_auth%Math.pow(10,group))/(Math.pow(10,group-1))))===1){
+        return true;
+    }
+    return false;
+}
 function SystemTable(props) {
     const [isLoading, setIsLoading] = React.useState(true);
     const [data, setData] = React.useState([]);
 
-
     React.useEffect(() => {
-        const updateUrl = `${constants.hostNoam}program/${props.program}`;
-        axios.patch(updateUrl, {
+        const updateUrl = `${constants.hostNoam}program`;
+        const answer = axios.put(updateUrl, {               //NOT WORKING NEED TO FIX
             headers: {
                 'Authorization': `token ${localStorage.getItem('token')}`
             }
         })  .catch(function (error) {
             console.log(error);
         });
+        console.log (JSON.stringify(answer));
         const url = `${constants.hostNoam}neighborhoodsystem`;
         axios.get(url,{
             headers:{
@@ -28,12 +38,10 @@ function SystemTable(props) {
         });
     }, []);
 
-
     React.useEffect(() => {
         if (data.length !== 0) {
             setIsLoading(false);
         }
-
     }, [data]);
 
     function handleMapChange(newValue) {
@@ -57,6 +65,7 @@ function SystemTable(props) {
             </thead>
             <tbody>
                 {data.map((value, index) => {
+                    if (check_authorized(value.group))
                     return <SystemRow key={`rowId_${value.id}`} id={value.id} name={value.name} address={value.address} ip={value.ip} mode={value.mode} type={value.type} current_status={value.current_status} program={value.program} mapChangeFunction={handleMapChange}/>
                 })}
             </tbody>

@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import constants from '../../static/constants';
 import axios from 'axios';
 import './SystemForm.scss'
+import { parseTwoDigitYear } from 'moment';
 
 class SystemForm extends Component {
     constructor(props) {
@@ -28,7 +29,6 @@ class SystemForm extends Component {
         this.handleChangeProgram = this.handleChangeProgram.bind(this);
         this.handleChangeMode = this.handleChangeMode.bind(this);
         this.handleChangeType = this.handleChangeType.bind(this);
-        this.handleChangeGroup = this.handleChangeGroup.bind(this);
     }
     handleChangeName(event) {
         this.setState({ name: event.target.value });
@@ -48,11 +48,14 @@ class SystemForm extends Component {
     handleChangeType(event) {
         this.setState({ type: event.target.value });
     }
-    handleChangeGroup(event) {
-        this.setState({ group: event.target.value });
-    }
-
     handleSubmit(event) {
+        var groupValue=0;
+        for (let index = 1; index <= 5; index++) {
+            if (document.getElementById(`group${index}`).checked)
+                groupValue+=Math.pow(10,index-1);
+        }
+        if (groupValue!=this.state.group);
+            this.setState({ group: groupValue});
         updateSystems(this.state, this.state.formState);
         event.preventDefault();
     }
@@ -156,9 +159,22 @@ class SystemForm extends Component {
                     </select>
                 </div>
                 <div className="col-12 systemGroupDiv">
-                    <label className="visually-hidden">Group</label>
+                    <label className="visually-hidden">Authorization user groups: </label>
                     <br />
-                    <input type="number" id="group" min="0" max="5" name="group" className="form-control" value={this.state.group} onChange={this.handleChangeGroup} required />
+                    <label> group1 </label>                    
+                    <input type="checkbox" id="group1" />
+                    <br />
+                    <label> group2 </label>                    
+                    <input type="checkbox" id="group2" />
+                    <br />
+                    <label> group3 </label>                    
+                    <input type="checkbox" id="group3" />
+                    <br />
+                    <label> group4 </label>                    
+                    <input type="checkbox" id="group4" />
+                    <br />
+                    <label> group5 </label>                    
+                    <input type="checkbox" id="group5" />
                 </div>
                 <div id="button place" className='systemButtonsDiv'>
                     <Button block size="lg" id="submitBtn" className="formBtn" onClick={this.handleSubmit}>Add</Button>

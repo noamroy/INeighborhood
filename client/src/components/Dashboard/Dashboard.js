@@ -12,9 +12,13 @@ function Dashbord() {
     const [group, setGroup] = React.useState(localStorage.getItem('group'));
 
     React.useEffect(() => {
-        console.log(userName)
-        console.log(token)
-        console.log(group)
+        if ((!userName) || (!token) || isNaN(group)){
+            localStorage.clear();
+            //MISHA REDIRECT TO LOGIN PAGE!!!!!!!!
+        }
+        console.log(userName);   //DEBUG
+        console.log(token);     //DEBUG
+        console.log(group);     //DEBUG
     }, []);
     React.useEffect(() => {
         console.log("Map Location change sadas")
