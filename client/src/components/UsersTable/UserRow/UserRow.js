@@ -6,38 +6,32 @@ import axios from 'axios';
 
 
 function UserRow(props) {
-    const [id, setId] = React.useState("");
-    const [name, setName] = React.useState("");
-    const [group, setGroup] = React.useState(0);
+    const [id, setId] = React.useState(props.id);
+    const [name, setName] = React.useState(props.name);
+    const [group, setGroup] = React.useState(props.group);
 
 
     React.useEffect(() => {
-        
+        document.getElementById(`group-UserId-${props.id}`).value = group;
     }, []);
 
-    async function handleSubmitUserGroup() {
-        console.log("Submiting")
+    async function handleSubmitUserGroup(event) {
+
+        event.preventDefault();
         const value = document.getElementById(`group-UserId-${props.id}`).value;
         const url = `${constants.hostNoam}user/${props.id}`;
-        const res = await fetch(url, {
-            method: "PUT",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': `token ${localStorage.getItem('token')}`
-            },
-            body: {
-                group: value
-            }
-        })
-        const resjson = await res.json();
-        console.log(resjson);
-        if (resjson.status == 200) {
-            alert("User Group Updated");
-        }
-        else {
-            alert("User Group Update error");
-        }
+
+        const data = { group: value };
+        const headers = {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `token ${localStorage.getItem('token')}`
+        };
+        axios.put(url, data, { headers })
+            .then(response => alert(`User id:${props.id} group updated`))
+            .catch(function (error) {
+                alert("Error Updating user group")
+            })
     }
     return (
         <tr>
@@ -46,10 +40,10 @@ function UserRow(props) {
             <td className="row-item">
                 <form className="formclass" id="systemForm">
                     <div className="col-12">
-                        <input type="number" id={`group-UserId-${props.id}`} min="0" max="5" name={`group-UserId-${props.id}`} className="form-control"  />
+                        <input type="number" id={`group-UserId-${props.id}`} min="0" max="5" name={`group-UserId-${props.id}`} className="form-control" />
                     </div>
                     <div id="button place">
-                        <button id="submitBtn" className="formBtn" onClick={handleSubmitUserGroup}>Save</button>
+                        <button id="submitBtn" className="formBtn btn btn-info" onClick={handleSubmitUserGroup}>Save</button>
                     </div>
                 </form>
             </td>
