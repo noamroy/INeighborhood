@@ -1,14 +1,14 @@
 import React from "react";
 import constants from "../../static/constants";
-import SystemRow from "./SystemRow/SystemRow";
+import UserRow from "./UserRow/UserRow";
 import axios from 'axios';
-import './UserRow.scss';
+import './UsersTable.scss';
 function UsersTable(props) {
     const [data, setData] = React.useState([]);
 
 
     React.useEffect(() => {
-        const url = `${constants.hostNoam}users`;
+        const url = `${constants.hostNoam}user`;
         axios.get(url, {
             headers: {
                 'Authorization': `token ${localStorage.getItem('token')}`
@@ -25,19 +25,12 @@ function UsersTable(props) {
 
 
     React.useEffect(() => {
-        if (data.length !== 0) {
-            setIsLoading(false);
-        }
 
     }, [data]);
 
-    function handleMapChange(newValue) {
-        console.log("Table map change")
-        props.onMapLocationChange(newValue);
-    }
 
     return (
-        <table className="table" id="systemstable">
+        <table className="usersTableClass" id="systemstable">
             <thead className="thead-dark">
                 <tr>
                     <th scope="col">ID</th>

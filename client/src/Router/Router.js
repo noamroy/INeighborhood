@@ -6,6 +6,7 @@ import Dashbord from '../components/Dashboard/Dashboard';
 import SystemFormPage from '../components/SystemFormPage/SystemFormPage';
 import ProgramTablePage from '../components/ProgramTablePage/ProgramTablePage'
 import ProgramFormPage from '../components/ProgramFormPage/ProgramFormPage'
+import UsersTablePage from '../components/UsersTablePage/UsersTablePage'
 const ReactRouter = () => {
     return (
         <React.Fragment>
@@ -16,6 +17,7 @@ const ReactRouter = () => {
                 <Route path="/addsystem" element={<SystemFormPage />} />
                 <Route path="/programs" element={<ProgramTablePage />} />
                 <Route path="/addprogram" element={<ProgramFormPage />} />
+                <Route exact path="/users" element={<UsersTablePage />} />
             </Routes>
         </React.Fragment>
     )
