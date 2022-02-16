@@ -12,9 +12,9 @@ class ProgramForm extends Component {
             formState: 'ADD',
             id: '',
             name: '',
-            startSource: '',
+            startSource: 'localTime',
             startDelay: 0,
-            finishSource: '',
+            finishSource: 'localTime',
             finishDelay: 0,
             currentStatus: false,
         };
