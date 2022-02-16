@@ -10,6 +10,7 @@
     "buffer": "^6.0.3",
     "fs": "^0.0.1-security",
     "google-map-react": "^2.1.10",
+    "moment": "^2.29.1",
     "query-string": "^7.1.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.2",
