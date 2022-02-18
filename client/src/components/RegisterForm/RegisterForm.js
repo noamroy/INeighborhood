@@ -28,7 +28,6 @@ export default function Register() {
       body: JSON.stringify(info)
     });
     const registerResponseJson = await registerResponse.json();
-    console.log(JSON.stringify(registerResponseJson));
     if (registerResponseJson.status != 200) {
       alert(registerResponseJson.msg);
     } else {

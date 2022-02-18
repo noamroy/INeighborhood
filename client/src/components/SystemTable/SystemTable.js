@@ -23,9 +23,8 @@ function SystemTable(props) {
                 'Authorization': `token ${localStorage.getItem('token')}`
             }
         })  .catch(function (error) {
-            console.log(error);
         });
-        console.log (JSON.stringify(answer));
+
         const url = `${constants.hostNoam}neighborhoodsystem`;
         axios.get(url,{
             headers:{
@@ -34,7 +33,6 @@ function SystemTable(props) {
         })  .then(function (response) {
                 setData(response.data)
         })  .catch(function (error) {
-            console.log(error);
         });
     }, []);
 
@@ -45,7 +43,6 @@ function SystemTable(props) {
     }, [data]);
 
     function handleMapChange(newValue) {
-        console.log("Table map change")
         props.onMapLocationChange(newValue);
     }
 

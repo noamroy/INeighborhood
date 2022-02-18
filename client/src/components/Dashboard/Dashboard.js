@@ -21,12 +21,10 @@ function Dashbord() {
         console.log(group);     //DEBUG
     }, []);
     React.useEffect(() => {
-        console.log("Map Location change sadas")
     }, [mapLocation]);
 
 
     function handleMapChange(newValue) {
-        console.log("Updated Father location");
         setMapLocation(newValue);
     }
 

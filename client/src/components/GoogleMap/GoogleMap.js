@@ -6,8 +6,6 @@ function GoogleMap(props) {
     const [url, setUrl] = useState(`https://maps.google.com/maps?q=shenkar%20college&t=&z=17&ie=UTF8&iwloc=&output=embed`);
 
     React.useEffect(() => {
-        console.log(props.location);    //DEBUG
-        setLocation(props.location);
         setUrl(`https://maps.google.com/maps?q=${location}&t=&z=17&ie=UTF8&iwloc=&output=embed`)
     }, []);
 

@@ -47,7 +47,6 @@ async function updateSystems(system, actionType) {
         group: system.group,
         program: Number(programValid),
     }
-    console.log(formvalue);
     const stringBody = JSON.stringify(formvalue);
     const host_To_Send = (actionType == "ADD") ? `${constants.hostNoam}neighborhoodsystem` : `${constants.hostNoam}neighborhoodsystem/${system.id}`;
     const method_Of_Operation = (actionType == "ADD") ? "POST" : "PUT";
@@ -62,7 +61,6 @@ async function updateSystems(system, actionType) {
     })
     const resjson = await res.json();
     if (res.status == 200) {
-        console.log("added");
         window.location.href = '/dashboard';
         return true;
     }

@@ -28,7 +28,7 @@ function SystemRow(props) {
 
                 })
                 .catch(function (error) {
-                    console.log(error);
+                    alert(error);
                 });
         }
         if (props.mode === 'manual-on') {
@@ -39,8 +39,6 @@ function SystemRow(props) {
         }
     }, []);
     function handleMapChange(newValue) {
-        console.log("SystemRow map change")
-        console.log(newValue)
         props.mapChangeFunction(newValue);
     }
 
