@@ -3,6 +3,8 @@ import GoogleMap from "../GoogleMap/GoogleMap";
 import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 import SystemTable from "../SystemTable/SystemTable";
+import { useNavigate } from "react-router-dom";
+//CSS
 import './Dashboard.scss'
 
 function Dashbord() {
@@ -10,11 +12,14 @@ function Dashbord() {
     const [userName, setUserName] = React.useState(localStorage.getItem('name'));
     const [token, setToken] = React.useState(localStorage.getItem('token'));
     const [group, setGroup] = React.useState(localStorage.getItem('group'));
+    const navigate = useNavigate();
 
+
+        
     React.useEffect(() => {
         if ((!userName) || (!token) || isNaN(group)){
             localStorage.clear();
-            //MISHA REDIRECT TO LOGIN PAGE!!!!!!!!
+            navigate(`/`);
         }
         console.log(userName);   //DEBUG
         console.log(token);     //DEBUG

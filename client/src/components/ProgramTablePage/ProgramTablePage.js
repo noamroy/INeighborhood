@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 import ProgramTable from "../ProgramTable/ProgramTable";
+import './ProgramTablePage.scss'
 
 function ProgramTablePage() {
     const [userName, setUserName] = React.useState(localStorage.getItem('name'));
@@ -15,7 +16,9 @@ function ProgramTablePage() {
             <Header pageName="Programs" />
             <Navbar className="navbarClass" selectedPage="programs" />
             <main className="mainClass">
-                <ProgramTable />
+                <div className="programTableClassPage">
+                    <ProgramTable />
+                </div>
             </main>
         </React.Fragment>
     );
