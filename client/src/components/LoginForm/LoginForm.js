@@ -38,7 +38,6 @@ export default function Login() {
       body: JSON.stringify(info)
     });
     const loginResponseJson = await loginResponse.json();
-    console.log(JSON.stringify(loginResponseJson));
     if (loginResponseJson.status != 200) {
       alert("Wrong name or password please try again");
     } else {

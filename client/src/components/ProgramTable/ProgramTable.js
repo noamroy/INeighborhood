@@ -19,7 +19,7 @@ function ProgramTable(props) {
 
             })
             .catch(function (error) {
-                console.log(error);
+               alert(error);
             });
     }, []);
 
@@ -32,7 +32,6 @@ function ProgramTable(props) {
     }, [data]);
 
     function handleMapChange(newValue) {
-        console.log("Table map change")
         props.onMapLocationChange(newValue);
     }
 

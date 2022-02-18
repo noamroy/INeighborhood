@@ -62,7 +62,6 @@ class ProgramForm extends Component {
     }
 
     async componentDidMount() {
-        // await setValuesForProgram();
         const idOfProgram = new URLSearchParams(window.location.search).get('id');
         const submitBtn = document.getElementById('submitBtn');
         const deleteBtn = document.getElementById('deleteBtn');
@@ -134,7 +133,7 @@ class ProgramForm extends Component {
                 </div>
                 <div className="form-outline mb-4 programFinishDelayDiv">
                     <label className="form-label" >Finish delay (in minutes):</label>
-                    <input type="number" id="finishDelay" name="finishDelay" className="form-control" min="0" max="1440" value={this.state.startDelay} onChange={this.handleChangeFinishDelay} required />
+                    <input type="number" id="finishDelay" name="finishDelay" className="form-control" min="0" max="1440" value={this.state.finishDelay} onChange={this.handleChangeFinishDelay} required />
                 </div>
                 <div className="programButtonsDiv">
                     <Button block size="lg" id="submitBtn" className="formBtn" onClick={this.handleSubmit}>Add</Button>

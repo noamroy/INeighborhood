@@ -10,9 +10,7 @@ function UsersTablePage() {
     const [group, setGroup] = React.useState(localStorage.getItem('group'));
 
     React.useEffect(() => {
-        console.log(userName)
-        console.log(token)
-        console.log(group)
+
     }, []);
     return (
         <React.Fragment>
