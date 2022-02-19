@@ -11,7 +11,7 @@ function SystemRow(props) {
 
 
     React.useEffect(() => {
-        if (props.mode === 'automate') {
+        if (props.mode == 'automate') {
             const url = `${constants.hostNoam}program/${props.program}`;
             axios.get(url, {
                 headers: {
@@ -19,7 +19,8 @@ function SystemRow(props) {
                 }
             })
                 .then(function (response) {
-                    if (response.data.currentStatus === 1) {
+                    console.log(JSON.stringify(response.data));
+                    if (response.data.currentStatus == true) {
                         setStatus('On')
                     }
                     else {
@@ -31,7 +32,7 @@ function SystemRow(props) {
                     alert(error);
                 });
         }
-        if (props.mode === 'manual-on') {
+        if (props.mode == 'manual-on') {
             setStatus('On')
         }
         else {

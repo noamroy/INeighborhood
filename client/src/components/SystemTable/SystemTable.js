@@ -17,15 +17,6 @@ function SystemTable(props) {
     const [data, setData] = React.useState([]);
 
     React.useEffect(() => {
-        const updateUrl = `${constants.hostNoam}program`;
-        axios.put(updateUrl, {               //NOT WORKING NEED TO FIX
-            headers: {
-                'Authorization': `token ${localStorage.getItem('token')}`
-            }
-        })  .catch(function (error) {
-            console.log(error);
-        });
-
         const url = `${constants.hostNoam}neighborhoodsystem`;
         axios.get(url,{
             headers:{
@@ -37,7 +28,6 @@ function SystemTable(props) {
             console.log(error);
         });
     }, []);
-
     React.useEffect(() => {
         if (data.length !== 0) {
             setIsLoading(false);
@@ -65,7 +55,7 @@ function SystemTable(props) {
             <tbody>
                 {data.map((value, index) => {
                     if (check_authorized(value.group)==true)
-                        return <SystemRow key={`rowId_${value.id}`} id={value.id} name={value.name} address={value.address} ip={value.ip} mode={value.mode} type={value.type} current_status={value.current_status} program={value.program} mapChangeFunction={handleMapChange}/>
+                        return <SystemRow key={`rowId_${value.id}`} id={value.id} name={value.name} address={value.address} ip={value.ip} mode={value.mode} type={value.type} program={value.program} mapChangeFunction={handleMapChange}/>
                 })}
             </tbody>
         </table>

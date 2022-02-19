@@ -51,7 +51,7 @@ function ProgramTable(props) {
             </thead>
             <tbody>
                 {data.map((value, index) => {
-                    return <ProgramRow key={`rowId_${value.id}`} id={value.id} name={value.name} startSource={value.startSource} startDelay={value.startDelay} finishSource={value.finishSource} finishDelay={value.finishDelay} current_status={value.current_status} mapChangeFunction={handleMapChange}/>
+                    return <ProgramRow key={`rowId_${value.id}`} id={value.id} name={value.name} startSource={value.startSource} startDelay={value.startDelay} finishSource={value.finishSource} finishDelay={value.finishDelay} currentStatus={value.currentStatus} mapChangeFunction={handleMapChange}/>
                 })}
             </tbody>
         </table>
