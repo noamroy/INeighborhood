@@ -23,15 +23,12 @@ code {
     height: 100%;
     display: grid;
     grid-template-columns: [col1] 10% [col2] auto [col3]  10% [end];
-    grid-template-rows: [row1] 5% [row2] auto [row3];
+    grid-template-rows: [row1] 5% [row2] 95% [row3];
 
 }
 
 .headerClass{
-    grid-column-start: 1;
-    grid-column-end: end;
-    grid-row-start: 1;
-    grid-row-end: 2;
+    
 }
 .navbarClass{
     grid-column-start: 1;
