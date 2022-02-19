@@ -30,7 +30,9 @@ function Dashbord() {
 
 
     function handleMapChange(newValue) {
+        console.log("You get here?")
         setMapLocation(newValue);
+        console.log(mapLocation)
     }
 
     return (

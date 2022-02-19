@@ -1,0 +1,1300 @@
+{
+	"info": {
+		"_postman_id": "a1ce7266-a133-46fb-aea2-2bc1e207b2ab",
+		"name": "Ineighbor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Api",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA5NTFiYWFhZWNlYmYzMWQxNjRkOWYiLCJpZCI6NSwibmFtZSI6Ik1pc2hhIiwicGFzc3dvcmQiOiIxMjM0IiwiZ3JvdXAiOjAsIl9fdiI6MH0sImlhdCI6MTY0NTAxMDcxMywiZXhwIjoxNjQ1MDE3OTEzfQ.LI-34oKwlWtBEFCxU4kY4Huz02ZmceAae8LbxX8Isnk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Group5\",\r\n    \"password\": \"1234\",\r\n    \"group\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ineighbor-server.herokuapp.com/api/user/register",
+							"protocol": "https",
+							"host": [
+								"ineighbor-server",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Local",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Noam\",\r\n    \"password\": \"1234\",\r\n    \"group\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/user/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Misha\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ineighbor-server.herokuapp.com/api/user/login",
+							"protocol": "https",
+							"host": [
+								"ineighbor-server",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Local",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Misha\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA5NTFiYWFhZWNlYmYzMWQxNjRkOWYiLCJpZCI6NSwibmFtZSI6Ik1pc2hhIiwicGFzc3dvcmQiOiIxMjM0IiwiZ3JvdXAiOjAsIl9fdiI6MH0sImlhdCI6MTY0NTE3ODA4NCwiZXhwIjoxNjQ1MTg1Mjg0fQ.1tK0l6VfT85Mz0KM_ljhfBUnMFmgpJpkEdYZ594hUgs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ineighbor-server.herokuapp.com/api/user/",
+							"protocol": "https",
+							"host": [
+								"ineighbor-server",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all users Local",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA5NTFiYWFhZWNlYmYzMWQxNjRkOWYiLCJpZCI6NSwibmFtZSI6Ik1pc2hhIiwicGFzc3dvcmQiOiIxMjM0IiwiZ3JvdXAiOjAsIl9fdiI6MH0sImlhdCI6MTY0NTAwOTY3OCwiZXhwIjoxNjQ1MDE2ODc4fQ.tkJ73TPSf8Jl0vu3tOLvlGLqxBJS7xiJvS0MXjl296s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/user/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user group",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA5NTFiYWFhZWNlYmYzMWQxNjRkOWYiLCJpZCI6NSwibmFtZSI6Ik1pc2hhIiwicGFzc3dvcmQiOiIxMjM0IiwiZ3JvdXAiOjAsIl9fdiI6MH0sImlhdCI6MTY0NTAwOTM0MCwiZXhwIjoxNjQ1MDE2NTQwfQ._iFgkwzl-A_q-JFXYSBVoduMdzKAOYb74EhDTmyocwo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"group\":0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ineighbor-server.herokuapp.com/api/user/4",
+							"protocol": "https",
+							"host": [
+								"ineighbor-server",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"user",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user group Local",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA5NTFiYWFhZWNlYmYzMWQxNjRkOWYiLCJpZCI6NSwibmFtZSI6Ik1pc2hhIiwicGFzc3dvcmQiOiIxMjM0IiwiZ3JvdXAiOjAsIl9fdiI6MH0sImlhdCI6MTY0NTAwOTg1MCwiZXhwIjoxNjQ1MDE3MDUwfQ.-65xm8cfsXFow1iaHgPHgkkYd50RhddJU5GOD3vlHf8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"group\":0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/user/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "systems",
+			"item": [
+				{
+					"name": "get all systems",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA5NTFiYWFhZWNlYmYzMWQxNjRkOWYiLCJpZCI6NSwibmFtZSI6Ik1pc2hhIiwicGFzc3dvcmQiOiIxMjM0IiwiZ3JvdXAiOjAsIl9fdiI6MH0sImlhdCI6MTY0NTE3ODA4NCwiZXhwIjoxNjQ1MTg1Mjg0fQ.1tK0l6VfT85Mz0KM_ljhfBUnMFmgpJpkEdYZ594hUgs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ineighbor-server.herokuapp.com/api/neighborhoodsystem",
+							"protocol": "https",
+							"host": [
+								"ineighbor-server",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"neighborhoodsystem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all systems Local",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA3YTgzMmIyNGE5MzAzNzc1MTdkYjkiLCJpZCI6NCwibmFtZSI6Ik5vYW0iLCJwYXNzd29yZCI6IjEyMzQiLCJncm91cCI6MCwiX192IjowfSwiaWF0IjoxNjQ0NjY5NzUyLCJleHAiOjE2NDQ2NzY5NTJ9.uPL8t0oKdWn79Iej-I3Wm0XS_JM9rcJSW-5nTFjXVP8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/neighborhoodsystem",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"neighborhoodsystem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get specific",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA5NTFiYWFhZWNlYmYzMWQxNjRkOWYiLCJpZCI6NSwibmFtZSI6Ik1pc2hhIiwicGFzc3dvcmQiOiIxMjM0IiwiZ3JvdXAiOjAsIl9fdiI6MH0sImlhdCI6MTY0NTE4MDMzNiwiZXhwIjoxNjQ1MTg3NTM2fQ.SqXMUumktHdREmui-1xntJOZTq3wVKJyr6rG5JA7VNk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ineighbor-server.herokuapp.com/api/neighborhoodsystem/9",
+							"protocol": "https",
+							"host": [
+								"ineighbor-server",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"neighborhoodsystem",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get specific Local",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA3YTgzMmIyNGE5MzAzNzc1MTdkYjkiLCJpZCI6NCwibmFtZSI6Ik5vYW0iLCJwYXNzd29yZCI6IjEyMzQiLCJncm91cCI6MCwiX192IjowfSwiaWF0IjoxNjQ0NjY5NzUyLCJleHAiOjE2NDQ2NzY5NTJ9.uPL8t0oKdWn79Iej-I3Wm0XS_JM9rcJSW-5nTFjXVP8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/neighborhoodsystem/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"neighborhoodsystem",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create system",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA3YTgzMmIyNGE5MzAzNzc1MTdkYjkiLCJpZCI6NCwibmFtZSI6Ik5vYW0iLCJwYXNzd29yZCI6IjEyMzQiLCJncm91cCI6MCwiX192IjowfSwiaWF0IjoxNjQ0NjY5NzUyLCJleHAiOjE2NDQ2NzY5NTJ9.uPL8t0oKdWn79Iej-I3Wm0XS_JM9rcJSW-5nTFjXVP8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"streetLights\",\r\n    \"name\": \"Yeda Ham Lights\",\r\n    \"address\": \"Yeda Ham, Ramat Gan,Israel\",\r\n    \"ip\": \"30.0.0.1\",\r\n    \"mode\": \"auto\",\r\n    \"program\": 1,\r\n    \"group\": 11111\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ineighbor-server.herokuapp.com/api/neighborhoodsystem",
+							"protocol": "https",
+							"host": [
+								"ineighbor-server",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"neighborhoodsystem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create system Local",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA3YTgzMmIyNGE5MzAzNzc1MTdkYjkiLCJpZCI6NCwibmFtZSI6Ik5vYW0iLCJwYXNzd29yZCI6IjEyMzQiLCJncm91cCI6MCwiX192IjowfSwiaWF0IjoxNjQ0NjY5NzUyLCJleHAiOjE2NDQ2NzY5NTJ9.uPL8t0oKdWn79Iej-I3Wm0XS_JM9rcJSW-5nTFjXVP8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"streetLights\",\r\n    \"name\": \"Yeda Ham Lights\",\r\n    \"address\": \"Yeda Ham, Ramat Gan,Israel\",\r\n    \"ip\": \"30.0.0.1\",\r\n    \"mode\": \"auto\",\r\n    \"program\": 1,\r\n    \"group\": 11111\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/neighborhoodsystem",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"neighborhoodsystem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update system",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA5NTFiYWFhZWNlYmYzMWQxNjRkOWYiLCJpZCI6NSwibmFtZSI6Ik1pc2hhIiwicGFzc3dvcmQiOiIxMjM0IiwiZ3JvdXAiOjAsIl9fdiI6MH0sImlhdCI6MTY0NTE4MDMzNiwiZXhwIjoxNjQ1MTg3NTM2fQ.SqXMUumktHdREmui-1xntJOZTq3wVKJyr6rG5JA7VNk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Lights shenkar 2 4\",\r\n    \"group\": 1010\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ineighbor-server.herokuapp.com/api/neighborhoodsystem/7",
+							"protocol": "https",
+							"host": [
+								"ineighbor-server",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"neighborhoodsystem",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update system Local",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA3YTgzMmIyNGE5MzAzNzc1MTdkYjkiLCJpZCI6NCwibmFtZSI6Ik5vYW0iLCJwYXNzd29yZCI6IjEyMzQiLCJncm91cCI6MCwiX192IjowfSwiaWF0IjoxNjQ0NjY5NzUyLCJleHAiOjE2NDQ2NzY5NTJ9.uPL8t0oKdWn79Iej-I3Wm0XS_JM9rcJSW-5nTFjXVP8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ip\": \"30.0.0.2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/neighborhoodsystem/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"neighborhoodsystem",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete system",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA5NTFiYWFhZWNlYmYzMWQxNjRkOWYiLCJpZCI6NSwibmFtZSI6Ik1pc2hhIiwicGFzc3dvcmQiOiIxMjM0IiwiZ3JvdXAiOjAsIl9fdiI6MH0sImlhdCI6MTY0NTE3ODA4NCwiZXhwIjoxNjQ1MTg1Mjg0fQ.1tK0l6VfT85Mz0KM_ljhfBUnMFmgpJpkEdYZ594hUgs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ineighbor-server.herokuapp.com/api/neighborhoodsystem/9",
+							"protocol": "https",
+							"host": [
+								"ineighbor-server",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"neighborhoodsystem",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete system Local",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA3YTgzMmIyNGE5MzAzNzc1MTdkYjkiLCJpZCI6NCwibmFtZSI6Ik5vYW0iLCJwYXNzd29yZCI6IjEyMzQiLCJncm91cCI6MCwiX192IjowfSwiaWF0IjoxNjQ0NjY5NzUyLCJleHAiOjE2NDQ2NzY5NTJ9.uPL8t0oKdWn79Iej-I3Wm0XS_JM9rcJSW-5nTFjXVP8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/neighborhoodsystem/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"neighborhoodsystem",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "programs",
+			"item": [
+				{
+					"name": "get all programs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA5NTFiYWFhZWNlYmYzMWQxNjRkOWYiLCJpZCI6NSwibmFtZSI6Ik1pc2hhIiwicGFzc3dvcmQiOiIxMjM0IiwiZ3JvdXAiOjAsIl9fdiI6MH0sImlhdCI6MTY0NTE4MDMzNiwiZXhwIjoxNjQ1MTg3NTM2fQ.SqXMUumktHdREmui-1xntJOZTq3wVKJyr6rG5JA7VNk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ineighbor-server.herokuapp.com/api/program",
+							"protocol": "https",
+							"host": [
+								"ineighbor-server",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"program"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all programs Local",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA5NTFiYWFhZWNlYmYzMWQxNjRkOWYiLCJpZCI6NSwibmFtZSI6Ik1pc2hhIiwicGFzc3dvcmQiOiIxMjM0IiwiZ3JvdXAiOjAsIl9fdiI6MH0sImlhdCI6MTY0NTE4MDMzNiwiZXhwIjoxNjQ1MTg3NTM2fQ.SqXMUumktHdREmui-1xntJOZTq3wVKJyr6rG5JA7VNk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/program",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"program"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get specific program",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA5NTFiYWFhZWNlYmYzMWQxNjRkOWYiLCJpZCI6NSwibmFtZSI6Ik1pc2hhIiwicGFzc3dvcmQiOiIxMjM0IiwiZ3JvdXAiOjAsIl9fdiI6MH0sImlhdCI6MTY0NTE4MDMzNiwiZXhwIjoxNjQ1MTg3NTM2fQ.SqXMUumktHdREmui-1xntJOZTq3wVKJyr6rG5JA7VNk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ineighbor-server.herokuapp.com/api/program/1",
+							"protocol": "https",
+							"host": [
+								"ineighbor-server",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"program",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get specific program Local",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA3YTgzMmIyNGE5MzAzNzc1MTdkYjkiLCJpZCI6NCwibmFtZSI6Ik5vYW0iLCJwYXNzd29yZCI6IjEyMzQiLCJncm91cCI6MCwiX192IjowfSwiaWF0IjoxNjQ0NjY5NzUyLCJleHAiOjE2NDQ2NzY5NTJ9.uPL8t0oKdWn79Iej-I3Wm0XS_JM9rcJSW-5nTFjXVP8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/program/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"program",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add new program",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA5NTFiYWFhZWNlYmYzMWQxNjRkOWYiLCJpZCI6NSwibmFtZSI6Ik1pc2hhIiwicGFzc3dvcmQiOiIxMjM0IiwiZ3JvdXAiOjAsIl9fdiI6MH0sImlhdCI6MTY0NTE4MDMzNiwiZXhwIjoxNjQ1MTg3NTM2fQ.SqXMUumktHdREmui-1xntJOZTq3wVKJyr6rG5JA7VNk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"on hour before sunrise off hour after sunset\",\r\n    \"startSource\": \"sunrise\",\r\n    \"startDelay\": -60,\r\n    \"finishSource\": \"sunset\",\r\n    \"finishDelay\": 60\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ineighbor-server.herokuapp.com/api/program",
+							"protocol": "https",
+							"host": [
+								"ineighbor-server",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"program"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add new program Local",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA3YTgzMmIyNGE5MzAzNzc1MTdkYjkiLCJpZCI6NCwibmFtZSI6Ik5vYW0iLCJwYXNzd29yZCI6IjEyMzQiLCJncm91cCI6MCwiX192IjowfSwiaWF0IjoxNjQ0NjY5NzUyLCJleHAiOjE2NDQ2NzY5NTJ9.uPL8t0oKdWn79Iej-I3Wm0XS_JM9rcJSW-5nTFjXVP8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"on sunset off sunrise\",\r\n    \"startSource\": \"sunset\",\r\n    \"startDelay\": 0,\r\n    \"finishSource\": \"sunrise\",\r\n    \"finishDelay\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/program",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"program"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update program",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA5NTFiYWFhZWNlYmYzMWQxNjRkOWYiLCJpZCI6NSwibmFtZSI6Ik1pc2hhIiwicGFzc3dvcmQiOiIxMjM0IiwiZ3JvdXAiOjAsIl9fdiI6MH0sImlhdCI6MTY0NTE4MDMzNiwiZXhwIjoxNjQ1MTg3NTM2fQ.SqXMUumktHdREmui-1xntJOZTq3wVKJyr6rG5JA7VNk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"on 1000 off 2000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ineighbor-server.herokuapp.com/api/program/1",
+							"protocol": "https",
+							"host": [
+								"ineighbor-server",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"program",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update program Local",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA3YTgzMmIyNGE5MzAzNzc1MTdkYjkiLCJpZCI6NCwibmFtZSI6Ik5vYW0iLCJwYXNzd29yZCI6IjEyMzQiLCJncm91cCI6MCwiX192IjowfSwiaWF0IjoxNjQ0NjY5NzUyLCJleHAiOjE2NDQ2NzY5NTJ9.uPL8t0oKdWn79Iej-I3Wm0XS_JM9rcJSW-5nTFjXVP8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"on 0800 off 1000\",\r\n    \"startSource\": \"localtime\",\r\n    \"startDelay\": 600,\r\n    \"finishSource\": \"localtime\",\r\n    \"finishDelay\": 1200\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/program/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"program",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete program",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA5NTFiYWFhZWNlYmYzMWQxNjRkOWYiLCJpZCI6NSwibmFtZSI6Ik1pc2hhIiwicGFzc3dvcmQiOiIxMjM0IiwiZ3JvdXAiOjAsIl9fdiI6MH0sImlhdCI6MTY0NTE4MDMzNiwiZXhwIjoxNjQ1MTg3NTM2fQ.SqXMUumktHdREmui-1xntJOZTq3wVKJyr6rG5JA7VNk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ineighbor-server.herokuapp.com/api/program/2",
+							"protocol": "https",
+							"host": [
+								"ineighbor-server",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"program",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete program Local",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA3YTgzMmIyNGE5MzAzNzc1MTdkYjkiLCJpZCI6NCwibmFtZSI6Ik5vYW0iLCJwYXNzd29yZCI6IjEyMzQiLCJncm91cCI6MCwiX192IjowfSwiaWF0IjoxNjQ0NjY5NzUyLCJleHAiOjE2NDQ2NzY5NTJ9.uPL8t0oKdWn79Iej-I3Wm0XS_JM9rcJSW-5nTFjXVP8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/program/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"program",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA5NTFiYWFhZWNlYmYzMWQxNjRkOWYiLCJpZCI6NSwibmFtZSI6Ik1pc2hhIiwicGFzc3dvcmQiOiIxMjM0IiwiZ3JvdXAiOjAsIl9fdiI6MH0sImlhdCI6MTY0NTE4MDMzNiwiZXhwIjoxNjQ1MTg3NTM2fQ.SqXMUumktHdREmui-1xntJOZTq3wVKJyr6rG5JA7VNk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ineighbor-server.herokuapp.com/api/program",
+							"protocol": "https",
+							"host": [
+								"ineighbor-server",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"program"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update status Local",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA5NTFiYWFhZWNlYmYzMWQxNjRkOWYiLCJpZCI6NSwibmFtZSI6Ik1pc2hhIiwicGFzc3dvcmQiOiIxMjM0IiwiZ3JvdXAiOjAsIl9fdiI6MH0sImlhdCI6MTY0NTE4MDMzNiwiZXhwIjoxNjQ1MTg3NTM2fQ.SqXMUumktHdREmui-1xntJOZTq3wVKJyr6rG5JA7VNk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/program",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"program"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sundata",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA5NTFiYWFhZWNlYmYzMWQxNjRkOWYiLCJpZCI6NSwibmFtZSI6Ik1pc2hhIiwicGFzc3dvcmQiOiIxMjM0IiwiZ3JvdXAiOjAsIl9fdiI6MH0sImlhdCI6MTY0NTE4MDMzNiwiZXhwIjoxNjQ1MTg3NTM2fQ.SqXMUumktHdREmui-1xntJOZTq3wVKJyr6rG5JA7VNk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ineighbor-server.herokuapp.com/api/program/sun",
+							"protocol": "https",
+							"host": [
+								"ineighbor-server",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"program",
+								"sun"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sundata Local",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJfaWQiOiI2MjA3YTgzMmIyNGE5MzAzNzc1MTdkYjkiLCJpZCI6NCwibmFtZSI6Ik5vYW0iLCJwYXNzd29yZCI6IjEyMzQiLCJncm91cCI6MCwiX192IjowfSwiaWF0IjoxNjQ0NjY5NzUyLCJleHAiOjE2NDQ2NzY5NTJ9.uPL8t0oKdWn79Iej-I3Wm0XS_JM9rcJSW-5nTFjXVP8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/program/sun",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"program",
+								"sun"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
