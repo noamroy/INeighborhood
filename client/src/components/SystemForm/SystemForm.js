@@ -18,7 +18,6 @@ class SystemForm extends Component {
             program: 1,
             mode: 'automate',
             type: 'trafficLights',
-            group: 0,
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -51,12 +50,12 @@ class SystemForm extends Component {
     handleSubmit(event) {
         var groupValue=0;
         for (let index = 1; index <= 5; index++) {
-            if (document.getElementById(`group${index}`).checked)
+            if (document.getElementById(`group${index}`).checked==true){
                 groupValue+=Math.pow(10,index-1);
+                console.log(`group${index} is checkd group value = ${groupValue}`);
+            }       
         }
-        if (groupValue!=this.state.group);
-            this.setState({ group: groupValue});
-        updateSystems(this.state, this.state.formState);
+        updateSystems(this.state, this.state.formState, groupValue);
         event.preventDefault();
     }
     handleDelete(event) {
@@ -111,33 +110,24 @@ class SystemForm extends Component {
                     var check5= document.getElementById("group5");
                     const defaultGroup = systemItem.group;
                     if (Math.round(defaultGroup/10000)==1){
-                        check1.defaultChecked=true;
+                        check5.defaultChecked=true;
                     }
                     if ((Math.round(defaultGroup%10000/1000))==1){
-                        check2.defaultChecked=true;
+                        check4.defaultChecked=true;
                     }
                     if ((Math.round(defaultGroup%1000/100))==1){
                         check3.defaultChecked=true;
                     }
                     if ((Math.round(defaultGroup%100/10))==1){
-                        check4.defaultChecked=true;
+                        check2.defaultChecked=true;
                     }
                     if ((defaultGroup%10)==1){
-                        check5.defaultChecked=true;
+                        check1.defaultChecked=true;
                     }
-                    if (localStorage.getItem("group")!=0){
-                        check1.disabled = true;
-                        check2.disabled = true;
-                        check3.disabled = true;
-                        check4.disabled = true;
-                        check5.disabled = true;
-                    }
-                        
                 })
                 .catch(function (error) {
                     alert("Error Loading item")
                 });
-
             submitBtn.innerHTML = "EDIT";
             deleteBtn.style.display = "block"
             this.setState({ formState: 'EDIT' });

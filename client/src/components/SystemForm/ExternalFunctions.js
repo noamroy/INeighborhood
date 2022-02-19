@@ -2,11 +2,12 @@
 import constants from '../../static/constants';
 
 
-async function updateSystems(system, actionType) {
+async function updateSystems(system, actionType, groupValue) {
     delete system['formState'];
     if (actionType === 'ADD') {
         delete system['id'];
     }
+    console.log(system);
     const nameValid = system.name;
     if (!(/^[A-Za-z0-9\s]+$/.test(nameValid))) {
         alert("You have entered an invalid system name! you can use only chars and numbers");
@@ -44,7 +45,7 @@ async function updateSystems(system, actionType) {
         ip: ipValid,
         mode: modeValid,
         type: typeValid,
-        group: system.group,
+        group: groupValue,
         program: Number(programValid),
     }
     const stringBody = JSON.stringify(formvalue);
