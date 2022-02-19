@@ -39,7 +39,7 @@ class ProgramForm extends Component {
         this.setState({ finishSource: event.target.value });
     }
     handleChangeFinishDelay(event) {
-        this.setState({ mode: event.target.value });
+        this.setState({ finishDelay: event.target.value });
     }
     handleSubmit(event) {
         updateProgram(this.state, this.state.formState);
@@ -84,9 +84,6 @@ class ProgramForm extends Component {
                         finishDelay: programItem.finishDelay,
                         currentStatus: false,
                     });
-                    /*document.getElementById("program").value = programItem.program;
-                    document.getElementById("mode").value = programItem.mode;
-                    document.getElementById("type").value = programItem.type;*/
                 })
                 .catch(function (error) {
                     alert("Error Loading item")

@@ -13,15 +13,15 @@ async function updateProgram(program, actionType) {
         return false;
     }
     const startSourceValid = program.startSource;
-    const startSourceDelayValid = program.startDelay;
+    const startDelayValid = program.startDelay;
     const finishSourceValid = program.finishSource;
-    const finishSourceDelayValid = program.finishDelay;
+    const finishDelayValid = program.finishDelay;
     const formvalue = {
         name: nameValid,
         startSource: startSourceValid,
-        startSourceDelay: startSourceDelayValid,
+        startDelay: parseInt(startDelayValid),
         finishSource: finishSourceValid,
-        finishSourceDelay: finishSourceDelayValid,
+        finishDelay: parseInt(finishDelayValid),
         currentStatus: false,
     }
     const stringBody = JSON.stringify(formvalue);
