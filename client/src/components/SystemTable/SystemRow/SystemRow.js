@@ -19,7 +19,6 @@ function SystemRow(props) {
                 }
             })
                 .then(function (response) {
-                    console.log(JSON.stringify(response.data));
                     if (response.data.currentStatus == true) {
                         setStatus('On')
                     }

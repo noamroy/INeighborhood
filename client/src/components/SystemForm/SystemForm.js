@@ -103,6 +103,36 @@ class SystemForm extends Component {
                     document.getElementById("program").value = systemItem.program;
                     document.getElementById("mode").value = systemItem.mode;
                     document.getElementById("type").value = systemItem.type;
+                    
+                    var check1= document.getElementById("group1");
+                    var check2= document.getElementById("group2");
+                    var check3= document.getElementById("group3");
+                    var check4= document.getElementById("group4");
+                    var check5= document.getElementById("group5");
+                    const defaultGroup = systemItem.group;
+                    if (Math.round(defaultGroup/10000)==1){
+                        check1.defaultChecked=true;
+                    }
+                    if ((Math.round(defaultGroup%10000/1000))==1){
+                        check2.defaultChecked=true;
+                    }
+                    if ((Math.round(defaultGroup%1000/100))==1){
+                        check3.defaultChecked=true;
+                    }
+                    if ((Math.round(defaultGroup%100/10))==1){
+                        check4.defaultChecked=true;
+                    }
+                    if ((defaultGroup%10)==1){
+                        check5.defaultChecked=true;
+                    }
+                    if (localStorage.getItem("group")!=0){
+                        check1.disabled = true;
+                        check2.disabled = true;
+                        check3.disabled = true;
+                        check4.disabled = true;
+                        check5.disabled = true;
+                    }
+                        
                 })
                 .catch(function (error) {
                     alert("Error Loading item")

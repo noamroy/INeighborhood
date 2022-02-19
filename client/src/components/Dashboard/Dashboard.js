@@ -21,18 +21,13 @@ function Dashbord() {
             localStorage.clear();
             navigate(`/`);
         }
-        console.log(userName);   //DEBUG
-        console.log(token);     //DEBUG
-        console.log(group);     //DEBUG
     }, []);
     React.useEffect(() => {
     }, [mapLocation]);
 
 
     function handleMapChange(newValue) {
-        console.log("You get here?")
         setMapLocation(newValue);
-        console.log(mapLocation)
     }
 
     return (

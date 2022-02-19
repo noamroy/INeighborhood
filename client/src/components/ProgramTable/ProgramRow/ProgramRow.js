@@ -3,7 +3,6 @@ import './ProgramRow.scss'
 
 function ProgramRow(props) {
     var status = "off";
-    console.log (props.currentStatus);
     if (props.currentStatus == true){
         status = "on";
     }
