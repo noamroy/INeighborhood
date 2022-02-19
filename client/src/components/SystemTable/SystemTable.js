@@ -2,12 +2,12 @@ import React from "react";
 import constants from "../../static/constants";
 import SystemRow from "./SystemRow/SystemRow";
 import axios from 'axios';
-async function check_authorized(system_auth=11111){
+function check_authorized(system_auth){
     const group = localStorage.getItem("group");
-    if (group === 0){
+    if (group == 0){
         return true;
     }
-    if (Math.round(((system_auth%Math.pow(10,group))/(Math.pow(10,group-1))))===1){
+    if (Math.round((system_auth%Math.pow(10,group))/(Math.pow(10,group-1)))==1){
         return true;
     }
     return false;
@@ -18,11 +18,12 @@ function SystemTable(props) {
 
     React.useEffect(() => {
         const updateUrl = `${constants.hostNoam}program`;
-        const answer = axios.put(updateUrl, {               //NOT WORKING NEED TO FIX
+        axios.put(updateUrl, {               //NOT WORKING NEED TO FIX
             headers: {
                 'Authorization': `token ${localStorage.getItem('token')}`
             }
         })  .catch(function (error) {
+            console.log(error);
         });
 
         const url = `${constants.hostNoam}neighborhoodsystem`;
@@ -33,6 +34,7 @@ function SystemTable(props) {
         })  .then(function (response) {
                 setData(response.data)
         })  .catch(function (error) {
+            console.log(error);
         });
     }, []);
 
@@ -62,8 +64,8 @@ function SystemTable(props) {
             </thead>
             <tbody>
                 {data.map((value, index) => {
-                    if (check_authorized(value.group))
-                    return <SystemRow key={`rowId_${value.id}`} id={value.id} name={value.name} address={value.address} ip={value.ip} mode={value.mode} type={value.type} current_status={value.current_status} program={value.program} mapChangeFunction={handleMapChange}/>
+                    if (check_authorized(value.group)==true)
+                        return <SystemRow key={`rowId_${value.id}`} id={value.id} name={value.name} address={value.address} ip={value.ip} mode={value.mode} type={value.type} current_status={value.current_status} program={value.program} mapChangeFunction={handleMapChange}/>
                 })}
             </tbody>
         </table>
